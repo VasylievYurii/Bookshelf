@@ -32,10 +32,11 @@
     }
 
 body {
-    color: var(--color-black);
-    font-family: 'Montserrat', 'Roboto', 'Open Sans', 'Raleway', 'Arial',
+    color: var(--color-dark-theme);
+    font-family: 'DM Sans', 'Montserrat', 'Roboto', 'Open Sans', 'Raleway', 'Arial',
       sans-serif;
-    background-color: var(--color-white);
+    background-color: var(--color-body-white-theme);
+    font-weight: 700;
   }
   
   .container {
