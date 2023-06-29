@@ -1,40 +1,21 @@
-import {useBooksApi} from '../services/booksApi.js';
+import { useBooksApi } from '../services/booksApi';
 
 const booksApi = useBooksApi();
 
-
-const handleOnPress = (e) => {
-  e.preventDefault();
-
-//   state.isLoading = true;
-//   state.isError = false;
+export const handleOnPress = (e) => {
 
   booksApi
     .getCategoryList()
     .then((res) => {
-    //   state.data = res;
       parceCategoryList(res);
     })
-    // .catch((err) => {
-    //   state.error = err;
-    //     state.isError = true;
-    //     console.log(err);
-    // })
-    // .finally(() => {
-    //   state.isLoading = false;
-    // });
+    .catch((err) => {
+        console.log(err);
+    })
+    .finally(() => {
+    });
 };
 
 const parceCategoryList = (list) => {
-  const innerList = list
-    .map(({ list_name }) => `<li>${list_name}</li>`)
-    .join("");
-  console.log(innerList);
-//   ListRef.innerHTML = innerList;
+  console.log("list:", list);
 };
-
-const fakeEvent = {
-  preventDefault: () => {}
-};
-
-handleOnPress(fakeEvent);
