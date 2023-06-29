@@ -1,11 +1,11 @@
-import axios from "axios";
+import axios from 'axios';
 
 const API_ENDPOINTS = {
-  baseUrl: "https://books-backend.p.goit.global",
-  categoryList: "/books/category-list",
-  topBooks: "/books/top-books",
-  categoryBooks: "/books/category",
-  book: "/books/",
+  baseUrl: 'https://books-backend.p.goit.global',
+  categoryList: '/books/category-list',
+  topBooks: '/books/top-books',
+  categoryBooks: '/books/category',
+  book: '/books/',
 };
 
 axios.defaults.baseURL = API_ENDPOINTS.baseUrl;
@@ -13,10 +13,10 @@ axios.defaults.baseURL = API_ENDPOINTS.baseUrl;
 const getCategoryList = async () => {
   try {
     const result = await axios.get(API_ENDPOINTS.categoryList);
-    console.log('dhdhdhdh');
+    console.log(result);
     return result.data;
   } catch (error) {
-    console.log(error);
+    throw new Error(error.response.data.message);
   }
 };
 
@@ -25,27 +25,27 @@ const getTopBooks = async () => {
     const result = await axios.get(API_ENDPOINTS.topBooks);
     return result.data;
   } catch (error) {
-    console.log(error);
+    throw new Error(error.response.data.message);
   }
 };
 
-const getBooksByCategory = async (category) => {
+const getBooksByCategory = async category => {
   try {
     const result = await axios.get(API_ENDPOINTS.categoryBooks, {
       params: { category },
     });
     return result.data;
   } catch (error) {
-    console.log(error);
+    throw new Error(error.response.data.message);
   }
 };
 
-const getBookById = async (id) => {
+const getBookById = async id => {
   try {
     const result = await axios.get(API_ENDPOINTS.book + id);
     return result.data;
   } catch (error) {
-    console.log(error);
+    throw new Error(error.response.data.message);
   }
 };
 
