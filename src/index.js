@@ -1,4 +1,5 @@
 import {useBooksApi} from './services/booksApi';
+import { setTheme } from './js/themes';
 
 const booksApi = useBooksApi();
 console.log("booksApi:", booksApi)
@@ -33,3 +34,9 @@ const parceCategoryList = (list) => {
   console.log(innerList);
   ListRef.innerHTML = innerList;
 };
+
+
+//встановити тему//
+const themeBody = document.querySelector('body');
+
+setTheme(themeBody);
