@@ -1,4 +1,4 @@
-import {useBooksApi} from '../../services/booksApi.js';
+import {useBooksApi} from '../services/booksApi.js';
 
 const booksApi = useBooksApi();
 
