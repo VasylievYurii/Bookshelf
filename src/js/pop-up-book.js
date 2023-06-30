@@ -12,6 +12,13 @@ function renderModal(book) {
     <p class="book-author">Ann Napolitano</p>
     <p class="book-description">In a homage to Louisa May Alcott's "Little Women," a young man's dark past resurfaces as he gets to the know the family of his college sweetheart.</p>
     </div>
+    <img
+      class="book-modal"
+      src="./images/stores/amazon.png"
+      alt="Amazon shop"
+      width="62"
+      height="19"
+    />
     </div>
     
     `;
