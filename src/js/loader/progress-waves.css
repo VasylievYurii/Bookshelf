@@ -1,0 +1,73 @@
+/*\
+|*|
+|*|			:: progress-waves.css ::
+|*|
+|*|
+|*|	A pure-CSS progress spinner
+|*|
+|*|	https://github.com/madmurphy/progress-waves.css/
+|*|
+|*|	Version 1.0.0
+|*|
+|*|	(c) madmurphy333@gmail.com
+|*|
+|*|	**progress-waves.css!** is free software. You can redistribute it and/or
+|*|	modify it under the terms of the GPL license, version 3 or any later
+|*|	version.
+|*|
+|*|	https://www.gnu.org/licenses/gpl-3.0.html
+|*|
+|*|
+\*/
+
+.in-progress {
+	--pwd: var(--wave-diameter, 96px);
+	--pwb: var(--wave-thickness, 4px);
+	--pwt: var(--wave-duration, 1.2s);
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+@keyframes progresswave {
+	from {
+		border: var(--pwb) rgba(255, 255, 255, 0.7) solid;
+		width: calc(var(--pwb) * 2);
+		height: calc(var(--pwb) * 2);
+		border-radius: calc(var(--pwb) * 2);
+	}
+	to {
+		border: var(--pwb) rgba(255, 255, 255, 0) solid;
+		width: var(--pwd);
+		height: var(--pwd);
+		border-radius: var(--pwd);
+	}
+}
+
+.in-progress::before, .in-progress::after {
+	content: "";
+	display: block;
+	position: absolute;
+	box-sizing: border-box;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 0;
+	margin: auto;
+	animation: var(--pwt) linear infinite progresswave;
+}
+
+.in-progress::after {
+	animation-delay: calc(var(--pwt) / 2);
+}
+
+.loader-modal {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+
+	background-color: #312f2f;
+	opacity: 0.3;
+}
