@@ -1,4 +1,4 @@
-export { setTheme };
+export { setTheme, activateThemeSwitch };
 const storedTheme = 'isDark'
 const switchClass = '//class themes//';
 
@@ -13,5 +13,15 @@ function setTheme(themeBody) {
     } else {
       themeBody.setAttribute('data-page-theme', 'light');
       checkboxBtn.checked = false;
+    }
+  }
+
+
+  //функція активація перемикання теми//
+  function activateThemeSwitch(event, themeBody) {
+    const isInput = event.target.classList.contains(switchClass);
+    if (isInput) {
+      const checkboxBtn = event.target;
+      changeTheme(themeBody, checkboxBtn);
     }
   }

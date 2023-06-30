@@ -1,5 +1,5 @@
 import {useBooksApi} from './services/booksApi';
-import { setTheme } from './js/themes';
+import { setTheme, activateThemeSwitch } from './js/themes';
 
 const booksApi = useBooksApi();
 console.log("booksApi:", booksApi)
@@ -40,3 +40,8 @@ const parceCategoryList = (list) => {
 const themeBody = document.querySelector('body');
 
 setTheme(themeBody);
+
+//активація перемикання теми//
+themeBody.addEventListener('click', event => {
+  activateThemeSwitch(event, themeBody);
+});
