@@ -1,4 +1,4 @@
-export { setTheme, activateThemeSwitch };
+// export { setTheme, activateThemeSwitch };
 const storedTheme = 'isDark'
 const switchClass = '//class themes//';
 
@@ -16,7 +16,6 @@ function setTheme(themeBody) {
     }
   }
 
-
   //функція активація перемикання теми//
   function activateThemeSwitch(event, themeBody) {
     const isInput = event.target.classList.contains(switchClass);
@@ -25,3 +24,14 @@ function setTheme(themeBody) {
       changeTheme(themeBody, checkboxBtn);
     }
   }
+
+//встановити тему//
+const themeBody = document.querySelector('body');
+
+setTheme(themeBody);
+
+//активація перемикання теми//
+themeBody.addEventListener('click', event => {
+  activateThemeSwitch(event, themeBody);
+});
+

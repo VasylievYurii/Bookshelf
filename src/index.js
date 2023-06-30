@@ -1,47 +1,9 @@
-import {useBooksApi} from './services/booksApi';
-import { setTheme, activateThemeSwitch } from './js/themes';
-
-const booksApi = useBooksApi();
-console.log("booksApi:", booksApi)
-
-const handleOnPress = (e) => {
-  e.preventDefault();
-
-  state.isLoading = true;
-  state.isError = false;
-
-  booksApi
-    .getCategoryList()
-    .then((res) => {
-      state.data = res;
-      parceCategoryList(res);
-      console.log(res)
-    })
-    .catch((err) => {
-      state.error = err;
-        state.isError = true;
-        console.log(err);
-    })
-    .finally(() => {
-      state.isLoading = false;
-    });
-};
-
-const parceCategoryList = (list) => {
-  const innerList = list
-    .map(({ list_name }) => `<li>${list_name}</li>`)
-    .join("");
-  console.log(innerList);
-  ListRef.innerHTML = innerList;
-};
-
-
-//встановити тему//
-const themeBody = document.querySelector('body');
-
-setTheme(themeBody);
-
-//активація перемикання теми//
-themeBody.addEventListener('click', event => {
-  activateThemeSwitch(event, themeBody);
-});
+import switcher from './switcher';
+// import './js/themes';
+import './js/pop-up-book';
+import './js/fetch-categories';
+import './js/support';
+import './js/renderBooksByCategories';
+import './js/categories';
+import './js/top-books';
+import './js/modal-auth/eventsProcessor';
