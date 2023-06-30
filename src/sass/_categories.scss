@@ -1,11 +1,22 @@
 .category-container {
+<<<<<<< Updated upstream
    display: flex;
+=======
+>>>>>>> Stashed changes
     width: 375px;
     height: 228px;
-    overflow: auto;
+    overflow-y: scroll;
+
 }
-
-
+.category-container::-webkit-scrollbar {
+    width: 8px;
+    
+}
+.category-container::-webkit-scrollbar-thumb {
+    background-color: #888;
+        border-radius: 12px;
+        height: 114px;
+}
 
 .category-list {
     display: block;
@@ -43,7 +54,9 @@ list-style: none;
         }
        
     }         
-
+.category-container::-webkit-scrollbar-thumb{
+    height: 167px;
+}
         
 
  @media screen and (min-width: 1440px) {
