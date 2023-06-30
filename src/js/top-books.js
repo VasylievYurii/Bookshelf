@@ -2,21 +2,13 @@ import { useBooksApi } from '../services/booksApi';
 
 const booksApi = useBooksApi();
 
-function makeMarkupForBooks({ list_name, books }) {
-  const markup = books
+function makeMarkupForBooks(category) {
+  const markup = category
     .map(
-      ({ book_image, title, author }) => `<li>
-    <a href='#' class='book-item'>
-      <div class='img-box'>
-        <img src='${book_image}' alt='Book cover' />
-        <div class='overlay'>
-          <p class='overlay-text'>quick view </p>
-        </div>
-      </div>
-      <h3 class='book-title'>${title}</h3>
-      <p class='book-author'>${author}</p>
-    </a>
-  </li>`
+      ({ list_name }) => `ul class='list'>
+      <h3 class=''>${list_name}</h3>
+      <button type='button' class='btn'>See more</button>
+      </ul>`
     )
     .join('\n');
   console.log(markup);
