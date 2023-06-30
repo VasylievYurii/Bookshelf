@@ -20,20 +20,6 @@
     --shadow: rgba(0, 0, 0, 0.75);
 }
 
-.modal-auth-button {
-    height: 45px;
-    padding: 4px 18px 4px 18px;
-
-    color: var(--secondary-text);
-    font-size: 22px;
-    font-weight: 600;
-    background-color: var(--main-canvas);
-
-    border-radius: 36px;
-    border: none;
-
-}
-
 .backdrop-auth {
 
     position: absolute;

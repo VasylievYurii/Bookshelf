@@ -14,15 +14,15 @@ export const composeSignModal = (theme, mode) => {
           </svg>
         </button>
         <form class="form-auth">
-          <input class="input-auth" type="text" placeholder="Name" />
+          <input class="input-auth" type="text" name="name" placeholder="Name" />
           <label class="label-auth">
-            <input class="input-auth" type="email" placeholder="Email" />
+            <input class="input-auth" type="email" name="email" placeholder="Email" />
             <svg class="icon">
               <use href="${sprite}#mail"></use>
             </svg>
           </label>
           <label class="label-auth">
-            <input class="input-auth" type="password" placeholder="Password" />
+            <input class="input-auth" type="password" name="password" placeholder="Password" />
             <svg class="icon">
               <use href="${sprite}#lock"></use>
             </svg>
@@ -46,13 +46,13 @@ export const composeSignModal = (theme, mode) => {
         </button>
         <form class="form-auth">
           <label class="label-auth">
-            <input class="input-auth" type="email" placeholder="Email" />
+            <input class="input-auth" type="email" name="email" placeholder="Email" />
             <svg class="icon">
               <use href="${sprite}#mail"></use>
             </svg>
           </label>
           <label class="label-auth">
-            <input class="input-auth" type="password" placeholder="Password" />
+            <input class="input-auth" type="password" name="password" placeholder="Password" />
             <svg class="icon">
               <use href="${sprite}#lock"></use>
             </svg>
