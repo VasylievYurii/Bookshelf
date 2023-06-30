@@ -32,10 +32,11 @@ var t,e,r,n,o,i,s="undefined"!=typeof globalThis?globalThis:"undefined"!=typeof 
       <h3 class='book-title'>${e}</h3>
       <p class='book-author'>${r}</p>
     </a>
-  </li>`).join("\n");return e}(t)}).catch(t=>{console.log(t)})}("Paperback Nonfiction",eQ);const e0=eG();e0.getTopBooks().then(t=>{console.log("topBooks :",t),(void 0).innerHTML=function(t){let e=t.map(({list_name:t})=>`ul class='list'>
+  </li>`).join("\n");return e}(t)}).catch(t=>{console.log(t)})}("Paperback Nonfiction",eQ);const e0=eG();e0.getTopBooks().then(t=>{console.log("topBooks :",t),(void 0).innerHTML=function(t){let e=t.map(({list_name:t})=>`<li class=''>
       <h3 class=''>${t}</h3>
+      <ul class='list'></ul>
       <button type='button' class='btn'>See more</button>
-      </ul>`).join("\n");return console.log(e),e}(t)}).catch(t=>{console.log(t)});var e1={};e1=new URL(f("kyEFX").resolve("39cWo"),import.meta.url).toString();const e2=(t,e)=>{let r="light-colorset-auth";"dark"===t&&(r="dark-colorset-auth");let n=`<div class="backdrop-auth ${r}">
+      </li>`).join("\n");return console.log(e),e}(t)}).catch(t=>{console.log(t)});var e1={};e1=new URL(f("kyEFX").resolve("39cWo"),import.meta.url).toString();const e2=(t,e)=>{let r="light-colorset-auth";"dark"===t&&(r="dark-colorset-auth");let n=`<div class="backdrop-auth ${r}">
       <div class="modal-auth">
         <button class="close-auth" type="button">
           <svg class="icon">
@@ -93,4 +94,4 @@ var t,e,r,n,o,i,s="undefined"!=typeof globalThis?globalThis:"undefined"!=typeof 
         </div>
       </div>
     </div>`;return"signin"===e?o:n},e6=document.querySelector(".auth-modal-root");document.querySelector(".auth-menu-root"),document.querySelector(".modal-auth-button");let e5="signin";const e8=()=>{e6.innerHTML=e2("light",e5)},e4=()=>"signin"===e5?"signup":"signin",e3=()=>{let t=document.querySelector(".close-auth");t.addEventListener("click",e7);let e=document.querySelector(`.sign-auth.${e4()}`);e.addEventListener("click",e9)},e7=()=>{e6.innerHTML=""},e9=t=>{t.preventDefault(),e5=t.target.value,e8(),e3()};
-//# sourceMappingURL=index.0b89d9b4.js.map
+//# sourceMappingURL=index.45979688.js.map
