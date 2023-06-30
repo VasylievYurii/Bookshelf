@@ -4,14 +4,20 @@ import { composeSignModal } from "./authModal";
 const modalAuthRootRef = document.querySelector(".auth-modal-root");
 const menuAuthRootRef = document.querySelector(".auth-menu-root");
 
-const modalAuthButtonRef = document.querySelector(".modal-auth-button");
+
 
 // modalAuthButtonRef.addEventListener("click", onModalOpen);
 let _theme = "light";
 let _mode = "signin";
 
 export const initAuth = () => {
-  modalAuthButtonRef.addEventListener("click", onModalOpen);
+  console.log(modalAuthRootRef);
+  console.log(menuAuthRootRef);
+  // modalAuthButtonRef.addEventListener("click", onModalOpen);
+  menuAuthRootRef.innerHTML =
+    '<button class="modal-auth-button light-colorset-auth" type="button">Sign In</button>';
+  const modalAuthButtonRef = document.querySelector('.modal-auth-button');
+  modalAuthButtonRef.addEventListener('click', onModalOpen);
 };
 
 export const onModalOpen = (theme = _theme, mode = _mode) => {
@@ -47,4 +53,4 @@ const onModeSwitch = (e) => {
   mountEvents();
 };
 
-// initAuth();
+initAuth();
