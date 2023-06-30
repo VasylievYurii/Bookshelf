@@ -3,7 +3,7 @@
 :root {
     --color-body-white-theme:#F6F6F6;
     --color-white-theme:#fff;
-    --color-dark-theme:#202024;
+    --color-lite-dark-theme:#202024;
     --color-dark-theme:#111;
     --color-button:#4F2EE8;
     --color-links:#EAC645;
@@ -25,11 +25,15 @@
     ul {
         margin: 0;
         padding-left: 0;
-    }
+            }
     
     img {
         display: block;
     }
+
+li {
+  list-style: none;
+}
 
 body {
     color: var(--color-dark-theme);
@@ -52,6 +56,9 @@ body {
       max-width: 768px;
       padding-left: 32px;
       padding-right: 32px;
+    }
+    .main-wrapper {
+      display: flex;
     }
   }
   

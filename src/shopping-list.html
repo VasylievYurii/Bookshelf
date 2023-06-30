@@ -1,20 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookshelf</title>
+    <link rel="stylesheet" href="./sass/index.scss" />
+    <script type="module" src="./index.js"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bookshelf</title>
-  <link rel="stylesheet" href="./sass/index.scss" />
-  <script type="module" src="./index.js"></script>
-</head>
-
-<body>
-  <include src="./partials/header.html"></include>
-  <main>
-    
-  </main>
-  <include src="./partials/pop-up-book.html"></include>
-</body>
-
+  <body data-page-theme="light">
+    <include src="./partials/header.html"></include>
+    <main>
+      <section class="sh-list-section">
+        <div class="container">
+          <h1 class="title shopping-title">
+            Shopping <span class="title title-span">List</span>
+          </h1>
+          <button class="sh-list-delete-btn">
+            <svg>
+              <use></use>
+            </svg>
+          </button>
+          <!-- <ul class="shopping-list">
+            <li class="shopping-item">
+              <img class="sh-book-img" src="" alt=""></img>
+                <h2 class="sh-book-title"></h2>
+                  <p class="sh-book-category"></p>
+                  <p class="sh-book-description"></p>
+                  <p class="sh-book-author"></p>
+                  <ul class="shopping-links">
+                      <li class="sh-soc-item">
+                        <a class="sh-soc-link" href="">
+                          <svg class="sh-soc-icon">
+                            <use href=""></use>
+                          </svg>
+                        </a>
+                      </li>
+                      <li class="sh-soc-item">
+                        <a class="sh-soc-link" href="">
+                          <svg class="sh-soc-icon">
+                            <use href=""></use>
+                          </svg>
+                        </a>
+                      </li>
+                      <li class="sh-soc-item">
+                        <a class="sh-soc-link" href="">
+                          <svg class="sh-soc-icon">
+                            <use href=""></use>
+                          </svg>
+                        </a>
+                      </li>
+                    </ul>
+            </li>
+          </ul> -->
+        </div>
+      </section>
+    </main>
+    <include src="./partials/pop-up-book.html"></include>
+  </body>
 </html>
