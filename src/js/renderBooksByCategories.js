@@ -38,6 +38,6 @@ function renderBooks(category, containerRef) {
     });
 }
 
-const categoryContainerRef = document.querySelector('.category-container');
+const categoryContainerRef = document.querySelector('.category-book-container');
 
 renderBooks('Paperback Nonfiction', categoryContainerRef);
