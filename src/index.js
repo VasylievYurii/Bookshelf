@@ -1,3 +1,4 @@
+import switcher from './switcher';
 // import './js/themes';
 import './js/pop-up-book';
 import './js/fetch-categories';
