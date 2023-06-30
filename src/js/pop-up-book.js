@@ -22,6 +22,8 @@ function renderModal(book) {
     </div>
     `;
 }
-export function insertModalBook(book) {
+function insertModalBook(book) {
   modalContainerEl.insertAdjacentHTML('afterbegin', renderModal(book));
 }
+
+const modalBook = insertModalBook();

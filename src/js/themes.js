@@ -15,3 +15,10 @@ function setTheme(themeBody) {
       checkboxBtn.checked = false;
     }
   }
+
+  //встановити тему//
+// const themeBody = document.querySelector('body');
+
+// setTheme(themeBody);
+
+// Это проверка работоспособности функции renderBooks

@@ -2,7 +2,7 @@ import { useBooksApi } from '../services/booksApi';
 
 const booksApi = useBooksApi();
 
-export const handleOnPress = (e) => {
+const handleOnPress = (e) => {
 
   booksApi
     .getCategoryList()
@@ -19,3 +19,5 @@ export const handleOnPress = (e) => {
 const parceCategoryList = (list) => {
   console.log("list:", list);
 };
+
+handleOnPress();
