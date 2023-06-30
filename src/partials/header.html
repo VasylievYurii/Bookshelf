@@ -1,8 +1,23 @@
-<header>
-  <nav>
-    <ul>
-      <li>Home</li>
-      <li><a href="">Shopping list</a></li>
+<header class="header container">
+  <nav class="header-title">
+    <a href="./index.html" class="title-link">
+      <svg class="header-icon">
+        <use href="./images/sprite.svg#logo"></use>
+      </svg>
+      <span class="header-bookshelf">Bookshelf</span>
+    </a>
+    <ul class="header-nav">
+      <li class="header-link"><a href="./index.html">Home</a></li>
+      <li class="header-link"><a href="#">Shopping list</a></li>
     </ul>
   </nav>
+  <div class="theme-switch">
+    <input type="checkbox" id="toggle-theme" />
+    <label for="toggle-theme" class="toggle"></label>
+  </div>
+  <button type="button" data-menu-open class="menu-open">
+    <svg class="menu-open-icon">
+      <use href="./images/sprite.svg#burger"></use>
+    </svg>
+  </button>
 </header>
