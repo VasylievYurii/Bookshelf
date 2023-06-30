@@ -46,3 +46,5 @@ const onModeSwitch = (e) => {
   drawModal();
   mountEvents();
 };
+
+initAuth();

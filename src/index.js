@@ -6,5 +6,4 @@ import './js/support';
 import './js/renderBooksByCategories';
 import './js/categories';
 import './js/top-books';
-// import { initAuth } from "./modal-auth/eventsProcessor";
-// initAuth();
+import './js/modal-auth/eventsProcessor';
