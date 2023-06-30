@@ -47,4 +47,4 @@ const onModeSwitch = (e) => {
   mountEvents();
 };
 
-initAuth();
+// initAuth();
