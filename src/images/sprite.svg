@@ -40,7 +40,7 @@
 <path fill="#f3f3f3" style="fill: var(--color4, #f3f3f3)" d="M115.337 8.563v14.709h2.181v-14.709h-2.181z"></path>
 <path fill="#f3f3f3" style="fill: var(--color4, #f3f3f3)" d="M124.573 10.333v-1.769c-0.432-0.082-0.905-0.144-1.44-0.144-1.728 0-2.674 0.782-2.674 3.003v1.337h-1.502v1.769h1.502v8.743h2.181v-8.743h1.934v-1.769h-1.934v-1.152c0-1.193 0.535-1.337 1.934-1.275z"></path>
 </symbol>
-<symbol id="logo" viewBox="0 0 32 32">
+<symbol id="logo" viewBox="0 0 126 32">
 <path fill="#f6f6f6" style="fill: var(--color3, #f6f6f6)" d="M0 0l16.343 16.171 15.657 15.829v-32h-32z"></path>
 <path fill="#f6f6f6" style="fill: var(--color3, #f6f6f6)" d="M4.457 4.229l11.943 11.829 11.257 11.486h-23.2v-23.314z"></path>
 <path fill="#4f2ee8" style="fill: var(--color1, #4f2ee8)" d="M27.733 27.618l-11.943-11.829-11.257-11.486h23.2v23.314z"></path>
