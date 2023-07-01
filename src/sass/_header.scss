@@ -7,6 +7,14 @@
   border-radius: 0 0 8px 8px;
   background-color: #ffffff;
 }
+
+.header-shopping-link:hover,
+.header-shopping-link:focus,
+.header-shopping-link:active,
+.header-shopping-link.current {
+  color: black;
+}
+
 .header-title {
   display: flex;
 }

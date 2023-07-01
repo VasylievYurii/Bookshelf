@@ -39,6 +39,10 @@ li {
   list-style: none;
 }
 
+a {
+  text-decoration: none;
+}
+
 body {
   color: var(--color-dark-theme);
   font-family: 'DM Sans', 'Montserrat', 'Roboto', 'Open Sans', 'Raleway',
