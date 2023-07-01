@@ -2,16 +2,15 @@ import { getDoc, setDoc, doc } from 'firebase/firestore';
 
 import { db } from './firebaseCredentials';
 import { openLoader, closeLoader } from '../../loader/loader';
-import { useUserAuth } from './authApi';
 
-const { auth } = useUserAuth();
-
+const getUid = () => localStorage.getItem('signeduser');
+const isLoggedIn = () => (getUid() ? true : false);
 
 const putCartToFirebase = async (books = []) => {
+  if (!isLoggedIn()) return [];
   openLoader();
-  const user = auth.currentUser;
   try {
-    return setDoc(doc(db, 'carts', user.uid), { books });
+    return setDoc(doc(db, 'carts', getUid()), { books });
   } catch (error) {
     throw new Error('DB Error');
   } finally {
@@ -20,10 +19,10 @@ const putCartToFirebase = async (books = []) => {
 };
 
 const getCartFromFirebase = async () => {
+  if (!isLoggedIn()) return [];
   openLoader();
-   const user = auth.currentUser;
   try {
-    const { books } = (await getDoc(doc(db, 'carts', user.uid))).data();
+    const { books } = (await getDoc(doc(db, 'carts', getUid()))).data();
     return books;
   } catch (error) {
     throw new Error('DB Error');
@@ -36,14 +35,25 @@ export const useFireStore = () => {
   return {
     getCartFromFirebase,
     putCartToFirebase,
+    isLoggedIn,
   };
 };
-
 
 // Для запису / читання Firestore:
 
 // 1. Імпортуйте useFireStore до свого скрипта
-// 2. Викличте та деструризуйти те, що вона поверне в залежності, яка функція треба
-// 3. Функція запису отримує масив об'єктів, функція читання повертає масив обїєктів
-// 4. Обидві функції асинхронні, тож обробляйте проміс, який вони повертають.
-// 5. Є нюанси з користувачем, який залогінився коли сторінка рефрешиться...
+// import { useFireStore } from 'шлях';
+
+// 2. Викличте та деструризуйти те, що вона поверне в залежності, яка функція треба (або чи залогінений користувач)
+// const { getCartFromFirebase, putCartToFirebase, isLoggedIn } = useFireStore();
+
+// 3. Функція запису отримує масив об'єктів, функція читання повертає масив обїєктів. Функція запису повністтю перезаписує те, що в базі тим, що їй передали.
+
+// 4. Обидві функції читання-запису асинхронні, тож обробляйте проміс, який вони повертають.
+// getCartFromFirebase().then(res => {
+//   console.log(res);
+// });
+
+// 5. Якщо юзер не залогінений, а функії читання або запису в до бази все ж таки викликали, то вони повернуть порожній масив.
+
+// 6. Логіку в якому порядку використовувати локалстор, та базу (коли затерти карт з локастора в базу, або навпаки - з бази в локастор) - то вже треба придумати
