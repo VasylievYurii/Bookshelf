@@ -18,6 +18,7 @@ let bookForSoppingList = {};
 const shoppingListArray = JSON.parse(localStorage.getItem(STORAGE_KEY)) ?? [];
 
 btnAddEl.addEventListener('click', addToLocalStorage);
+btnRemoveEl.removeEventListener('click', removeFromLocalStorage);
 
 function onBookSelect(e) {
   //   bookID = e.target.value;
@@ -94,4 +95,8 @@ function insertModalBook(item) {
 function addToLocalStorage() {
   shoppingListArray.push(bookForSoppingList);
   localStorage.setItem(STORAGE_KEY, JSON.stringify(shoppingListArray));
+}
+
+function removeFromLocalStorage() {
+  localStorage.removeItem();
 }
