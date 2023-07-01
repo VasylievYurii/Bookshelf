@@ -12,7 +12,7 @@ async function createCategoriesMarkup(category) {
           books.map(
             async ({ book_image, title, author, _id }) => `
               <li class="one-book">
-                <a href="" value=${_id} class="book-item">
+                <a href="#" value=${_id} class="book-item">
                   <div class="img-box">
                     <img src="${book_image}" alt="Book cover" />
                     <div class="overlay">
