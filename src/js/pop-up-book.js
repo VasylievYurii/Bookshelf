@@ -11,7 +11,8 @@ const modalContainerEl = document.querySelector('.container-popup');
 const btnAddEl = document.querySelector('button[data-action="add"]');
 const btnRemoveEl = document.querySelector('button[data-action="remove"]');
 const successTextEl = document.querySelector('.modal-congrats-text');
-// let bookID = '';
+
+let bookID = '';
 const booksApi = useBooksApi();
 let bookForShoppingList = {};
 const closeModalEl = document.querySelector('.close-modal');
@@ -19,16 +20,25 @@ const backdropEl = document.querySelector('.backdrop-modal');
 
 const shoppingListArray = JSON.parse(localStorage.getItem(STORAGE_KEY)) ?? [];
 
-function onBookSelect(e) {
-  //   bookID = e.target.value;
-  let bookID = '643282b2e85766588626a0f2';
-  booksApi
-    .getBookById(bookID)
-    .then(insertModalBook)
-    .catch(error => console.log(error));
+export function addEventListenerOnTopBooks() {
+  const bookItemEl = document.querySelector('.book-item');
+  bookItemEl.addEventListener('click', onBookSelect);
 }
 
-onBookSelect();
+function onBookSelect(event) {
+  event.preventDefault();
+  console.log('object :>> ', event.currentTarget);
+  bookID = event.currentTarget;
+  const value = bookID.getAttribute('value');
+  console.log('value', value);
+
+  // let bookID = '643282b2e85766588626a0f2';
+  booksApi
+    .getBookById(value)
+    .then(insertModalBook)
+    .catch(error => console.log(error));
+  onModalOpen();
+}
 
 function renderModal(book) {
   bookForShoppingList = book;
@@ -135,4 +145,8 @@ function onModalClose(e) {
   if (e.target === e.currentTarget) {
     backdropEl.classList.add('is-hidden');
   }
+}
+
+function onModalOpen() {
+  backdropEl.classList.remove('is-hidden');
 }
