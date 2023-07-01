@@ -8,13 +8,6 @@
   background-color: #ffffff;
 }
 
-.header-shopping-link:hover,
-.header-shopping-link:focus,
-.header-shopping-link:active,
-.header-shopping-link.current {
-  color: black;
-}
-
 .header-title {
   display: flex;
 }
@@ -30,10 +23,17 @@
   color: black;
 }
 .header-link-home {
-  font-weight: 700;
+  font-weight: 500;
   font-size: 14px;
   line-height: 1.29;
   letter-spacing: -0.04em;
+  color: black;
+}
+.header-link-home.current {
+  font-weight: 700;
+  padding: 8px 16px;
+  background: rgba(234, 198, 69, 1);
+  border-radius: 36px;
 }
 .header-shopping-link {
   display: flex;
@@ -43,14 +43,19 @@
   font-size: 14px;
   line-height: 1.29;
   letter-spacing: -0.04em;
+  color: black;
+}
+.header-shopping-link.current {
+  font-weight: 700;
+  padding: 7px 16px;
+  background: rgba(234, 198, 69, 1);
+  border-radius: 36px;
 }
 
 a:link {
   text-decoration: none;
 }
-.header-bookshelf {
-  margin-right: 144px;
-}
+
 .header-nav {
   display: flex;
   gap: 24px;
@@ -63,11 +68,11 @@ a:link {
   height: 20px;
 }
 .header-icon {
-  margin-right: 8px;
+  margin-right: 144px;
   position: relative;
   fill: none;
-  width: 24px;
-  height: 24px;
+  width: 109px;
+  height: 26px;
 }
 .menu-open {
   display: block;
@@ -147,7 +152,7 @@ a:link {
   .menu-open {
     display: none;
   }
-  .header-bookshelf {
+  .header-icon {
     margin-right: 40px;
   }
   .header-nav {
@@ -164,7 +169,7 @@ a:link {
   .header-nav {
     margin-right: 745px;
   }
-  .header-bookshelf {
+  .header-icon {
     margin-right: 76px;
   }
 }
