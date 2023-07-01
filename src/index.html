@@ -14,14 +14,19 @@
   <script type="module" src="./index.js"></script>
 </head>
 
-<body>
+<body data-page-theme="light">
   <include src="./partials/header.html"></include>
-  <include src="./partials/sidebar.html"></include>
-  <main>
+  <div class="main-wrapper container">
+    <include src="./partials/sidebar.html"></include>
+  <main >
     <include src="./partials/books.html"></include>
   </main>
+</div>
+ 
   <include src="./partials/pop-up-book.html"></include>
   <include src="./partials/footer.html"></include>
+  <div class="auth-modal-root"></div>
+  <div class="loader-root"></div>
 </body>
 
 </html>
