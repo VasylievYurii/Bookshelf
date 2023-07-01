@@ -33,7 +33,7 @@ function renderModal(book) {
   const { book_image, title, author, description, buy_links, _id } = book;
 
   return `
-  <div class="modal-content-container">
+  <div class="modal-content-container" value="${_id}">
   <div class="img-container-pop-up">
    <img class="img-modal" src="${book_image}" />
    </div> 
