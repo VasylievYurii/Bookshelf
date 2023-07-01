@@ -1,9 +1,7 @@
 import './buttonAuth.css';
 import profilePic from './user.jpg';
 
-export const composeAuthButton = (user) => {
-
-  console.log(profilePic);
+export const composeAuthButton = user => {
   if (!user) {
     return '<button class="modal-auth-button light-colorset-auth" type="button">Sign In</button>';
   } else {
@@ -11,4 +9,3 @@ export const composeAuthButton = (user) => {
     return `<button class="modal-auth-button light-colorset-auth" type="button"><img class="auth-button-userpic" src=${profilePic} />${displayName}</button>`;
   }
 };
-
