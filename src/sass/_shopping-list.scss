@@ -1,0 +1,28 @@
+.title {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.19;
+  letter-spacing: -1.28px;
+}
+.shopping-title {
+  color: #111;
+}
+.title-span {
+  color: #4f2ee8;
+}
+
+@media screen and (min-width: 375px) {
+}
+
+@media screen and (min-width: 768px) {
+  .title {
+    font-size: 48px;
+    line-height: 1.08;
+    letter-spacing: -1.92px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+}

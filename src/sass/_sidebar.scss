@@ -1,0 +1,15 @@
+.sidebar {
+  width: 335px;
+}
+
+@media screen and (min-width: 768px) {
+  .sidebar {
+    width: 704px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .sidebar {
+    width: 380px;
+  }
+}

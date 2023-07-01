@@ -1,80 +1,90 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
 
 :root {
-    --color-body-white-theme:#F6F6F6;
-    --color-white-theme:#fff;
-    --color-dark-theme:#202024;
-    --color-dark-theme:#111;
-    --color-button:#4F2EE8;
-    --color-links:#EAC645;
-    
-    --color-gradient:radial-gradient(189.32% 190.93% at 59.76% -23.42%, #4F2EE8 18.03%, #FFF 100%);
-    --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    }
+  --color-body-white-theme: #f6f6f6;
+  --color-white-theme: #fff;
+  --color-lite-dark-theme: #202024;
+  --color-dark-theme: #111;
+  --color-button: #4f2ee8;
+  --color-links: #eac645;
 
-    p,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        margin: 0;
-    }
-    
-    ul {
-        margin: 0;
-        padding-left: 0;
-    }
-    
-    img {
-        display: block;
-    }
+  --color-gradient: radial-gradient(
+    189.32% 190.93% at 59.76% -23.42%,
+    #4f2ee8 18.03%,
+    #fff 100%
+  );
+  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding-left: 0;
+}
+
+img {
+  display: block;
+}
+
+li {
+  list-style: none;
+}
 
 body {
-    color: var(--color-dark-theme);
-    font-family: 'DM Sans', 'Montserrat', 'Roboto', 'Open Sans', 'Raleway', 'Arial',
-      sans-serif;
-    background-color: var(--color-body-white-theme);
-    font-weight: 700;
-  }
-  
+  color: var(--color-dark-theme);
+  font-family: 'DM Sans', 'Montserrat', 'Roboto', 'Open Sans', 'Raleway',
+    'Arial', sans-serif;
+  background-color: var(--color-body-white-theme);
+  font-weight: 700;
+}
+
+.container {
+  width: 100%;
+  max-width: 375px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) {
   .container {
-    width: 100%;
-    max-width: 375px;
-    padding-left: 20px;
-    padding-right: 20px;
-    margin: 0 auto;
+    max-width: 768px;
+    padding-left: 32px;
+    padding-right: 32px;
   }
-  
-  @media screen and (min-width: 768px) {
-    .container {
-      max-width: 768px;
-      padding-left: 32px;
-      padding-right: 32px;
-    }
+  .main-wrapper {
+    display: flex;
   }
-  
-  @media screen and (min-width: 1440px) {
-    .container {
-      max-width: 1440px;
-    }
+}
+
+@media screen and (min-width: 1440px) {
+  .container {
+    max-width: 1440px;
   }
-  
-  .no-scroll {
-    overflow: hidden;
-  }
-  
-  .visually-hidden {
-    position: absolute;
-    white-space: nowrap;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    border: 0;
-    padding: 0;
-    clip: rect(0 0 0 0);
-    clip-path: inset(50%);
-    margin: -1px;
-  }
-  
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.visually-hidden {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
+}
