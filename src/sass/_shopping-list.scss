@@ -1,4 +1,4 @@
-.title {
+.sh-title {
   margin-top: 40px;
   margin-bottom: 40px;
   font-size: 32px;
@@ -10,11 +10,32 @@
   color: #111;
 }
 .title-span {
-  color: #4f2ee8;
+  color: var(--color-button);
 }
 
 .empty-sh-list {
-  visibility: hidden;
+  // visibility: hidden;
+  margin: 0 auto;
+  z-index: 7000;
+  // background-image: url(../images/book-column@1x.png);
+
+  // background-repeat: no-repeat;
+  // background-position: center;
+  // background-size: cover;
+}
+
+// @media screen and (min-device-pixel-ratio: 2) and (max-width: 767px),
+//   screen and (min-resolution: 192dpi) and (max-width: 767px),
+//   screen and (min-resolution: 2dppx) and (max-width: 767px) {
+//   .empty-sh-list {
+//     background-image: url('../images/book-column@2x.png');
+//   }
+// }
+
+.sh-list-section img {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 @media screen and (min-width: 375px) {
