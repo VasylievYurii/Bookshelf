@@ -24,6 +24,11 @@
     height: 45px;
     padding: 4px 18px 4px 18px;
 
+    display: flex;
+    column-gap: 8px;
+    justify-content: center;
+    align-items: center;
+
     color: var(--secondary-text);
     font-size: 22px;
     font-weight: 600;
@@ -34,4 +39,10 @@
 
     cursor: pointer;
 
+}
+
+.auth-button-userpic {
+    width: 32px;
+    height: auto;
+    border-radius: 50%;
 }
