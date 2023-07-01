@@ -16,7 +16,7 @@ let _mode = 'signin';
 export const initAuth = () => {
   console.log(modalAuthRootRef);
   console.log(menuAuthRootRef);
-  menuAuthRootRef.innerHTML = composeAuthButton('', null);
+  menuAuthRootRef.innerHTML = composeAuthButton(null);
   const modalAuthButtonRef = document.querySelector('.modal-auth-button');
   modalAuthButtonRef.addEventListener('click', onModalOpen);
 };
@@ -53,7 +53,7 @@ const mountEvents = () => {
 const onLogOut = () => {
   logout()
     .then(() => {
-      menuAuthRootRef.innerHTML = composeAuthButton('', null);
+      menuAuthRootRef.innerHTML = composeAuthButton(null);
       const modalAuthButtonRef = document.querySelector('.modal-auth-button');
       modalAuthButtonRef.addEventListener('click', onModalOpen);
     })
@@ -68,7 +68,7 @@ const onSignInSubmit = e => {
   const password = e.target.elements.password.value;
   login({ username, password })
     .then(user => {
-      menuAuthRootRef.innerHTML = composeAuthButton('', user);
+      menuAuthRootRef.innerHTML = composeAuthButton(user);
       const modalAuthButtonRef = document.querySelector('.modal-auth-button');
       modalAuthButtonRef.addEventListener('click', onLogOut);
       onModalClose();
@@ -85,7 +85,7 @@ const onSignUpSubmit = e => {
   const displayName = e.target.elements.name.value;
   register({ username, password, displayName })
     .then(user => {
-      menuAuthRootRef.innerHTML = composeAuthButton('', user);
+      menuAuthRootRef.innerHTML = composeAuthButton(user);
       const modalAuthButtonRef = document.querySelector('.modal-auth-button');
       modalAuthButtonRef.addEventListener('click', onLogOut);
       onModalClose();
