@@ -5,5 +5,5 @@ import './js/fetch-categories';
 import './js/support';
 import './js/render-books-by-category';
 import './js/categories';
-import './js/modal-auth/eventsProcessor';
+import './js/auth/modal-auth/eventsProcessor';
 import './js/pop-up-book';
