@@ -22,7 +22,6 @@ function makeMarkupForBooks(books) {
   </li>`
     )
     .join('\n');
-  // console.log(markup);
   return markup;
 }
 
@@ -30,7 +29,6 @@ function renderBooks(category, containerRef) {
   booksApi
     .getBooksByCategory(category)
     .then(res => {
-      // console.log('res:', res);
       containerRef.innerHTML = makeMarkupForBooks(res);
     })
     .catch(err => {
@@ -40,4 +38,4 @@ function renderBooks(category, containerRef) {
 
 const categoryContainerRef = document.querySelector('.category-book-container');
 
-renderBooks('Paperback Nonfiction', categoryContainerRef);
+// renderBooks('Paperback Nonfiction', categoryContainerRef);
