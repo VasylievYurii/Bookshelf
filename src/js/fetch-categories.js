@@ -15,13 +15,27 @@ const handleOnPress = (e) => {
     .finally(() => {
     });
 };
+const categoryListEl = document.querySelector('.category-list');
 
 
 const parseCategoryList = (list) => {
-  const categoryList = list.map(({ list_name }) => {
-    return `<li class="category-item list"><a class="category-link link" href="">${list_name}</a></li>`
+  const uniqueCategories = [...new Set(list.map(({ list_name }) => list_name))].sort();
+
+  const categoryList = uniqueCategories.map((category) => {
+    return `<li class="category-item list"><a class="category-link link" href="">${category}</a></li>`
   }).join('');
-  const categoryListEl = document.querySelector('.category-list');
+
   categoryListEl.insertAdjacentHTML('beforeend', categoryList);
+
+
+  const categoryLinksElements = document.querySelectorAll('.category-link');
+
+  categoryLinksElements.forEach((link) => {
+    link.addEventListener('click', (evt) => {
+      evt.preventDefault();
+      categoryLinksElements.forEach((el) => el.classList.remove('active'));
+      link.classList.add('active');
+    })
+  });
 };
 handleOnPress();
