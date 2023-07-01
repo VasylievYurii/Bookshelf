@@ -3,16 +3,20 @@ import { useBooksApi } from '../services/booksApi';
 const booksApi = useBooksApi();
 
 function makeMarkupForBooks(category) {
-  const markup = category
+  const categoryMarkup = category
     .map(
-      ({ list_name }) => `ul class='list'>
+      ({ list_name }) => `<li class=''>
       <h3 class=''>${list_name}</h3>
+      <ul class='list'></ul>
       <button type='button' class='btn'>See more</button>
-      </ul>`
+      </li>`
     )
     .join('\n');
-  // console.log(markup);
-  return markup;
+
+  //console.log(categoryMarkup);
+
+  return categoryMarkup;
+
 }
 
 const getTopBooksByCategories = (e, containerRef) => {

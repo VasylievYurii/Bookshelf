@@ -1,4 +1,4 @@
-export { setTheme };
+// export { setTheme, activateThemeSwitch };
 const storedTheme = 'isDark'
 const switchClass = '//class themes//';
 
@@ -16,9 +16,22 @@ function setTheme(themeBody) {
     }
   }
 
-  //встановити тему//
-// const themeBody = document.querySelector('body');
+  //функція активація перемикання теми//
+  function activateThemeSwitch(event, themeBody) {
+    const isInput = event.target.classList.contains(switchClass);
+    if (isInput) {
+      const checkboxBtn = event.target;
+      changeTheme(themeBody, checkboxBtn);
+    }
+  }
 
-// setTheme(themeBody);
+//встановити тему//
+const themeBody = document.querySelector('body');
 
-// Это проверка работоспособности функции renderBooks
+setTheme(themeBody);
+
+//активація перемикання теми//
+themeBody.addEventListener('click', event => {
+  activateThemeSwitch(event, themeBody);
+});
+
