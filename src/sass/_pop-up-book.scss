@@ -1,5 +1,37 @@
+.backdrop-modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  overflow: auto;
+
+  z-index: 10;
+
+  background-color: rgba(17, 17, 17, 0.4);
+
+  opacity: 1;
+  scale: 1;
+  visibility: visible;
+
+  transition: opacity 250ms linear, scale 250ms linear, visibility 250ms linear;
+}
+
+.backdrop-modal.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  scale: 0.9;
+  pointer-events: none;
+}
+
 .container-popup {
-  position: relative;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 15;
+
   display: flex;
   flex-direction: column;
   width: 335px;
@@ -57,6 +89,10 @@
   stroke: var(--color-dark-theme);
 }
 
+.close-modal:is(:hover, :focus) {
+  stroke: var(--color-button);
+}
+
 .img-container-pop-up {
   height: 408px;
   margin-bottom: 14px;
@@ -99,13 +135,6 @@
   margin-bottom: 40px;
 }
 
-// .modal-icon {
-//   width: 38px;
-//     height: 36px;
-//     border: 1px solid black;
-//   stroke: var(--color-dark-theme);
-// }
-
 .book-stores {
   display: flex;
   gap: 20px;
@@ -144,6 +173,20 @@
 .book-shop-logo {
   width: 38px;
   height: 36px;
+}
+
+.js-dark-mode {
+  background-color: var(--color-lite-dark-theme);
+  stroke: var(--color-white-theme);
+  color: var(--color-white-theme);
+}
+
+.js-dark-mode-amazon {
+  filter: brightness(0) invert(1);
+}
+
+.js-dark-mode-congrats {
+  color: rgba(255, 255, 255, 0.5);
 }
 
 @media screen and (min-width: 768px) {
