@@ -58,21 +58,25 @@ function markupShoppingList(books) {
                             <li class="sh-soc-item">
                               <a class="sh-soc-link" href="${buy_links[0].url}" rel="noopener noreferrer nofollow"
             target="_blank"> 
-            <img srcset="photo.jpg 1x, photo@2x.jpg 2x" 
-            src="photo.jpg"
-            alt="Опис зображення для усіх версій"/>
+            <img srcset="../images/stores/amazon.png 1x, ../images/stores/amazon@2x 2x" 
+            src="../images/stores/amazon.png"
+            alt="Amazon Store ${buy_links[0].name}"/>
                               </a>
                             </li>
                             <li class="sh-soc-item">
                               <a class="sh-soc-link" href="${buy_links[1].url}" rel="noopener noreferrer nofollow"
             target="_blank">
-                            <img srcset="photo.jpg 1x, photo@2x.jpg 2x" src="photo.jpg" alt="Опис зображення для усіх версій"/>
+                            <img srcset="../images/stores/book.png 1x, ../images/stores/book@2x.png 2x" 
+                            src="../images/stores/book.png" 
+                            alt="Apple Store ${buy_links[1].name}"/>
                              </a>
                             </li>
                            <li class="sh-soc-item">
-                          <a class="sh-soc-link" href="${buy_links[2].url}" rel="noopener noreferrer nofollow"
+                          <a class="sh-soc-link" href="${buy_links[4].url}" rel="noopener noreferrer nofollow"
             target="_blank">
-            <img srcset="photo.jpg 1x, photo@2x.jpg 2x" src="photo.jpg" alt="Опис зображення для усіх версій"/>
+            <img srcset="../images/stores/book-shop.png.png 1x, ../images/stores/book-shop@2x.png 2x" 
+            src="../images/stores/book-shop.png" 
+            alt="Book Shop ${buy_links[4].name}"/>
                          </a>
                        </li>
                       </ul>
@@ -86,6 +90,21 @@ function markupShoppingList(books) {
 
 function clearShoppingList() {
   refs.shoppingListEl.innerHTML = '';
+}
+
+function makeEmptyShoppingListPage() {
+  const emptyShPage = `<div class="empty-sh-list">
+            <img
+              srcset="
+                ./images/book-column@1x.png 1x,
+                ./images/book-column@2x.png 2x
+              "
+              src="./images/book-column@1x.png"
+              alt="book-column"
+            />
+          </div>`;
+  refs.shoppingListEl.insertAdjacentHTML('beforeend', markup);
+  return emptyShPage;
 }
 
 renderShoppingList(shoppingListArray);
