@@ -13,7 +13,7 @@ axios.defaults.baseURL = API_ENDPOINTS.baseUrl;
 const getCategoryList = async () => {
   try {
     const result = await axios.get(API_ENDPOINTS.categoryList);
-    console.log('result  ', result);
+    // console.log(result);
     return result.data;
   } catch (error) {
     throw new Error(error.response.data.message);

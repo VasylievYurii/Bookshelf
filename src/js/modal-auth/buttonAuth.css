@@ -1,0 +1,48 @@
+* {
+    box-sizing: border-box;
+}
+
+.light-colorset-auth {
+    --main-canvas: #4F2EE8;
+    --main-background: #F6F6F6;
+    --main-text: #111111;
+    --active-text: rgba(17, 17, 17, 0.5);
+    --secondary-text: #F3F3F3;
+    --shadow: rgba(0, 0, 0, 0.75);
+}
+
+.dark-colorset-auth {
+    --main-canvas: #4F2EE8;
+    --main-background: #202024;
+    --main-text: #F6F6F6;
+    --active-text: rgba(246, 246, 246, 0.5);
+    --secondary-text: #202024;
+    --shadow: rgba(0, 0, 0, 0.75);
+}
+
+.modal-auth-button {
+    height: 45px;
+    padding: 4px 18px 4px 18px;
+
+    display: flex;
+    column-gap: 8px;
+    justify-content: center;
+    align-items: center;
+
+    color: var(--secondary-text);
+    font-size: 22px;
+    font-weight: 600;
+    background-color: var(--main-canvas);
+
+    border-radius: 36px;
+    border: none;
+
+    cursor: pointer;
+
+}
+
+.auth-button-userpic {
+    width: 32px;
+    height: auto;
+    border-radius: 50%;
+}
