@@ -1,4 +1,5 @@
 import { useBooksApi } from '../services/booksApi';
+import { addEventListenerOnTopBooks } from './pop-up-book';
 
 const booksApi = useBooksApi();
 const categoryContainerRef = document.querySelector('.category-book-container');
@@ -9,9 +10,9 @@ async function createCategoriesMarkup(category) {
       category.map(async ({ list_name, books }) => {
         const bookMarkup = await Promise.all(
           books.map(
-            async ({ book_image, title, author }) => `
-              <li class="">
-                <a href="#" class="book-item">
+            async ({ book_image, title, author, _id }) => `
+              <li class="one-book">
+                <a href="" value=${_id} class="book-item">
                   <div class="img-box">
                     <img src="${book_image}" alt="Book cover" />
                     <div class="overlay">
@@ -45,12 +46,12 @@ async function createCategoriesMarkup(category) {
   }
 }
 
-
 const getTopBooksByCategories = async () => {
   try {
     const res = await booksApi.getTopBooks();
     const markup = await createCategoriesMarkup(res);
     categoryContainerRef.innerHTML = markup;
+    addEventListenerOnTopBooks();
   } catch (error) {
     console.log(error);
   }
