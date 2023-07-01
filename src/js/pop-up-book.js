@@ -17,9 +17,6 @@ let bookForSoppingList = {};
 
 const shoppingListArray = JSON.parse(localStorage.getItem(STORAGE_KEY)) ?? [];
 
-btnAddEl.addEventListener('click', addToLocalStorage);
-btnRemoveEl.removeEventListener('click', removeFromLocalStorage);
-
 function onBookSelect(e) {
   //   bookID = e.target.value;
   let bookID = '643282b2e85766588626a0f2';
@@ -33,10 +30,10 @@ onBookSelect();
 
 function renderModal(book) {
   bookForSoppingList = book;
-  const { book_image, title, author, description, buy_links } = book;
+  const { book_image, title, author, description, buy_links, _id } = book;
 
   return `
-  <div class="modal-content-container">
+  <div class="modal-content-container" value="${_id}">
   <div class="img-container-pop-up">
    <img class="img-modal" src="${book_image}" />
    </div> 
@@ -49,37 +46,31 @@ function renderModal(book) {
     <a href="${buy_links[0].url}" rel="noopener noreferrer nofollow"
             target="_blank">
     <img
-      class="book-modal"
+      class="book-modal amazon-logo"
       srcset="${amazon} 1x, ${amazon2x} 2x"
       src="${amazon}";
       alt="Amazon shop"
-      width="62"
-      height="19"
     />
     </a>
     <a href="${buy_links[1].url}" rel="noopener noreferrer nofollow"
             target="_blank">
     <img
-      class="book-modal"
+      class="book-modal apple-book-logo"
       srcset="${bookStore} 1x, ${bookStore2x} 2x"
       src="${bookStore}"
       alt="Shop"
-      width="33"
-      height="32"
     />
     </a>
     <a href="${buy_links[4].url}" rel="noopener noreferrer nofollow"
             target="_blank">
     <img
-    class="book-modal"
+    class="book-modal book-shop-logo"
       srcset="
         ${bookShop} 1x,
         ${bookShop2x} 2x
       "
       src="${bookShop2x}"
       alt="Book shop"
-      width="38"
-      height="36"
     />
     </a>
   </div>
@@ -92,11 +83,45 @@ function insertModalBook(item) {
   modalContainerEl.insertAdjacentHTML('afterbegin', renderModal(item));
 }
 
+btnAddEl.addEventListener('click', onAddBtnClick);
+
+function onAddBtnClick() {
+  makeRemoveBtnVisible();
+  addToLocalStorage();
+}
+
+function makeRemoveBtnVisible() {
+  btnAddEl.classList.add('visually-hidden');
+  btnRemoveEl.classList.remove('visually-hidden');
+  successTextEl.classList.remove('visually-hidden');
+}
+
 function addToLocalStorage() {
   shoppingListArray.push(bookForSoppingList);
   localStorage.setItem(STORAGE_KEY, JSON.stringify(shoppingListArray));
 }
 
+btnRemoveEl.addEventListener('click', onRemoveBtnClick);
+
+function onRemoveBtnClick() {
+  makeAddBtnVisible();
+  removeFromLocalStorage();
+}
+
+function makeAddBtnVisible() {
+  console.log('click');
+  btnRemoveEl.classList.add('visually-hidden');
+  successTextEl.classList.add('visually-hidden');
+  btnAddEl.classList.remove('visually-hidden');
+}
+
 function removeFromLocalStorage() {
-  localStorage.removeItem();
+  const index = shoppingListArray.findIndex(
+    item => item._id === bookForSoppingList._id
+  );
+  if (index !== -1) {
+    shoppingListArray.splice(index, 1);
+
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(shoppingListArray));
+  }
 }
