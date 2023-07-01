@@ -38,6 +38,7 @@ function createCategoriesMarkup(category) {
 
   console.log(categoryMarkup);
   return categoryMarkup;
+
 }
 
 const getTopBooksByCategories = () => {

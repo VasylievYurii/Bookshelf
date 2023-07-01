@@ -30,7 +30,7 @@ function renderBooks(category, containerRef) {
   booksApi
     .getBooksByCategory(category)
     .then(res => {
-      console.log('res:', res);
+      // console.log('res:', res);
       containerRef.innerHTML = makeMarkupForBooks(res);
     })
     .catch(err => {

@@ -6,3 +6,4 @@ import './js/support';
 import './js/renderBooksByCategories';
 import './js/categories';
 import './js/top-books';
+import './js/modal-auth/eventsProcessor';
