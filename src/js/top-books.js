@@ -36,7 +36,7 @@ function createCategoriesMarkup(category) {
     })
     .join('\n');
 
-  console.log(categoryMarkup);
+  // console.log(categoryMarkup);
   return categoryMarkup;
 
 }
@@ -45,7 +45,7 @@ const getTopBooksByCategories = () => {
   booksApi
     .getTopBooks()
     .then(res => {
-      console.log('topBooks:', res);
+      // console.log('topBooks:', res);
       const markup = createCategoriesMarkup(res);
     })
     .catch(err => {

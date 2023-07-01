@@ -43,7 +43,7 @@ const getBooksByCategory = async category => {
 const getBookById = async id => {
   try {
     const result = await axios.get(API_ENDPOINTS.book + id);
-    console.log(result);
+    // console.log(result);
     return result.data;
   } catch (error) {
     throw new Error(error.response.data.message);
