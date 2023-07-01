@@ -1,11 +1,12 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { onAuthStateChanged } from 'firebase/auth';
 
 import { composeSignModal } from './authModal';
-import { composeAuthButton } from './authButton';
+import { composeAuthButton } from '../button-auth/authButton';
 
 import { useUserAuth } from '../firebase/authApi';
 
-const { login, logout, register, isLoggedIn } = useUserAuth();
+const { login, logout, register, auth } = useUserAuth();
 
 const modalAuthRootRef = document.querySelector('.auth-modal-root');
 const menuAuthRootRef = document.querySelector('.auth-menu-root');
@@ -13,12 +14,23 @@ const menuAuthRootRef = document.querySelector('.auth-menu-root');
 let _theme = 'light';
 let _mode = 'signin';
 
-export const initAuth = () => {
-  console.log(modalAuthRootRef);
-  console.log(menuAuthRootRef);
-  menuAuthRootRef.innerHTML = composeAuthButton(null);
+onAuthStateChanged(auth, user => {
+  if (!user) {
+    initAuth();
+    return;
+  }
+  menuAuthRootRef.innerHTML = composeAuthButton(user);
+  bindButtonEvents(onLogOut);
+});
+
+const bindButtonEvents = cb => {
   const modalAuthButtonRef = document.querySelector('.modal-auth-button');
-  modalAuthButtonRef.addEventListener('click', onModalOpen);
+  modalAuthButtonRef.addEventListener('click', cb);
+};
+
+export const initAuth = () => {
+  menuAuthRootRef.innerHTML = composeAuthButton(null);
+  bindButtonEvents(onModalOpen);
 };
 
 export const onModalOpen = (theme = _theme, mode = _mode) => {
@@ -51,15 +63,9 @@ const mountEvents = () => {
 };
 
 const onLogOut = () => {
-  logout()
-    .then(() => {
-      menuAuthRootRef.innerHTML = composeAuthButton(null);
-      const modalAuthButtonRef = document.querySelector('.modal-auth-button');
-      modalAuthButtonRef.addEventListener('click', onModalOpen);
-    })
-    .catch(err => {
-      Notify.failure(err);
-    }); 
+  logout().catch(err => {
+    Notify.failure(err);
+  });
 };
 
 const onSignInSubmit = e => {
@@ -67,10 +73,7 @@ const onSignInSubmit = e => {
   const username = e.target.elements.email.value;
   const password = e.target.elements.password.value;
   login({ username, password })
-    .then(user => {
-      menuAuthRootRef.innerHTML = composeAuthButton(user);
-      const modalAuthButtonRef = document.querySelector('.modal-auth-button');
-      modalAuthButtonRef.addEventListener('click', onLogOut);
+    .then(() => {
       onModalClose();
     })
     .catch(err => {
@@ -84,10 +87,7 @@ const onSignUpSubmit = e => {
   const password = e.target.elements.password.value;
   const displayName = e.target.elements.name.value;
   register({ username, password, displayName })
-    .then(user => {
-      menuAuthRootRef.innerHTML = composeAuthButton(user);
-      const modalAuthButtonRef = document.querySelector('.modal-auth-button');
-      modalAuthButtonRef.addEventListener('click', onLogOut);
+    .then(() => {
       onModalClose();
     })
     .catch(err => {
