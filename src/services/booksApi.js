@@ -43,6 +43,7 @@ const getBooksByCategory = async category => {
 const getBookById = async id => {
   try {
     const result = await axios.get(API_ENDPOINTS.book + id);
+    console.log(result);
     return result.data;
   } catch (error) {
     throw new Error(error.response.data.message);
@@ -68,20 +69,20 @@ export const useBooksApi = () => {
 //   state.isLoading = true;
 //   state.isError = false;
 
-//   booksApi
-//     .getCategoryList()
-//     .then((res) => {
-//       state.data = res;
-//       parceCategoryList(res);
-//     })
-//     .catch((err) => {
-//       state.error = err;
-//         state.isError = true;
-//         console.log(err);
-//     })
-//     .finally(() => {
-//       state.isLoading = false;
-//     });
+// booksApi
+//   .getCategoryList()
+//   .then((res) => {
+//     state.data = res;
+//     parceCategoryList(res);
+//   })
+//   .catch((err) => {
+//     state.error = err;
+//       state.isError = true;
+//       console.log(err);
+//   })
+//   .finally(() => {
+//     state.isLoading = false;
+//   });
 // };
 
 // const parceCategoryList = (list) => {
