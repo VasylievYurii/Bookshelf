@@ -2,7 +2,7 @@ import { useBooksApi } from '../services/booksApi';
 import { addEventListenerOnTopBooks } from './pop-up-book';
 
 const booksApi = useBooksApi();
-const categoryContainerRef = document.querySelector('.category-book-container');
+const categoryContainerRef = document.querySelector('.section-categories-list');
 
 async function createCategoriesMarkup(category) {
   try {

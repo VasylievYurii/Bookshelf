@@ -3,7 +3,7 @@ import switcher from './switcher';
 import './js/top-books';
 import './js/fetch-categories';
 import './js/support';
-import './js/renderBooksByCategories';
+import './js/render-books-by-category';
 import './js/categories';
 import './js/modal-auth/eventsProcessor';
 import './js/pop-up-book';
