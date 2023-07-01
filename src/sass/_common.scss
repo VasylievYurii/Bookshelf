@@ -88,3 +88,12 @@ body {
   clip-path: inset(50%);
   margin: -1px;
 }
+
+
+[data-page-theme="light"] {
+  background-color: var(--color-body-white-theme);
+}
+
+[data-page-theme="dark"] {
+  background-color: var(--color-lite-dark-theme);
+}

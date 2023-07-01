@@ -1,4 +1,4 @@
-// export { setTheme, activateThemeSwitch };
+export { setTheme, activateThemeSwitch };
 const storedTheme = 'isDark'
 const switchClass = 'js-theme-switch';
 
