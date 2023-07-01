@@ -2,10 +2,16 @@
   <svg class="close-modal" width="24" height="24">
     <use href="./images/sprite.svg#close"></use>
   </svg>
-
-  <button class="modal-btn" type="submit">remove from the shopping list</button>
-  <p class="modal-congrats-text">
-    Сongratulations! You have added the book to the shopping list. To delete,
-    press the button “Remove from the shopping list”.
-  </p>
+  <button class="modal-btn btn-add" data-action="add" type="submit">
+    add to shopping list
+  </button>
+  <div class="js-success visually-hidden">
+    <button class="modal-btn btn-remove" data-action="remove" type="submit">
+      remove from the shopping list
+    </button>
+    <p class="modal-congrats-text">
+      Сongratulations! You have added the book to the shopping list. To delete,
+      press the button “Remove from the shopping list”.
+    </p>
+  </div>
 </div>
