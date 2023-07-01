@@ -91,9 +91,12 @@ body {
 
 
 [data-page-theme="light"] {
-  background-color: var(--color-body-white-theme);
+  
+  --header-background-color: #f6f6f6;
 }
 
 [data-page-theme="dark"] {
-  background-color: var(--color-lite-dark-theme);
+  
+  --header-background-color: #111;
+  
 }
