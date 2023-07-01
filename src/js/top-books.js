@@ -11,7 +11,7 @@ function makeMarkupForBooks(category) {
       </ul>`
     )
     .join('\n');
-  console.log(markup);
+  // console.log(markup);
   return markup;
 }
 
@@ -19,7 +19,7 @@ const getTopBooksByCategories = (e, containerRef) => {
   booksApi
     .getTopBooks()
     .then(res => {
-      console.log('topBooks :', res);
+      // console.log('topBooks :', res);
       containerRef.innerHTML = makeMarkupForBooks(res);
     })
     .catch(err => {
