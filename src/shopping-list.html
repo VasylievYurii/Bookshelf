@@ -12,50 +12,20 @@
     <include src="./partials/header.html"></include>
     <main>
       <section class="sh-list-section">
-        <div class="container">
+        <div class="sh-list-container container">
           <h1 class="title shopping-title">
             Shopping <span class="title title-span">List</span>
           </h1>
-          <button class="sh-list-delete-btn">
-            <svg>
-              <use></use>
+          <div class="empty-sh-list"></div>
+          <button class="sh-list-delete-btn" type="button">
+            <svg class="sh-list-delete-icon">
+              <use href="./images/sprite.svg#trash"></use>
             </svg>
           </button>
-          <!-- <ul class="shopping-list">
-            <li class="shopping-item">
-              <img class="sh-book-img" src="" alt=""></img>
-                <h2 class="sh-book-title"></h2>
-                  <p class="sh-book-category"></p>
-                  <p class="sh-book-description"></p>
-                  <p class="sh-book-author"></p>
-                  <ul class="shopping-links">
-                      <li class="sh-soc-item">
-                        <a class="sh-soc-link" href="">
-                          <svg class="sh-soc-icon">
-                            <use href=""></use>
-                          </svg>
-                        </a>
-                      </li>
-                      <li class="sh-soc-item">
-                        <a class="sh-soc-link" href="">
-                          <svg class="sh-soc-icon">
-                            <use href=""></use>
-                          </svg>
-                        </a>
-                      </li>
-                      <li class="sh-soc-item">
-                        <a class="sh-soc-link" href="">
-                          <svg class="sh-soc-icon">
-                            <use href=""></use>
-                          </svg>
-                        </a>
-                      </li>
-                    </ul>
-            </li>
-          </ul> -->
         </div>
       </section>
     </main>
     <include src="./partials/pop-up-book.html"></include>
+    <script type="module" src="./js/shopping-list-render.js"></script>
   </body>
 </html>
