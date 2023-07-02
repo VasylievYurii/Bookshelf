@@ -22,25 +22,30 @@ html {
 
 .js-sroll-up {
   position: fixed;
-  bottom: 140px;
-  right: calc(50% - 335px / 2);
+  bottom: 0px;
+  right: 0px;
 }
-@media screen and (min-width: 768px) {
-  .js-sroll-up {
-    right: calc(50% - 704px / 2);
-  }
-}
-@media screen and (min-width: 1440px) {
-  .js-sroll-up {
-    right: calc(50% - 1392px / 2);
-  }
-}
+// @media screen and (min-width: 768px) {
+//   .js-sroll-up {
+//     right: calc(50% - 704px / 2);
+//   }
+// }
+// @media screen and (min-width: 1440px) {
+//   .js-sroll-up {
+//     right: calc(50% - 1392px / 2);
+//   }
+// }
 
 .scroll-up-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 54px;
-  height: 54px;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  // width: 54px;
+  // height: 54px;
   border-radius: 50%;
+}
+
+.scroll-up-icon{
+  width: 64px;
+  height: 64px;
 }

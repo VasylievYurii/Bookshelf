@@ -1,8 +1,8 @@
 import { useBooksApi } from '../services/booksApi';
-import { getTopBooksByCategories } from "./top-books";
+import { parceCategoriesBlocks } from './top-books';
 // import { createCategoriesMarkup } from './top-books';
 // import { renderBooks } from './renderBooksByCategories';
-import { getCategoryElements } from './categories';
+// import { getCategoryElements } from './categories';
 const booksApi = useBooksApi();
 
 const handleOnPress = (e) => {
@@ -44,7 +44,7 @@ function getCategoryElements() {
 }
 
 categoryAll.addEventListener('click', () => {
-  getTopBooksByCategories();
+  parceCategoriesBlocks();
 
 })
 handleOnPress();
