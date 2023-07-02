@@ -54,3 +54,5 @@ async function parceCategoriesBlocks() {
   }
 }
 parceCategoriesBlocks();
+
+export {parceCategoriesBlocks};
