@@ -62,16 +62,18 @@ function markupShoppingList(books) {
               </svg>
             </button>
           </div>
-        <h2 class="sh-book-title">${title}</h2>
+           <div class="sh-book-info-one-wrap">
+           <h2 class="sh-book-title">${title}</h2>
         <p class="sh-book-category">${list_name}</p>
-        <p class="sh-book-description">${description}</p>
+        <p class="sh-book-description">${description}</p></div>
+        <div sh-book-info-second-wrap>
         <p class="sh-book-author">${author}</p>
         <ul class="shopping-links">
                             <li class="sh-soc-item">
                               <a class="sh-soc-link" href="${buy_links[0].url}" rel="noopener noreferrer nofollow"
             target="_blank"> 
             <img srcset="${amazon} 1x, ${amazon2x} 2x" 
-            src="${amazon}"
+            src="${amazon}" width="32" height="11"
             alt="Amazon Store ${buy_links[0].name}"/>
                               </a>
                             </li>
@@ -79,7 +81,7 @@ function markupShoppingList(books) {
                               <a class="sh-soc-link" href="${buy_links[1].url}" rel="noopener noreferrer nofollow"
             target="_blank">
                             <img srcset="${bookStore} 1x, ${bookStore2x} 2x" 
-                            src="${bookStore}" 
+                            src="${bookStore}" width="16" height="16"
                             alt="Apple Store ${buy_links[1].name}"/>
                              </a>
                             </li>
@@ -87,11 +89,12 @@ function markupShoppingList(books) {
                           <a class="sh-soc-link" href="${buy_links[4].url}" rel="noopener noreferrer nofollow"
             target="_blank">
             <img srcset="${bookShop} 1x, ${bookShop2x} 2x" 
-            src="${bookShop}" 
+            src="${bookShop}" width="16" height="16"
             alt="Book Shop ${buy_links[4].name}"/>
                          </a>
                        </li>
                       </ul></div>
+        </div>
         
         
               </li>
