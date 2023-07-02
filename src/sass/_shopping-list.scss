@@ -7,15 +7,14 @@
   letter-spacing: -1.28px;
 }
 .shopping-title {
-  color: #111;
+  color: var(--color-dark-theme);
 }
 .title-span {
   color: var(--color-button);
 }
 
 .empty-sh-list {
-  display: block;
-  visibility: hidden;
+  display: none;
 }
 .book-column-img {
   margin: 0 auto;
@@ -29,10 +28,41 @@
   height: auto;
 }
 
+.shopping-item {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 16px;
+  border: 2px solid rgba(79, 46, 232, 0.4);
+  background: var(--color-white-theme);
+}
+
+.sh-book-title {
+  color: var(--color-dark-theme);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.13;
+  letter-spacing: -0.64px;
+}
+.sh-book-category {
+}
+.sh-book-description {
+}
+.sh-book-author {
+}
+.shopping-links {
+}
+
 .shopping-links {
   display: flex;
   align-items: center;
   gap: 8;
+}
+
+.sh-book-img {
+  margin: 14px;
+  width: 100px;
+  height: 142px;
+  border-radius: 8px;
 }
 
 .sh-list-delete-btn {
@@ -46,13 +76,13 @@
   background-color: var(--color-button);
   border-radius: 50%;
   border: none;
+  cursor: pointer;
 }
 
-// .sh-list-delete-icon {
-//   display: inline-block;
-//   stroke: var(--color-white-theme);
-//   fill: transparent;
-// }
+.sh-book-img-wrap {
+}
+.sh-book-info-wrap {
+}
 
 @media screen and (min-width: 375px) {
 }
