@@ -16,7 +16,7 @@ const optionsNotiflix = {
 const booksApi = useBooksApi();
 
 const refs = {
-  shoppingListEl: document.querySelector('.sh-list-container'),
+  shoppingListEl: document.querySelector('.shopping-list'),
   shoppingListLink: document.querySelector('.header-sh-list-link'),
   emptyShoppinglistEl: document.querySelector('.empty-sh-list'),
 };
