@@ -19,11 +19,17 @@ const shoppingListArray = JSON.parse(localStorage.getItem(STORAGE_KEY)) ?? [];
 
 let defaultImg;
 
+import sprite from '../images/sprite.svg';
+
 function onDefaultImg(bookImg){
   if (bookImg) {
     defaultImg = `<img class="img-modal" src="${bookImg}" />`;
   } else {
-    defaultImg = `<img class="img-modal" src="sprite.svg#default-book" />`;
+    defaultImg = `<div class="img-modal">
+      <svg class="default-book-pop-up" >
+      <use href="${sprite}#default-book"></use>
+    </svg>
+    </div>`;
   }
   return defaultImg
 }
@@ -31,7 +37,7 @@ function onDefaultImg(bookImg){
 function renderModal(book) {
   const { book_image, title, author, description, buy_links, _id } = book;
 
-  onDefaultImg(book_image)
+  onDefaultImg(book_image);
 
   return `
   <div class="modal-content-container" value="${_id}">
