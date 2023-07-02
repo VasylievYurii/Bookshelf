@@ -1,7 +1,7 @@
 import { useBooksApi } from '../services/booksApi';
 import { getTopBooksByCategories } from "./top-books";
-import { createCategoriesMarkup } from './top-books';
-import { renderBooks } from './renderBooksByCategories';
+// import { createCategoriesMarkup } from './top-books';
+// import { renderBooks } from './renderBooksByCategories';
 import { getCategoryElements } from './categories';
 const booksApi = useBooksApi();
 
@@ -19,7 +19,8 @@ const handleOnPress = (e) => {
     });
 };
 const categoryListEl = document.querySelector('.category-list');
-
+const categoryAll = document.querySelector('.category-link');
+const categoryLinksElements = document.querySelectorAll('.category-link');
 
 const parseCategoryList = (list) => {
   const uniqueCategories = [...new Set(list.map(({ list_name }) => list_name))].sort();
@@ -31,5 +32,18 @@ const parseCategoryList = (list) => {
   categoryListEl.insertAdjacentHTML('beforeend', categoryList);
   getCategoryElements()
 };
+function getCategoryElements() {
 
+  categoryLinksElements.forEach((link) => {
+    link.addEventListener('click', (evt) => {
+      evt.preventDefault();
+      categoryLinksElements.forEach((el) => el.classList.remove('active'));
+      link.classList.add('active');
+    })
+  });
+}
+categoryAll.addEventListener('click', () => {
+  getTopBooksByCategories();
+
+})
 handleOnPress();
