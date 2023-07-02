@@ -25,7 +25,7 @@ function onDefaultImg(bookImg){
   if (bookImg) {
     defaultImg = `<img class="img-modal" src="${bookImg}" />`;
   } else {
-    defaultImg = `<div class="img-modal">
+    defaultImg = `<div class="img-modal" style="background-color: #f0f0f0;">
       <svg class="default-book-pop-up" >
       <use href="${sprite}#default-book"></use>
     </svg>
