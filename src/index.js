@@ -1,5 +1,6 @@
 // import switcher from './switcher';
 import './js/themes';
+import './js/menu';
 import './js/top-books';
 import './js/fetch-categories';
 import './js/fireBaseFnunctions.js';
