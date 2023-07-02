@@ -5,7 +5,10 @@
     overflow-y: scroll;
     margin-bottom: 40px;
     
+<<<<<<< Updated upstream
     
+=======
+>>>>>>> Stashed changes
 
 }
 .category-container::-webkit-scrollbar {
@@ -52,9 +55,12 @@ letter-spacing: 0.02em;
 .category-list{
     width: 309px;
     gap: 32px;
+<<<<<<< Updated upstream
 }
 .category-container::-webkit-scrollbar-thumb{
     height: 168px;
+=======
+>>>>>>> Stashed changes
 }
 .category-container {
             
@@ -83,3 +89,12 @@ letter-spacing: 0.02em;
     
     }
 }              
+<<<<<<< Updated upstream
+=======
+// @media (-webkit-min-device-pixel-ratio: 1),
+// (min-resolution: 192dpi){
+//     .category-container::-webkit-scrollbar-thumb {
+//             height: 167px;
+//         }
+// }
+>>>>>>> Stashed changes
