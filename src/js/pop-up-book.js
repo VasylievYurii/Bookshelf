@@ -143,7 +143,7 @@ function removeFromLocalStorage() {
   }
 }
 
-closeModalEl.addEventListener('click', onMouseClose);
+closeModalEl.addEventListener('click', onModalClose);
 backdropEl.addEventListener('click', onMouseClose);
 
 function onModalClose() {
