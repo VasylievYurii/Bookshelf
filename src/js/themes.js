@@ -1,6 +1,6 @@
-// export { setTheme, activateThemeSwitch };
+export { setTheme, activateThemeSwitch };
 const storedTheme = 'isDark'
-const switchClass = '//class themes//';
+const switchClass = 'js-theme-switch';
 
 const checkboxBtn = document.querySelector(`.${switchClass}`);
 
@@ -13,6 +13,17 @@ function setTheme(themeBody) {
     } else {
       themeBody.setAttribute('data-page-theme', 'light');
       checkboxBtn.checked = false;
+    }
+  }
+
+  function changeTheme(themeBody) {
+    if (checkboxBtn.checked) {
+      localStorage.setItem(storedTheme, 'true');
+      setTheme(themeBody, checkboxBtn);
+    }
+    if (!checkboxBtn.checked) {
+      localStorage.removeItem(storedTheme);
+      setTheme(themeBody, checkboxBtn);
     }
   }
 

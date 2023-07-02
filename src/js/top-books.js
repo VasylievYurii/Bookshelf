@@ -1,5 +1,5 @@
 import { useBooksApi } from '../services/booksApi';
-import { addEventListenerOnTopBooks } from './pop-up-book';
+import {insertModalBook, onModalOpen} from './pop-up-book'
 
 const booksApi = useBooksApi();
 const categoryContainerRef = document.querySelector('.section-categories-list');
@@ -7,7 +7,7 @@ const categoryContainerRef = document.querySelector('.section-categories-list');
 async function createCategoriesMarkup(category) {
   try {
     const categoryMarkup = await Promise.all(
-      category.map(async ({ list_name, books }) => {
+      category.map(async ({ books }) => {
         const bookMarkup = await Promise.all(
           books.map(
             async ({ book_image, title, author, _id }) => `
@@ -28,13 +28,9 @@ async function createCategoriesMarkup(category) {
         );
 
         return `
-          <li class=''>
-            <h3 class=''>${list_name}</h3>
-            <ul class='topBookslist list'>
+        
               ${bookMarkup.join('\n')}
-            </ul>
-            <button type='button' class='btn'>See more</button>
-          </li>
+          
         `;
       })
     );
@@ -51,8 +47,20 @@ const getTopBooksByCategories = async () => {
     const res = await booksApi.getTopBooks();
     const markup = await createCategoriesMarkup(res);
     categoryContainerRef.innerHTML = markup;
-    addEventListenerOnTopBooks();
-  } catch (error) {
+    categoryContainerRef.addEventListener('click', onBookSelect);
+    function onBookSelect(evt) {
+      const bookItem = evt.target.closest('.book-item');
+          if (!bookItem) {
+            return
+          }
+          const bookId = bookItem.getAttribute('value');
+      booksApi
+        .getBookById(bookId)
+        .then(insertModalBook)
+        .catch(error => console.log(error));
+      onModalOpen();
+    }
+      } catch (error) {
     console.log(error);
   }
 };
