@@ -2,6 +2,7 @@ import { throttle } from 'lodash.throttle';
 import { useBooksApi } from '../services/booksApi';
 import { makeMarkupForBooks } from './render-books-by-category';
 import { insertModalBook, onModalOpen } from './pop-up-book';
+import { openLoader, closeLoader } from './loader/loader';
 
 const booksApi = useBooksApi();
 
@@ -48,12 +49,14 @@ async function parceCategoriesBlocks() {
       if (!bookItem) {
         return;
       }
+      openLoader();
       const bookId = bookItem.getAttribute('data-value');
       booksApi
         .getBookById(bookId)
         .then(insertModalBook)
-        .catch(error => console.log(error));
-      throttle(onModalOpen(), 300);
+        .catch(error => console.log(error))
+        .finally(closeLoader());
+      console.log('throttle', throttle(onModalOpen(), 300));
     }
   } catch (err) {
     console.log(err);

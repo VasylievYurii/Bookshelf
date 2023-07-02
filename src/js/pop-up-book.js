@@ -21,7 +21,7 @@ let defaultImg;
 
 import sprite from '../images/sprite.svg';
 
-function onDefaultImg(bookImg){
+function onDefaultImg(bookImg) {
   if (bookImg) {
     defaultImg = `<img class="img-modal" src="${bookImg}" />`;
   } else {
@@ -31,7 +31,7 @@ function onDefaultImg(bookImg){
     </svg>
     </div>`;
   }
-  return defaultImg
+  return defaultImg;
 }
 
 function renderModal(book) {
