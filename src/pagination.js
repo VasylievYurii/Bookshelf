@@ -6,16 +6,15 @@ if (container.children.length === 0) {
     return;
 } else {
 
-    if (container.style.width >= '704px') {
-        options.itemsPerPage = 3;
-    } else {
+    if (window.matchMedia("(max-width: 768px)").matches) {
         options.itemsPerPage = 4;
+    } else {
+        options.itemsPerPage = 3;
     }
 
 
 
     const options = {
-        itemsPerPage: 4,
         visiblePages: 2,
         page: 1,
         centerAlign: false,
