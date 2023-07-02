@@ -7,41 +7,17 @@ import bookShop from '../images/stores/book-shop.png';
 import bookShop2x from '../images/stores/book-shop@2x.png';
 
 const STORAGE_KEY = 'shopping-list';
-const modalContainerEl = document.querySelector('.container-popup');
+
+const modalContainerEl = document.querySelector('.container-popup-for-book');
 const btnAddEl = document.querySelector('button[data-action="add"]');
 const btnRemoveEl = document.querySelector('button[data-action="remove"]');
 const successTextEl = document.querySelector('.modal-congrats-text');
-
-let bookID = '';
-const booksApi = useBooksApi();
-let bookForShoppingList = {};
 const closeModalEl = document.querySelector('.close-modal');
 const backdropEl = document.querySelector('.backdrop-modal');
 
 const shoppingListArray = JSON.parse(localStorage.getItem(STORAGE_KEY)) ?? [];
 
-export function addEventListenerOnTopBooks() {
-  const bookItemEl = document.querySelector('.book-item');
-  bookItemEl.addEventListener('click', onBookSelect);
-}
-
-function onBookSelect(event) {
-  event.preventDefault();
-  console.log('object :>> ', event.currentTarget);
-  bookID = event.currentTarget;
-  const value = bookID.getAttribute('value');
-  console.log('value', value);
-
-  // let bookID = '643282b2e85766588626a0f2';
-  booksApi
-    .getBookById(value)
-    .then(insertModalBook)
-    .catch(error => console.log(error));
-  onModalOpen();
-}
-
 function renderModal(book) {
-  bookForShoppingList = book;
   const { book_image, title, author, description, buy_links, _id } = book;
 
   return `
@@ -91,7 +67,7 @@ function renderModal(book) {
     `;
 }
 
-function insertModalBook(item) {
+export function insertModalBook(item) {
   modalContainerEl.insertAdjacentHTML('afterbegin', renderModal(item));
 }
 
@@ -144,9 +120,10 @@ backdropEl.addEventListener('click', onModalClose);
 function onModalClose(e) {
   if (e.target === e.currentTarget) {
     backdropEl.classList.add('is-hidden');
+    modalContainerEl.innerHTML = '';
   }
 }
 
-function onModalOpen() {
+export function onModalOpen() {
   backdropEl.classList.remove('is-hidden');
 }
