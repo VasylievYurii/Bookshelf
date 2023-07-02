@@ -1,6 +1,48 @@
 .footer {
-    padding-top: 32px;
-    padding-bottom: 16px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 15;
+    
+    display: flex;
+    flex-direction: column;
+    width: 335px;
+    max-height: 806px;
+    padding: 40px 24px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: var(--color-white-theme);
+    border: 2px solid var(--color-dark-theme);
+    border-radius: 18px;
+}
+
+.backdrop-modal-footer{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    overflow: auto;
+
+    z-index: 10;
+
+    background-color: rgba(17, 17, 17, 0.4);
+
+    opacity: 1;
+    scale: 1;
+    visibility: visible;
+
+    transition: opacity 250ms linear, scale 250ms linear, visibility 250ms linear;
+}
+
+.backdrop-modal-footer.is-hidden-footer {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+    scale: 0.9;
+    pointer-events: none;
 }
 
 .footer-head{
@@ -14,7 +56,7 @@
 }
 
 .contact-list {
-    width: 335px;
+    width: 248px;
     height: 84px;
     display: flex;
     flex-direction: column;
@@ -42,6 +84,35 @@
     line-height: 14px;
     letter-spacing: -0.48px;
     text-decoration: none;
+}
+
+.footer-btn{
+    position: fixed;
+    border: none;
+}
+
+#settings{
+    display: block;
+    width: 24px;
+    height: 24px;
+    fill: var(--color-button);
+}
+
+.footer-btn#settings:hover, .footer-btn#settings:focus {
+    animation-name: spin;
+    animation-duration: 7s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 @media screen and (min-width: 768px) {

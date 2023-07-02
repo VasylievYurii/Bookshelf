@@ -29,10 +29,13 @@ h6 {
 ul {
   margin: 0;
   padding-left: 0;
+  list-style: none;
 }
 
 img {
   display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 li {
@@ -40,7 +43,16 @@ li {
 }
 
 a {
+  color: currentColor;
   text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {

@@ -1,3 +1,4 @@
+import Notiflix from 'notiflix';
 import { useBooksApi } from '../services/booksApi';
 import amazon from '../images/stores/amazon.png';
 import amazon2x from '../images/stores/amazon@2x.png';
@@ -19,19 +20,25 @@ const shoppingListArray = JSON.parse(localStorage.getItem(STORAGE_KEY)) ?? [];
 
 let defaultImg;
 
-function onDefaultImg(bookImg){
+import sprite from '../images/sprite.svg';
+
+function onDefaultImg(bookImg) {
   if (bookImg) {
     defaultImg = `<img class="img-modal" src="${bookImg}" />`;
   } else {
-    defaultImg = `<img class="img-modal" src="sprite.svg#default-book" />`;
+    defaultImg = `<div class="img-modal" style="background-color: #f0f0f0;">
+      <svg class="default-book-pop-up" >
+      <use href="${sprite}#default-book"></use>
+    </svg>
+    </div>`;
   }
-  return defaultImg
+  return defaultImg;
 }
 
 function renderModal(book) {
   const { book_image, title, author, description, buy_links, _id } = book;
 
-  onDefaultImg(book_image)
+  onDefaultImg(book_image);
 
   return `
   <div class="modal-content-container" value="${_id}">
@@ -101,6 +108,13 @@ function makeRemoveBtnVisible() {
 }
 
 function addToLocalStorage() {
+  console.log('book', bookForShoppingList._id);
+  if (shoppingListArray.find(item => item._id === bookForShoppingList._id)) {
+    Notiflix.Notify.failure(
+      `Sorry, you've already added this book. Choose the other one please.`
+    );
+    return;
+  }
   shoppingListArray.push(bookForShoppingList);
   localStorage.setItem(STORAGE_KEY, JSON.stringify(shoppingListArray));
 }
@@ -129,7 +143,7 @@ function removeFromLocalStorage() {
   }
 }
 
-closeModalEl.addEventListener('click', onMouseClose);
+closeModalEl.addEventListener('click', onModalClose);
 backdropEl.addEventListener('click', onMouseClose);
 
 function onModalClose() {

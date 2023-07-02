@@ -14,27 +14,15 @@ export const composeSignModal = (theme, mode) => {
           </svg>
         </button>
         <form class="form-auth">
-          <input 
-          class="input-auth" 
-          type="text" 
-          name="name" 
-          placeholder="Name" 
-          pattern="^[a-zA-Zа-яА-Я ]{3,16}$"
-          title="Name may contain only letters and spaces, 3-16 symbols"
-          required />
+          <input class="input-auth" type="text" name="name" placeholder="Name" />
           <label class="label-auth">
-            <input 
-            class="input-auth" 
-            type="email" 
-            name="email" 
-            placeholder="Email" 
-            required/>
+            <input class="input-auth" type="email" name="email" placeholder="Email" />
             <svg class="icon">
               <use href="${sprite}#mail"></use>
             </svg>
           </label>
           <label class="label-auth">
-            <input class="input-auth" type="password" name="password" placeholder="Password" minlength="6" required/>
+            <input class="input-auth" type="password" name="password" placeholder="Password" />
             <svg class="icon">
               <use href="${sprite}#lock"></use>
             </svg>
@@ -58,24 +46,13 @@ export const composeSignModal = (theme, mode) => {
         </button>
         <form class="form-auth">
           <label class="label-auth">
-            <input 
-            class="input-auth" 
-            type="email" 
-            name="email" 
-            placeholder="Email" 
-            required/>
+            <input class="input-auth" type="email" name="email" placeholder="Email" />
             <svg class="icon">
               <use href="${sprite}#mail"></use>
             </svg>
           </label>
           <label class="label-auth">
-            <input 
-            class="input-auth" 
-            type="password" 
-            name="password" 
-            placeholder="Password" 
-            minlength="6" 
-            required/>
+            <input class="input-auth" type="password" name="password" placeholder="Password" />
             <svg class="icon">
               <use href="${sprite}#lock"></use>
             </svg>
@@ -93,3 +70,23 @@ export const composeSignModal = (theme, mode) => {
   return signUpMarkup;
 };
 
+// An example of use:
+// ---------------------
+
+// const handleOpenSingUpModal = (e) => {
+//   e.preventDefault();
+
+//   const modalRootRef = document.querySelector(".auth-modal-root");
+//   modalRootRef.innerHTML = drawSignupModal("light");
+
+//   const closeModalRef = document.querySelector(".close-auth");
+//   closeModalRef.addEventListener('click', handleCloseAuthModal)
+// }
+
+// const handleCloseAuthModal = () => {
+//   const modalRootRef = document.querySelector(".auth-modal-root");
+//   modalRootRef.innerHTML = '';
+// }
+
+// const modalAuthButtonRef = document.querySelector(".modal-auth-button");
+// modalAuthButtonRef.addEventListener("click", handleOpenSingUpModal);
