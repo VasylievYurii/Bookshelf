@@ -9,8 +9,8 @@
 .thumb {
   position: relative;
   margin-bottom: 14px;
-  height: 485px;
-  min-width: 320px;
+  // height: 485px;
+  // min-width: 320px;
   border-radius: 8px;
   overflow: hidden;
 }
@@ -24,7 +24,7 @@
   margin-bottom: 4px;
   font-size: 16px;
   line-height: 1.125;
-  color: var(--color-dark-theme);
+  color: var(--text-main);
   letter-spacing: -0.64px;
   text-transform: uppercase;
 }
@@ -55,7 +55,7 @@
 }
 
 .overlay-text {
-  color: #111;
+  color: var(--text-main);
   font-size: 30px;
   font-weight: 500;
   line-height: 1.28;

@@ -52,6 +52,7 @@ async function parceCategoriesBlocks() {
 }
 
 
+
 // Функцию нужно доработать, почему-то не отрабатывает как надо. Пока не смог разобраться.
 
 function onButtonClick(evt) {
@@ -63,4 +64,7 @@ function onButtonClick(evt) {
   renderBooksByCategory(category);
 }
 
+parceCategoriesBlocks();
+
+export {parceCategoriesBlocks};
 

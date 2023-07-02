@@ -5,8 +5,12 @@ import { composeSignModal } from './authModal';
 import { composeAuthButton } from '../button-auth/authButton';
 
 import { useUserAuth } from '../firebase/authApi';
+import { useFireStore } from '../firebase/firestoreApi';
+import { useFireUserAuthChanges } from './authChangesSubscriber';
 
+const { fireLoggedIn, fireLoggedOut } = useFireUserAuthChanges();
 const { login, logout, register, auth } = useUserAuth();
+const { putCartToFirebase } = useFireStore();
 
 const modalAuthRootRef = document.querySelector('.auth-modal-root');
 const menuAuthRootRef = document.querySelector('.auth-menu-root');
@@ -19,11 +23,13 @@ onAuthStateChanged(auth, user => {
   if (!user) {
     initAuth();
     localStorage.removeItem('signeduser');
+    fireLoggedOut();
     return;
   }
   localStorage.setItem('signeduser', user.uid);
   menuAuthRootRef.innerHTML = composeAuthButton(user);
   bindButtonEvents(onLogOut);
+  fireLoggedIn()
 });
 
 const bindButtonEvents = cb => {
@@ -90,7 +96,10 @@ const onSignUpSubmit = e => {
   const password = e.target.elements.password.value;
   const displayName = e.target.elements.name.value;
   register({ username, password, displayName })
-    .then(() => {
+    .then(user => {
+      putCartToFirebase([]);
+      menuAuthRootRef.innerHTML = composeAuthButton(user);
+      bindButtonEvents(onLogOut);
       onModalClose();
     })
     .catch(err => {

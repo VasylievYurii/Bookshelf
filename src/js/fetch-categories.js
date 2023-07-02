@@ -1,5 +1,8 @@
 import { useBooksApi } from '../services/booksApi';
-
+import { parceCategoriesBlocks } from './top-books';
+// import { createCategoriesMarkup } from './top-books';
+// import { renderBooks } from './renderBooksByCategories';
+// import { getCategoryElements } from './categories';
 const booksApi = useBooksApi();
 
 const handleOnPress = (e) => {
@@ -16,19 +19,20 @@ const handleOnPress = (e) => {
     });
 };
 const categoryListEl = document.querySelector('.category-list');
-
+const categoryAll = document.querySelector('.category-link');
+const categoryLinksElements = document.querySelectorAll('.category-link');
 
 const parseCategoryList = (list) => {
   const uniqueCategories = [...new Set(list.map(({ list_name }) => list_name))].sort();
-
   const categoryList = uniqueCategories.map((category) => {
-    return `<li class="category-item list"><a class="category-link link" href="">${category}</a></li>`
+    if (category !== null && category !== undefined) {
+      return `<li class="category-item list"><a class="category-link link" href="">${category}</a></li>`
+    }
   }).join('');
-
   categoryListEl.insertAdjacentHTML('beforeend', categoryList);
-
-
-  const categoryLinksElements = document.querySelectorAll('.category-link');
+  getCategoryElements()
+};
+function getCategoryElements() {
 
   categoryLinksElements.forEach((link) => {
     link.addEventListener('click', (evt) => {
@@ -37,5 +41,10 @@ const parseCategoryList = (list) => {
       link.classList.add('active');
     })
   });
-};
+}
+
+categoryAll.addEventListener('click', () => {
+  parceCategoriesBlocks();
+
+})
 handleOnPress();

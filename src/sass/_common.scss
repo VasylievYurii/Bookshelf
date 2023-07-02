@@ -1,11 +1,29 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
 
 :root {
-  --color-body-white-theme: #f6f6f6;
-  --color-white-theme: #fff;
+  --body:#F6F6F6;
+  --header:#fff;
+  --sidebar-categories:rgba(17, 17, 17, 0.60);
+  --sidebar-categories-current:#4f2ee8;
+  --text-main:#111;
+  --scroll:#E0E0E0;
+
+
+// --scroll:rgba(17, 17, 17, 0.60);
+// --body:#202024;
+// --header:#111;
+// --sidebar-categories:rgba(255, 255, 255, 0.60);
+// --sidebar-categories-current:#eac645;
+// --text-main:#fff;
+
+  // --color-body-white-theme: #f6f6f6;
+  // --color-white-theme: #fff;
+ 
+  // --color-dark-theme: #111;
   --color-lite-dark-theme: #202024;
-  --color-dark-theme: #111;
-  --color-button: #4f2ee8;
+  --text-second:#b4afaf;
+
+  --color-accent: #4f2ee8;
   --color-links: #eac645;
 
   --color-gradient: radial-gradient(
@@ -29,10 +47,13 @@ h6 {
 ul {
   margin: 0;
   padding-left: 0;
+  list-style: none;
 }
 
 img {
   display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 li {
@@ -40,14 +61,23 @@ li {
 }
 
 a {
+  color: currentColor;
   text-decoration: none;
 }
 
+button {
+  cursor: pointer;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  color: var(--color-dark-theme);
+  color: var(--text-main);
   font-family: 'DM Sans', 'Montserrat', 'Roboto', 'Open Sans', 'Raleway',
     'Arial', sans-serif;
-  background-color: var(--color-body-white-theme);
+  background-color: var(--body);
   font-weight: 700;
 }
 
@@ -93,19 +123,28 @@ body {
   margin: -1px;
 }
 
-
-[data-page-theme="light"] {
-  --color-body-white-theme: #f6f6f6;
-  --color-white-theme: #fff;
-  --header-background-color: #fff;
-  --color-link-title: #111;
-  
+[data-page-theme='light'] {
+  --body:#F6F6F6;
+  --header:#fff;
+  --sidebar-categories:rgba(17, 17, 17, 0.60);
+  --sidebar-categories-current:#4f2ee8;
+  --text-main:#111;
+  --scroll:#E0E0E0;
+  // --color-body-white-theme: #f6f6f6;
+  // --color-white-theme: #fff;
+  // --header-background-color: #fff;
+  // --color-link-title: #111;
 }
 
-
-[data-page-theme="dark"] {
-  --color-body-white-theme: #202024;
-  --color-white-theme: #202024;
-  --header-background-color: #111;
-  --color-link-title: #fff;
+[data-page-theme='dark'] {
+  --scroll:rgba(17, 17, 17, 0.60);
+--body:#202024;
+--header:#111;
+--sidebar-categories:rgba(255, 255, 255, 0.60);
+--sidebar-categories-current:#eac645;
+--text-main:#fff;
+  // --color-body-white-theme: #202024;
+  // --color-white-theme: #202024;
+  // --header-background-color: #111;
+  // --color-link-title: #fff;
 }

@@ -15,6 +15,8 @@
   scale: 1;
   visibility: visible;
 
+  filter: blur(0);
+
   transition: opacity 250ms linear, scale 250ms linear, visibility 250ms linear;
 }
 
@@ -23,6 +25,7 @@
   visibility: hidden;
   scale: 0.9;
   pointer-events: none;
+  filter: blur(20px);
 }
 
 .container-popup {
@@ -39,8 +42,8 @@
   padding: 40px 24px;
   margin-left: auto;
   margin-right: auto;
-  background-color: var(--color-white-theme);
-  border: 2px solid var(--color-dark-theme);
+  background-color: var(--header);
+  border: 2px solid var(--text-main);
   border-radius: 18px;
 }
 
@@ -52,10 +55,10 @@
   font-weight: 700;
   letter-spacing: -0.14px;
   line-height: 1.28;
-  color: var(--color-dark-theme);
-  background-color: var(--color-white-theme);
+  color: var(--text-main);
+  background-color: var(--header);
   border-radius: 40px;
-  border: 2px solid var(--color-button);
+  border: 2px solid var(--color-accent);
 }
 
 .btn-add {
@@ -81,16 +84,40 @@
   margin: -1px;
 }
 
+.btn-close-modal {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+}
+
 .close-modal {
   position: absolute;
   top: 12px;
   right: 12px;
+  background-color: transparent;
+  stroke: var(--text-main);
+  border: none;
+}
 
-  stroke: var(--color-dark-theme);
+.close-cross {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .close-modal:is(:hover, :focus) {
-  stroke: var(--color-button);
+  stroke: var(--color-accent);
+}
+
+.btn-add:is(:hover, :focus) {
+  background-color: var(--color-accent);
+  color: var(--color-white-theme);
+}
+
+.btn-remove:is(:hover, :focus) {
+  background-color: var(--color-accent);
+  color: var(--color-white-theme);
 }
 
 .img-container-pop-up {
@@ -114,7 +141,7 @@
 
 .book-author {
   margin-bottom: 18px;
-  color: #b4afaf;
+  color: var(--text-second);
   font-size: 12px;
   font-weight: 400;
   font-style: italic;
@@ -146,14 +173,24 @@
 .book-modal {
   filter: saturate(0%);
 }
+.amazon-logo:is(:hover, :focus) {
+  filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.2)) saturate(0);
+}
 
+.apple-book-logo:is(:hover, :focus) {
+  filter: saturate(0%) drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.book-shop-logo:is(:hover, :focus) {
+  filter: saturate(0%) drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.2));
+}
 .modal-congrats-text {
   margin-left: auto;
   margin-right: auto;
   margin-top: 4px;
   width: 242px;
   height: 36px;
-  color: rgba(17, 17, 17, 0.5);
+  color: var(--sidebar-categories);
   text-align: center;
   font-size: 10px;
   font-weight: 400;
@@ -178,8 +215,8 @@
 
 .js-dark-mode {
   background-color: var(--color-lite-dark-theme);
-  stroke: var(--color-white-theme);
-  color: var(--color-white-theme);
+  stroke: var(--header);
+  color: var(--header);
 }
 
 .js-dark-mode-amazon {
@@ -187,17 +224,17 @@
 }
 
 .js-dark-mode-congrats {
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--sidebar-categories);
 }
 
-.default-book-pop-up{
+.default-book-pop-up {
   position: absolute;
-  top:50%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 60px;
   height: 64px;
-fill: var(--color-button);
+  fill: var(--color-button);
 }
 
 @media screen and (min-width: 768px) {
