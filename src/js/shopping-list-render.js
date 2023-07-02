@@ -5,6 +5,7 @@ import bookStore from '../images/stores/book.png';
 import bookStore2x from '../images/stores/book@2x.png';
 import bookShop from '../images/stores/book-shop.png';
 import bookShop2x from '../images/stores/book-shop@2x.png';
+import sprite from '../images/sprite.svg';
 import { Notify } from 'notiflix';
 
 const optionsNotiflix = {
@@ -23,6 +24,18 @@ const refs = {
 
 const STORAGE_KEY = 'shopping-list';
 const shoppingListArray = JSON.parse(localStorage.getItem(STORAGE_KEY)) ?? [];
+
+let defaultDescription;
+
+function onDefaultDescription(description) {
+  if (description === '') {
+    defaultDescription = `<p class="sh-book-description">Unfortunately, 
+      there is no description for this book</p>`;
+  } else {
+    defaultDescription = `<p class="sh-book-description">${description}</p>`;
+  }
+  return defaultDescription;
+}
 
 function renderShoppingList(localBooksArray) {
   if (!localBooksArray.length) {
@@ -48,9 +61,11 @@ function markupShoppingList(books) {
         author,
         buy_links,
       }) => {
+        onDefaultDescription(description);
+
         return `
       <li id="${_id}" class="shopping-list-item">
-          <img class="sh-book-img" src="${book_image}" alt="" width="330" height="485"></img>
+          <img class="sh-book-img" src="${book_image}" alt="Boook image"></img>
           <div class="sh-wrap">
               <div class="sh-book-info-wrap">
                <button class="sh-list-delete-btn" type="button">
@@ -61,7 +76,7 @@ function markupShoppingList(books) {
                   </button>
                 <h2 class="sh-book-title">${title}</h2>
                 <p class="sh-book-category">${list_name}</p>
-                <p class="sh-book-description">${description}</p>
+                <p class="sh-book-description">${defaultDescription}</p>
              </div>
              <div class="sh-book-info-link-wrap">
          <p class="sh-book-author">${author}</p>
@@ -93,8 +108,6 @@ function markupShoppingList(books) {
                       </ul>
       </div>
           </div>
-    
-      
               </li>
            `;
       }

@@ -154,6 +154,12 @@
     height: 241px;
   }
 
+  .sh-book-img {
+    margin-right: 24px;
+    width: 116px;
+    height: 165px;
+  }
+
   .sh-list-delete-btn {
     position: absolute;
     top: 0;
@@ -181,6 +187,7 @@
     gap: 14px;
     display: flex;
     justify-content: space-between;
+    width: 100%;
   }
 
   .sh-book-category {
