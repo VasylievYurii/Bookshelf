@@ -80,7 +80,10 @@ function renderModal(book) {
     `;
 }
 
+let bookForShoppingList = {};
+
 export function insertModalBook(item) {
+  bookForShoppingList = item;
   modalContainerEl.insertAdjacentHTML('afterbegin', renderModal(item));
 }
 
