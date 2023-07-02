@@ -6,7 +6,9 @@ import { composeAuthButton } from '../button-auth/authButton';
 
 import { useUserAuth } from '../firebase/authApi';
 import { useFireStore } from '../firebase/firestoreApi';
+import { useFireUserAuthChanges } from './authChangesSubscriber';
 
+const { fireLoggedIn, fireLoggedOut } = useFireUserAuthChanges();
 const { login, logout, register, auth } = useUserAuth();
 const { putCartToFirebase } = useFireStore();
 
@@ -21,11 +23,13 @@ onAuthStateChanged(auth, user => {
   if (!user) {
     initAuth();
     localStorage.removeItem('signeduser');
+    fireLoggedOut();
     return;
   }
   localStorage.setItem('signeduser', user.uid);
   menuAuthRootRef.innerHTML = composeAuthButton(user);
   bindButtonEvents(onLogOut);
+  fireLoggedIn()
 });
 
 const bindButtonEvents = cb => {
