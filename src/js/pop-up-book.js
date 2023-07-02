@@ -110,7 +110,6 @@ function onRemoveBtnClick() {
 }
 
 function makeAddBtnVisible() {
-  console.log('click');
   btnRemoveEl.classList.add('visually-hidden');
   successTextEl.classList.add('visually-hidden');
   btnAddEl.classList.remove('visually-hidden');
@@ -127,17 +126,29 @@ function removeFromLocalStorage() {
   }
 }
 
-closeModalEl.addEventListener('click', onModalClose);
-backdropEl.addEventListener('click', onModalClose);
+closeModalEl.addEventListener('click', onMouseClose);
+backdropEl.addEventListener('click', onMouseClose);
 
-function onModalClose(e) {
+function onModalClose() {
+  backdropEl.classList.add('is-hidden');
+  makeAddBtnVisible();
+  modalContainerEl.innerHTML = '';
+  window.removeEventListener('keydown', onEscPress);
+}
+
+function onMouseClose(e) {
   if (e.target === e.currentTarget) {
-    backdropEl.classList.add('is-hidden');
-    modalContainerEl.innerHTML = '';
-    makeAddBtnVisible();
+    onModalClose();
+  }
+}
+
+function onEscPress(e) {
+  if (e.key === 'Escape') {
+    onModalClose();
   }
 }
 
 export function onModalOpen() {
+  window.addEventListener('keydown', onEscPress);
   backdropEl.classList.remove('is-hidden');
 }
