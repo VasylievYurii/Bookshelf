@@ -7,10 +7,10 @@
   letter-spacing: -1.28px;
 }
 .shopping-title {
-  color: var(--color-dark-theme);
+  color: var(--text-main);
 }
 .title-span {
-  color: var(--color-button);
+  color: var(--color-accent);
 }
 
 .empty-sh-list {
@@ -39,12 +39,12 @@
   padding: 14px;
   border-radius: 16px;
   border: 2px solid rgba(79, 46, 232, 0.4);
-  background-color: var(--color-white-theme);
+  background-color: var(--header);
 }
 
 .sh-book-title {
   margin-bottom: 4px;
-  color: var(--color-dark-theme);
+  color: var(--text-main);
   font-size: 16px;
   font-weight: 700;
   line-height: 1.13;
@@ -52,21 +52,21 @@
 }
 .sh-book-category {
   margin-bottom: 8px;
-  color: #b4afaf;
+  color: var(--text-second);
   font-size: 12px;
   font-weight: 400;
   line-height: 1.17;
   letter-spacing: 0.36px;
 }
 .sh-book-description {
-  color: var(--color-dark-theme);
+  color: var(--text-main);
   font-size: 14px;
   font-weight: 400;
   line-height: 1.23;
   letter-spacing: -0.56px;
 }
 .sh-book-author {
-  color: #b4afaf;
+  color: var(--text-second);
   font-size: 12px;
   font-style: italic;
   font-weight: 400;
@@ -123,7 +123,7 @@
   justify-content: center;
   padding: 0;
 
-  background-color: var(--color-button);
+  background-color: var(--color-accent);
   border-radius: 50%;
   border: none;
   cursor: pointer;

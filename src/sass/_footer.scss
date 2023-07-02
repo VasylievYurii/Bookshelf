@@ -12,8 +12,8 @@
     padding: 40px 24px;
     margin-left: auto;
     margin-right: auto;
-    background-color: var(--color-white-theme);
-    border: 2px solid var(--color-dark-theme);
+    background-color: var(--header);
+    border: 2px solid var(--text-main);
     border-radius: 18px;
 }
 
@@ -28,7 +28,7 @@
 
     z-index: 10;
 
-    background-color: rgba(17, 17, 17, 0.4);
+    background-color: var(--sidebar-categories);
 
     opacity: 1;
     scale: 1;
@@ -46,7 +46,7 @@
 }
 
 .footer-head{
-    color: #000;
+    color: var(--text-main);
     font-size: 40px;
     font-family: DM Sans;
     font-style: normal;
@@ -75,7 +75,7 @@
     font-weight: 400;
     line-height: 14px;
     letter-spacing: -0.48px;
-    color: var(--color-dark-theme);
+    color: var(--text-main);
 }
 
 .contact-link{
@@ -95,7 +95,7 @@
     display: block;
     width: 24px;
     height: 24px;
-    fill: var(--color-button);
+    fill: var(--color-accent);
 }
 
 .footer-btn#settings:hover, .footer-btn#settings:focus {
