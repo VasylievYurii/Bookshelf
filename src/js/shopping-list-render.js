@@ -26,6 +26,7 @@ const STORAGE_KEY = 'shopping-list';
 const shoppingListArray = JSON.parse(localStorage.getItem(STORAGE_KEY)) ?? [];
 
 let defaultDescription;
+let defaultBookImage;
 
 function onDefaultDescription(description) {
   if (description === '') {
@@ -35,6 +36,19 @@ function onDefaultDescription(description) {
     defaultDescription = `<p class="sh-book-description">${description}</p>`;
   }
   return defaultDescription;
+}
+
+function onDefaultDescription(bookImage) {
+  if (book_image) {
+    defaultBookImage = `<img class="sh-book-img" src="${book_image}" alt="Boook image"></img>`;
+  } else {
+    defaultBookImage = `<div class="sh-default-img" style="background-color: #f0f0f0;">
+      <svg class="sh-default-svg" >
+      <use href="${sprite}#default-book"></use>
+    </svg>
+    </div>`;
+  }
+  return defaultBookImage;
 }
 
 function renderShoppingList(localBooksArray) {
