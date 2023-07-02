@@ -7,4 +7,5 @@ import './js/support';
 import './js/render-books-by-category';
 import './js/auth/modal-auth/eventsProcessor';
 import './js/pop-up-book';
+import './js/scroll-up';
 import './js/footer';
