@@ -121,6 +121,7 @@ function onModalClose(e) {
   if (e.target === e.currentTarget) {
     backdropEl.classList.add('is-hidden');
     modalContainerEl.innerHTML = '';
+    makeAddBtnVisible();
   }
 }
 
