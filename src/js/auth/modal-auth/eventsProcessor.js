@@ -90,7 +90,9 @@ const onSignUpSubmit = e => {
   const password = e.target.elements.password.value;
   const displayName = e.target.elements.name.value;
   register({ username, password, displayName })
-    .then(() => {
+    .then(user => {
+      menuAuthRootRef.innerHTML = composeAuthButton(user);
+      bindButtonEvents(onLogOut);
       onModalClose();
     })
     .catch(err => {

@@ -38,6 +38,8 @@
     border: none;
 
     cursor: pointer;
+    white-space: nowrap;
+ 
 
 }
 
