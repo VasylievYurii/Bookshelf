@@ -5,10 +5,12 @@
     overflow-y: scroll;
     margin-bottom: 40px;
     
+    
 
 }
 .category-container::-webkit-scrollbar {
     width: 8px;
+    
     
 }
 .category-container::-webkit-scrollbar-thumb {
@@ -51,6 +53,9 @@ letter-spacing: 0.02em;
     width: 309px;
     gap: 32px;
 }
+.category-container::-webkit-scrollbar-thumb{
+    height: 168px;
+}
 .category-container {
             
     width: 378px;
@@ -78,9 +83,3 @@ letter-spacing: 0.02em;
     
     }
 }              
-// @media (-webkit-min-device-pixel-ratio: 1),
-// (min-resolution: 192dpi){
-//     .category-container::-webkit-scrollbar-thumb {
-//             height: 167px;
-//         }
-// }

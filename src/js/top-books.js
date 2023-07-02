@@ -3,7 +3,7 @@ import { useBooksApi } from '../services/booksApi';
 const booksApi = useBooksApi();
 const categoryContainerRef = document.querySelector('.category-book-container');
 
-export async function createCategoriesMarkup(category) {
+async function createCategoriesMarkup(category) {
   try {
     const categoryMarkup = await Promise.all(
       category.map(async ({ list_name, books }) => {
@@ -54,5 +54,4 @@ const getTopBooksByCategories = async () => {
     console.log(error);
   }
 };
-
 getTopBooksByCategories();
