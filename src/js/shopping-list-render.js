@@ -21,14 +21,11 @@ const refs = {
   emptyShoppinglistEl: document.querySelector('.empty-sh-list'),
 };
 
-console.log(refs.emptyShoppinglistEl);
-
 const STORAGE_KEY = 'shopping-list';
 const shoppingListArray = JSON.parse(localStorage.getItem(STORAGE_KEY)) ?? [];
 
 function renderShoppingList(localBooksArray) {
   if (!localBooksArray.length) {
-    // makeEmptyShoppingListPage();
     refs.emptyShoppinglistEl.style.display = 'block';
     Notify.info(
       'This page is empty, add some books and proceed to order.',
@@ -56,7 +53,7 @@ function markupShoppingList(books) {
           <img class="sh-book-img" src="${book_image}" alt="" width="330" height="485"></img>
           <div class="sh-wrap">
               <div class="sh-book-info-wrap">
-                  <button class="sh-list-delete-btn" type="button">
+               <button class="sh-list-delete-btn" type="button">
                     <svg class="sh-list-delete-icon" width="18" height="18"<symbol id="icon-trash" viewBox="0 0 32 32">
                     <path fill="none" stroke="#fff" style="stroke: var(--color1, #fff)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M12 4h8M4 8h24M25.334 8l-0.936 14.026c-0.14 2.104-0.21 3.156-0.664 3.954-0.406 0.703-0.997 1.259-1.709 1.61l-0.023 0.010c-0.826 0.4-1.88 0.4-3.99 0.4h-4.024c-2.11 0-3.164 0-3.99-0.4-0.735-0.361-1.326-0.917-1.722-1.601l-0.010-0.019c-0.454-0.798-0.524-1.85-0.664-3.954l-0.936-14.026M13.334 14v6.666M18.666 14v6.666"></path>
                     </symbol>
