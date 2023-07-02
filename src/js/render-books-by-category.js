@@ -1,9 +1,14 @@
 import { useBooksApi } from '../services/booksApi';
-// import booksTemplate from '../templates/main-book.hbs';
+import { insertModalBook, onModalOpen } from './pop-up-book';
 
 const booksApi = useBooksApi();
 
-// Пока сделал без хендлбара - нужно разобраться, почему не находит трансформер для шаблона, из-за этого не импортирует его
+const sectionCategoriesEl = document.querySelector('.section-categories');
+const sectionBooksEl = document.querySelector('.section-books');
+const sectionBooksTitleEl = document.querySelector('.section-books-title');
+const booksListEl = document.querySelector('.section-books-list');
+
+// renderBooksByCategory('Paperback Nonfiction'); //---Раскоментить для ручного запуска функции
 
 function makeMarkupForBooks(books) {
   const markup = books
@@ -22,23 +27,50 @@ function makeMarkupForBooks(books) {
   </li>`
     )
     .join('\n');
-  // console.log(markup);
   return markup;
 }
 
-function renderBooksByCategory(category) {
-  booksApi
-    .getBooksByCategory(category)
-    .then(res => {
-      // console.log('res:', res);
-      booksListEl.innerHTML = makeMarkupForBooks(res);
-    })
-    .catch(err => {
-      console.log(err);
-    });
+function makeMarkupForTitle(title) {
+  const arrFromTitle = title.split(' ');
+  if (arrFromTitle.length < 2) {
+    return `${title}`;
+  }
+  const lastWord = arrFromTitle.pop();
+  return `${arrFromTitle.join(' ')} <span class="accent">${lastWord}</span>`;
 }
 
-const booksListEl = document.querySelector('.section-books-list');
-renderBooksByCategory('Paperback Nonfiction');
+async function renderBooksByCategory(category) {
+  try {
+    const res = await booksApi.getBooksByCategory(category);
+    booksListEl.innerHTML = makeMarkupForBooks(res);
+    sectionBooksTitleEl.innerHTML = makeMarkupForTitle(category);
+    hideElement(sectionCategoriesEl);
+    showElement(sectionBooksEl);
+    booksListEl.addEventListener('click', onBookSelect);
+  } catch (err) {
+    console.log(err);
+  }
+}
 
-export { makeMarkupForBooks };
+function onBookSelect(evt) {
+  const bookItem = evt.target.closest('.book-item');
+  if (!bookItem) {
+    return;
+  }
+  const bookId = bookItem.getAttribute('data-value');
+  booksApi
+    .getBookById(bookId)
+    .then(insertModalBook)
+    .catch(error => console.log(error));
+  onModalOpen();
+}
+
+function hideElement(elem) {
+  elem.classList.add('hidden');
+}
+
+function showElement(elem) {
+  elem.classList.remove('hidden');
+}
+
+export { makeMarkupForBooks, renderBooksByCategory, onBookSelect };

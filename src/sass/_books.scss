@@ -1,3 +1,11 @@
+// -----------Служебные стили---------//
+
+.hidden {
+  display: none;
+}
+
+// -----------Стили для одной карточки книги---------//
+
 .thumb {
   position: relative;
   margin-bottom: 14px;
@@ -23,17 +31,19 @@
 
 .book-item .book-author {
   margin-bottom: 0px;
+  font-size: 12px;
+  line-height: 1.16;
 }
 
 .overlay {
   position: absolute;
   display: flex;
-  justify-content: center;
-  align-items: center;
   bottom: 0;
   left: 0;
   width: 100%;
   height: 27%;
+  justify-content: center;
+  align-items: center;
   background-color: var(--color-links);
 
   transform: translateY(100%);
@@ -51,4 +61,98 @@
   line-height: 1.28;
   letter-spacing: -0.56px;
   text-transform: uppercase;
+}
+
+.section-books-list li:not(:last-child) {
+  margin-bottom: 40px;
+}
+
+// -----------Стили для заголовка секции с книгами---------//
+
+.accent {
+  color: #4f2ee8;
+}
+
+.section-categories-title,
+.section-books-title {
+  margin-bottom: 40px;
+  font-size: 32px;
+  line-height: 1.19;
+  letter-spacing: -1.28px;
+  text-transform: capitalize;
+}
+
+// -----------Стили для кнопки See More---------//
+
+.section-categories-list .btn {
+  display: block;
+  margin-left: auto;
+  padding: 12px 26px;
+  border-radius: 40px;
+  border: 2px solid #4f2ee8;
+
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.29;
+  letter-spacing: -0.14px;
+  text-transform: uppercase;
+  color: var(--color-dark-theme);
+  cursor: pointer;
+}
+
+// -----------Стили для Таблета---------//
+
+@media screen and (min-width: 768px) {
+  .thumb {
+    height: 316px;
+    min-width: 0;
+  }
+
+  .overlay-text {
+    font-size: 20px;
+  }
+
+  .section-books-list {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 40px;
+    column-gap: 25px;
+  }
+  .section-books-list li:not(:last-child) {
+    margin-bottom: 0;
+  }
+
+  .section-books-list li {
+    width: calc((100% - 50px) / 3);
+  }
+
+  .section-categories-title,
+  .section-books-title {
+    font-size: 48px;
+    line-height: 1.08;
+    letter-spacing: -1.92px;
+  }
+}
+
+// -----------Стили для Десктопа---------//
+
+@media screen and (min-width: 1440px) {
+  .main-container {
+    max-width: 996px;
+  }
+
+  .thumb {
+    height: 256px;
+  }
+
+  .overlay-text {
+    font-size: 14px;
+  }
+
+  .section-books-list {
+    column-gap: 24px;
+  }
+  .section-books-list li {
+    width: calc((100% - 96px) / 5);
+  }
 }
