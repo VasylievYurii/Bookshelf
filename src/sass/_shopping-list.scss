@@ -28,20 +28,34 @@
   height: 198px;
 }
 
+.shopping-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .sh-list-section img {
   display: block;
   max-width: 100%;
   height: auto;
 }
 
+<<<<<<< Updated upstream
 .shopping-item {
   display: flex;
   justify-content: space-between;
+=======
+.shopping-list-item {
+  display: flex;
+  // justify-content: space-between;
+  padding: 14px;
+>>>>>>> Stashed changes
   border-radius: 16px;
   border: 2px solid rgba(79, 46, 232, 0.4);
   background: var(--color-white-theme);
 }
 
+<<<<<<< Updated upstream
 .sh-book-info-one-wrap {
   display: flex;
 }
@@ -52,6 +66,10 @@
 .sh-book-title {
   margin-bottom: 4px;
 
+=======
+.sh-book-title {
+  margin-bottom: 4px;
+>>>>>>> Stashed changes
   color: var(--color-dark-theme);
   font-size: 16px;
   font-weight: 700;
@@ -60,19 +78,32 @@
 }
 .sh-book-category {
   margin-bottom: 8px;
+<<<<<<< Updated upstream
 
   color: #b4afaf;
   font-size: 12px;
   font-weight: 400;
   line-height: 0.08;
+=======
+  color: #b4afaf;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.17;
+>>>>>>> Stashed changes
   letter-spacing: 0.36px;
 }
 .sh-book-description {
   color: var(--color-dark-theme);
+<<<<<<< Updated upstream
 
   font-size: 14px;
   font-weight: 400;
   line-height: 1.29;
+=======
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.23;
+>>>>>>> Stashed changes
   letter-spacing: -0.56px;
 }
 .sh-book-author {
@@ -80,6 +111,7 @@
   font-size: 12px;
   font-style: italic;
   font-weight: 400;
+<<<<<<< Updated upstream
   line-height: 0.08;
   letter-spacing: -0.48px;
 }
@@ -88,6 +120,11 @@
   justify-content: center;
   gap: 8px;
 }
+=======
+  line-height: 1.17;
+  letter-spacing: -0.48px;
+}
+>>>>>>> Stashed changes
 
 .shopping-links {
   display: flex;
@@ -96,20 +133,53 @@
 }
 
 .sh-book-img {
+<<<<<<< Updated upstream
   position: relative;
   margin: 14px;
+=======
+  margin-right: 14px;
+>>>>>>> Stashed changes
   width: 100px;
   height: 142px;
   border-radius: 8px;
 }
 
+<<<<<<< Updated upstream
+=======
+.sh-soc-item .amazon-store {
+  width: 32px;
+  height: 11px;
+}
+.sh-soc-item .book-shop {
+  width: 16px;
+  height: 16px;
+}
+
+.sh-soc-link .apple-store {
+  width: 16px;
+  height: 16px;
+}
+
+.sh-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+>>>>>>> Stashed changes
 .sh-book-info-wrap {
   position: relative;
 }
 
 .sh-list-delete-btn {
+<<<<<<< Updated upstream
   // position: absolute;
   bottom: 50%;
+=======
+  position: absolute;
+  top: 0;
+  right: 0;
+>>>>>>> Stashed changes
 
   display: flex;
   width: 28px;
@@ -124,9 +194,13 @@
   cursor: pointer;
 }
 
+<<<<<<< Updated upstream
 .sh-book-img-wrap {
 }
 .sh-book-info-wrap {
+=======
+.sh-book-info-link-wrap {
+>>>>>>> Stashed changes
 }
 
 @media screen and (min-width: 375px) {
@@ -146,6 +220,20 @@
   .sh-list-delete-btn {
     width: 34px;
     height: 34px;
+  }
+
+  .sh-soc-item .amazon-store {
+    width: 48px;
+    height: 15px;
+  }
+  .sh-soc-item .book-shop {
+    width: 32px;
+    height: 30px;
+  }
+
+  .sh-soc-link .apple-store {
+    width: 28px;
+    height: 27px;
   }
 }
 
