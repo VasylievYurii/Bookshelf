@@ -1,8 +1,12 @@
-<div class="backdrop-modal">
+<div class="backdrop-modal is-hidden">
   <div class="container-popup">
-    <svg class="close-modal" width="24" height="24">
-      <use href="./images/sprite.svg#close"></use>
-    </svg>
+    <button type="button" class="close-modal btn-close-modal">
+      <svg class="close-cross" width="24" height="24">
+        <use href="./images/sprite.svg#close"></use>
+      </svg>
+    </button>
+
+    <div class="container-popup-for-book"></div>
     <button class="modal-btn btn-add" data-action="add" type="button">
       add to shopping list
     </button>

@@ -1,0 +1,254 @@
+* {
+    box-sizing: border-box;
+}
+
+.light-colorset-auth {
+    --main-canvas: #4F2EE8;
+    --main-background: #F6F6F6;
+    --main-text: #111111;
+    --active-text: rgba(17, 17, 17, 0.5);
+    --secondary-text: #F3F3F3;
+    --shadow: rgba(0, 0, 0, 0.75);
+    --backdrop-start: rgb(92, 92, 92, 0.2);
+    --backdrop-end: rgb(92, 92, 92, 0.7);
+}
+
+.dark-colorset-auth {
+    --main-canvas: #4F2EE8;
+    --main-background: #202024;
+    --main-text: #F6F6F6;
+    --active-text: rgba(246, 246, 246, 0.5);
+    --secondary-text: #202024;
+    --shadow: rgba(0, 0, 0, 0.75);
+    --backdrop-start: rgb(92, 92, 92, 0.2);
+    --backdrop-end: rgb(92, 92, 92, 0.7);
+}
+
+.backdrop-auth {
+
+    z-index: 700;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: hidden;
+
+    animation: backdrop-auth 0.3s forwards 1;
+}
+
+
+@keyframes backdrop-auth {
+    from {
+        background: var(--backdrop-start);
+    }
+
+    to {
+        background: var(--backdrop-end);
+    }
+}
+
+.modal-auth {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    width: 335px;
+    padding-bottom: 40px;
+    padding-top: 14px;
+
+    background-color: var(--main-background);
+
+    border: 2px solid var(--main-text);
+    border-radius: 16px;
+    box-shadow: 2px 2px 5px 0px var(--shadow);
+
+    transform: translateX(-50%);
+
+    animation: modal-auth 0.3s forwards 1;
+}
+
+@keyframes modal-auth {
+    from {
+        scale: 1.1;
+    }
+
+    to {
+        sacle: 1;
+    }
+}
+
+
+
+.close-auth {
+    margin-left: auto;
+    margin-right: 14px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: none;
+
+    border-radius: 50%;
+    background-color: transparent;
+
+    cursor: pointer;
+
+    stroke: var(--main-text);
+}
+
+.close-auth .icon {
+    display: block;
+    width: 20px;
+    height: 20px;
+
+}
+
+.close-auth:hover {
+    stroke: var(--active-text);
+}
+
+.form-auth {
+    margin-top: 14px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
+}
+
+.input-auth {
+    height: 50px;
+    width: 100%;
+    padding-left: 24px;
+    padding-right: 42px;
+
+    color: var(--main-text);
+
+    background-color: transparent;
+
+    border: 2px solid var(--main-text);
+    border-radius: 40px;
+
+    font-size: 16px;
+}
+
+.label-auth {
+    position: relative;
+    stroke: var(--main-text)
+}
+
+.label-auth .icon {
+    position: absolute;
+    display: block;
+    width: 18px;
+    height: 18px;
+    right: 24px;
+    top: 16px;
+}
+
+.submit-auth {
+    height: 50px;
+
+    color: var(--secondary-text);
+
+    background-color: var(--main-text);
+
+    border: 2px solid var(--main-text);
+    border-radius: 40px;
+
+    font-size: 16px;
+
+    cursor: pointer;
+}
+
+.submit-auth:hover {
+    background-color: var(--active-text);
+    border-color: transparent;
+}
+
+.selector-auth {
+    margin-top: 14px;
+    display: flex;
+    justify-content: center;
+    column-gap: 20px;
+}
+
+.sign-auth {
+    display: block;
+
+    color: var(--main-canvas);
+    background-color: transparent;
+    border: none;
+
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: -0.01;
+
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.sign-auth:hover {
+    text-decoration: none;
+}
+
+.sign-auth:disabled {
+    color: var(--active-text);
+    text-decoration: none;
+    cursor: unset;
+}
+
+@media screen and (min-width: 768px) {
+    .modal-auth {
+        width: 579px;
+        padding-top: 24px;
+    }
+
+    .close-auth {
+        margin-right: 24px;
+    }
+
+    .close-auth .icon {
+        width: 28px;
+        height: 28px;
+
+    }
+
+    .form-auth {
+        margin-top: 28px;
+        padding-left: 40px;
+        padding-right: 40px;
+        row-gap: 28px;
+    }
+
+    .input-auth {
+        height: 64px;
+        padding-left: 40px;
+        padding-right: 60px;
+        font-size: 18px;
+    }
+
+    .label-auth .icon {
+        width: 28px;
+        height: 28px;
+        right: 32px;
+        top: 18px;
+    }
+
+    .submit-auth {
+        height: 64px;
+        margin-top: 12px;
+        font-size: 18px;
+    }
+
+    .selector-auth {
+        margin-top: 20px;
+    }
+
+    .sign-auth {
+        font-size: 18px;
+    }
+}

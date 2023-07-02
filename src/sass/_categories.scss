@@ -1,15 +1,10 @@
 .category-container {
-   display: flex;
     width: 100%;
+
     height: 228px;
     overflow-y: scroll;
     margin-bottom: 40px;
     
-<<<<<<< Updated upstream
-    
-=======
->>>>>>> Stashed changes
-
 }
 .category-container::-webkit-scrollbar {
     width: 8px;
@@ -55,23 +50,21 @@ letter-spacing: 0.02em;
 .category-list{
     width: 309px;
     gap: 32px;
-<<<<<<< Updated upstream
+
 }
 .category-container::-webkit-scrollbar-thumb{
     height: 168px;
-=======
->>>>>>> Stashed changes
+
 }
 .category-container {
-            
-    width: 378px;
+     width: 100%;       
+    max-width: 378px;
     height: 472px;
     margin-right: 32px;
         }
        
     }         
-
-        
+      
 
  @media screen and (min-width: 1440px) {
 .category-list {
@@ -89,12 +82,11 @@ letter-spacing: 0.02em;
     
     }
 }              
-<<<<<<< Updated upstream
-=======
+
 // @media (-webkit-min-device-pixel-ratio: 1),
 // (min-resolution: 192dpi){
 //     .category-container::-webkit-scrollbar-thumb {
 //             height: 167px;
 //         }
 // }
->>>>>>> Stashed changes
+

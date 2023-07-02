@@ -1,3 +1,4 @@
+import Notiflix from 'notiflix';
 import { useBooksApi } from '../services/booksApi';
 import amazon from '../images/stores/amazon.png';
 import amazon2x from '../images/stores/amazon@2x.png';
@@ -7,37 +8,42 @@ import bookShop from '../images/stores/book-shop.png';
 import bookShop2x from '../images/stores/book-shop@2x.png';
 
 const STORAGE_KEY = 'shopping-list';
-const modalContainerEl = document.querySelector('.container-popup');
+
+const modalContainerEl = document.querySelector('.container-popup-for-book');
 const btnAddEl = document.querySelector('button[data-action="add"]');
 const btnRemoveEl = document.querySelector('button[data-action="remove"]');
 const successTextEl = document.querySelector('.modal-congrats-text');
-// let bookID = '';
-const booksApi = useBooksApi();
-let bookForShoppingList = {};
 const closeModalEl = document.querySelector('.close-modal');
 const backdropEl = document.querySelector('.backdrop-modal');
 
 const shoppingListArray = JSON.parse(localStorage.getItem(STORAGE_KEY)) ?? [];
 
-function onBookSelect(e) {
-  //   bookID = e.target.value;
-  let bookID = '643282b2e85766588626a0f2';
-  booksApi
-    .getBookById(bookID)
-    .then(insertModalBook)
-    .catch(error => console.log(error));
+let defaultImg;
+
+import sprite from '../images/sprite.svg';
+
+function onDefaultImg(bookImg) {
+  if (bookImg) {
+    defaultImg = `<img class="img-modal" src="${bookImg}" />`;
+  } else {
+    defaultImg = `<div class="img-modal" style="background-color: #f0f0f0;">
+      <svg class="default-book-pop-up" >
+      <use href="${sprite}#default-book"></use>
+    </svg>
+    </div>`;
+  }
+  return defaultImg;
 }
 
-onBookSelect();
-
 function renderModal(book) {
-  bookForShoppingList = book;
   const { book_image, title, author, description, buy_links, _id } = book;
+
+  onDefaultImg(book_image);
 
   return `
   <div class="modal-content-container" value="${_id}">
   <div class="img-container-pop-up">
-   <img class="img-modal" src="${book_image}" />
+  ${defaultImg}
    </div> 
    <div class="modal-text-container">
     <h1 class="book-header">${title}</h1>
@@ -81,7 +87,10 @@ function renderModal(book) {
     `;
 }
 
-function insertModalBook(item) {
+let bookForShoppingList = {};
+
+export function insertModalBook(item) {
+  bookForShoppingList = item;
   modalContainerEl.insertAdjacentHTML('afterbegin', renderModal(item));
 }
 
@@ -99,6 +108,13 @@ function makeRemoveBtnVisible() {
 }
 
 function addToLocalStorage() {
+  console.log('book', bookForShoppingList._id);
+  if (shoppingListArray.find(item => item._id === bookForShoppingList._id)) {
+    Notiflix.Notify.failure(
+      `Sorry, you've already added this book. Choose the other one please.`
+    );
+    return;
+  }
   shoppingListArray.push(bookForShoppingList);
   localStorage.setItem(STORAGE_KEY, JSON.stringify(shoppingListArray));
 }
@@ -111,7 +127,6 @@ function onRemoveBtnClick() {
 }
 
 function makeAddBtnVisible() {
-  console.log('click');
   btnRemoveEl.classList.add('visually-hidden');
   successTextEl.classList.add('visually-hidden');
   btnAddEl.classList.remove('visually-hidden');
@@ -129,10 +144,28 @@ function removeFromLocalStorage() {
 }
 
 closeModalEl.addEventListener('click', onModalClose);
-backdropEl.addEventListener('click', onModalClose);
+backdropEl.addEventListener('click', onMouseClose);
 
-function onModalClose(e) {
+function onModalClose() {
+  backdropEl.classList.add('is-hidden');
+  makeAddBtnVisible();
+  modalContainerEl.innerHTML = '';
+  window.removeEventListener('keydown', onEscPress);
+}
+
+function onMouseClose(e) {
   if (e.target === e.currentTarget) {
-    backdropEl.classList.add('is-hidden');
+    onModalClose();
   }
+}
+
+function onEscPress(e) {
+  if (e.key === 'Escape') {
+    onModalClose();
+  }
+}
+
+export function onModalOpen() {
+  window.addEventListener('keydown', onEscPress);
+  backdropEl.classList.remove('is-hidden');
 }

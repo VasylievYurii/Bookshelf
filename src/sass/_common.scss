@@ -29,14 +29,30 @@ h6 {
 ul {
   margin: 0;
   padding-left: 0;
+  list-style: none;
 }
 
 img {
   display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 li {
   list-style: none;
+}
+
+a {
+  color: currentColor;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -87,4 +103,21 @@ body {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
   margin: -1px;
+}
+
+
+[data-page-theme="light"] {
+  --color-body-white-theme: #f6f6f6;
+  --color-white-theme: #fff;
+  --header-background-color: #fff;
+  --color-link-title: #111;
+  
+}
+
+
+[data-page-theme="dark"] {
+  --color-body-white-theme: #202024;
+  --color-white-theme: #202024;
+  --header-background-color: #111;
+  --color-link-title: #fff;
 }

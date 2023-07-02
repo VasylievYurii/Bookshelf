@@ -1,4 +1,4 @@
-* {
+ * {
     box-sizing: border-box;
 }
 
@@ -38,6 +38,8 @@
     border: none;
 
     cursor: pointer;
+    white-space: nowrap;
+ 
 
 }
 

@@ -1,57 +1,56 @@
 import { useBooksApi } from '../services/booksApi';
+import {makeMarkupForBooks} from './render-books-by-category';
+import {insertModalBook, onModalOpen} from './pop-up-book';
 
 const booksApi = useBooksApi();
-const categoryContainerRef = document.querySelector('.category-book-container');
 
-async function createCategoriesMarkup(category) {
-  try {
-    const categoryMarkup = await Promise.all(
-      category.map(async ({ list_name, books }) => {
-        const bookMarkup = await Promise.all(
-          books.map(
-            async ({ book_image, title, author }) => `
-              <li class="">
-                <a href="#" class="book-item">
-                  <div class="img-box">
-                    <img src="${book_image}" alt="Book cover" />
-                    <div class="overlay">
-                      <p class="overlay-text">quick view </p>
-                    </div>
-                  </div>
-                  <h3 class="book-title">${title}</h3>
-                  <p class="book-author">${author}</p>
-                </a>
-              </li>
-            `
-          )
-        );
+const sectionCategoriesListEl = document.querySelector(
+  '.section-categories-list'
+);
 
-        return `
-          <li class=''>
-            <h3 class=''>${list_name}</h3>
-            <ul class='topBookslist list'>
-              ${bookMarkup.join('\n')}
-            </ul>
-            <button type='button' class='btn'>See more</button>
-          </li>
-        `;
-      })
-    );
-
-    return categoryMarkup.join('\n');
-  } catch (error) {
-    console.log(error);
-    return '';
-  }
+function makeMarkupForCategories(categories) {
+  const categoriesMarkup = categories
+    .map(
+      (list_name) => `<li class='category-block'>
+      <h3 class='category-block-title'>${list_name}</h3>
+      <ul class='books-list' data-category="${list_name}"></ul>
+      <button type='button' class='btn'>See more</button>
+      </li>`
+    )
+    .join('\n');
+  return categoriesMarkup;
 }
 
-const getTopBooksByCategories = async () => {
+async function parceCategoriesBlocks() {
   try {
-    const res = await booksApi.getTopBooks();
-    const markup = await createCategoriesMarkup(res);
-    categoryContainerRef.innerHTML = markup;
-  } catch (error) {
-    console.log(error);
+    const categories = await booksApi.getCategoryList();
+    const uniqueCategories = [...new Set(categories.map(({ list_name }) => list_name))].sort();
+    sectionCategoriesListEl.innerHTML = makeMarkupForCategories(uniqueCategories);
+    const blocksForRenderingBooks =
+      sectionCategoriesListEl.querySelectorAll('.books-list');
+    const topBooks = await booksApi.getTopBooks();
+    blocksForRenderingBooks.forEach(block => {
+      const categoryName = block.dataset.category;
+      const topBooksOfCategory = topBooks.find(
+        elem => elem.list_name === categoryName
+      ).books;
+      block.innerHTML = makeMarkupForBooks(topBooksOfCategory);
+     
+    });
+    sectionCategoriesListEl.addEventListener('click', onBookSelect);
+    function onBookSelect(evt) {
+      const bookItem = evt.target.closest('.book-item');
+          if (!bookItem) {
+            return
+          }
+          const bookId = bookItem.getAttribute('data-value');
+      booksApi
+        .getBookById(bookId)
+        .then(insertModalBook)
+        .catch(error => console.log(error));
+      onModalOpen();
+  }} catch (err) {
+    console.log(err);
   }
-};
-getTopBooksByCategories();
+}
+parceCategoriesBlocks();
