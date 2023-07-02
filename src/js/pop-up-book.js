@@ -17,13 +17,26 @@ const backdropEl = document.querySelector('.backdrop-modal');
 
 const shoppingListArray = JSON.parse(localStorage.getItem(STORAGE_KEY)) ?? [];
 
+let defaultImg;
+
+function onDefaultImg(bookImg){
+  if (bookImg) {
+    defaultImg = `<img class="img-modal" src="${bookImg}" />`;
+  } else {
+    defaultImg = `<img class="img-modal" src="sprite.svg#default-book" />`;
+  }
+  return defaultImg
+}
+
 function renderModal(book) {
   const { book_image, title, author, description, buy_links, _id } = book;
+
+  onDefaultImg(book_image)
 
   return `
   <div class="modal-content-container" value="${_id}">
   <div class="img-container-pop-up">
-   <img class="img-modal" src="${book_image}" />
+  ${defaultImg}
    </div> 
    <div class="modal-text-container">
     <h1 class="book-header">${title}</h1>
@@ -118,14 +131,13 @@ backdropEl.addEventListener('click', onMouseClose);
 
 function onModalClose() {
   backdropEl.classList.add('is-hidden');
+  makeAddBtnVisible();
   modalContainerEl.innerHTML = '';
-
   window.removeEventListener('keydown', onEscPress);
 }
 
 function onMouseClose(e) {
   if (e.target === e.currentTarget) {
-<<<<<<< HEAD
     onModalClose();
   }
 }
@@ -133,11 +145,6 @@ function onMouseClose(e) {
 function onEscPress(e) {
   if (e.key === 'Escape') {
     onModalClose();
-=======
-    backdropEl.classList.add('is-hidden');
-    modalContainerEl.innerHTML = '';
-    makeAddBtnVisible();
->>>>>>> 5c207c177b0270dead54b0eb1f70b2eaf59e4925
   }
 }
 
