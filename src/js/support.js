@@ -95,7 +95,6 @@ swiper.on('reachEnd', function () {
     up.classList.remove('visually-hidden');
   }
   down.classList.add('visually-hidden');
-  console.log('Список слайдів дійшов до кінця');
 });
 
 swiper.on('reachBeginning', function () {
@@ -103,7 +102,6 @@ swiper.on('reachBeginning', function () {
     down.classList.remove('visually-hidden');
   }
   up.classList.add('visually-hidden');
-  console.log('Список слайдів дійшов до початку');
 });
 
 down.addEventListener('click', slideUp);
