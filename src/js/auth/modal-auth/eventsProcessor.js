@@ -10,6 +10,7 @@ const { login, logout, register, auth } = useUserAuth();
 
 const modalAuthRootRef = document.querySelector('.auth-modal-root');
 const menuAuthRootRef = document.querySelector('.auth-menu-root');
+const themeSelectorRef = document.querySelector('#toggle-theme');
 
 let _theme = 'light';
 let _mode = 'signin';
@@ -17,8 +18,10 @@ let _mode = 'signin';
 onAuthStateChanged(auth, user => {
   if (!user) {
     initAuth();
+    localStorage.removeItem('signeduser');
     return;
   }
+  localStorage.setItem('signeduser', user.uid);
   menuAuthRootRef.innerHTML = composeAuthButton(user);
   bindButtonEvents(onLogOut);
 });
@@ -33,9 +36,9 @@ export const initAuth = () => {
   bindButtonEvents(onModalOpen);
 };
 
-export const onModalOpen = (theme = _theme, mode = _mode) => {
-  _theme = theme;
-  _mode = mode;
+export const onModalOpen = () => {
+  _theme = !themeSelectorRef.checked ? 'light' : 'dark';
+  // _mode = mode;
   drawModal();
   mountEvents();
 };

@@ -15,7 +15,7 @@ const login = async ({ username, password }) => {
 
   try {
     await signInWithEmailAndPassword(auth, username, password);
-    localStorage.setItem('singedin', 'true');
+    localStorage.setItem('signeduser', auth.currentUser.uid);
     return auth.currentUser;
   } catch (err) {
     throw new Error(err.message);
@@ -28,7 +28,7 @@ const logout = async () => {
   openLoader();
   try {
     await signOut(auth);
-    localStorage.removeItem('singedin');
+    localStorage.removeItem('signeduser');
     return auth.currentUser;
   } catch (err) {
     throw new Error(err.message);
@@ -41,7 +41,7 @@ const register = async ({ username, password, displayName }) => {
   openLoader();
   try {
     const res = await createUserWithEmailAndPassword(auth, username, password);
-    localStorage.setItem('singedin', 'true');
+    localStorage.setItem('signeduser', auth.currentUser.uid);
     await updateProfile(res.user, {
       displayName,
     });
