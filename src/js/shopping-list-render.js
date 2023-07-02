@@ -21,8 +21,6 @@ const refs = {
   emptyShoppinglistEl: document.querySelector('.empty-sh-list'),
 };
 
-refs.emptyShoppinglistEl.style.visibility = 'hidden';
-
 console.log(refs.emptyShoppinglistEl);
 
 const STORAGE_KEY = 'shopping-list';
@@ -30,8 +28,8 @@ const shoppingListArray = JSON.parse(localStorage.getItem(STORAGE_KEY)) ?? [];
 
 function renderShoppingList(localBooksArray) {
   if (!localBooksArray.length) {
+    // makeEmptyShoppingListPage();
     refs.emptyShoppinglistEl.style.visibility = 'visible';
-    clearShoppingList();
     Notify.info(
       'This page is empty, add some books and proceed to order.',
       optionsNotiflix
@@ -56,6 +54,13 @@ function markupShoppingList(books) {
         return `<ul class="shopping-list">
       <li id="${_id}" class="shopping-item">
         <img class="sh-book-img" src="${book_image}" alt="" width="330" height="485"></img>
+        <div>
+            <button class="sh-list-delete-btn" type="button">
+              <svg class="sh-list-delete-icon" width="18" height="18">
+                <use href="./images/sprite.svg#trash"></use>
+              </svg>
+            </button>
+          </div>
         <h2 class="sh-book-title">${title}</h2>
         <p class="sh-book-category">${list_name}</p>
         <p class="sh-book-description">${description}</p>
@@ -94,23 +99,18 @@ function markupShoppingList(books) {
   refs.shoppingListEl.insertAdjacentHTML('beforeend', markup);
 }
 
-function clearShoppingList() {
-  refs.shoppingListEl.innerHTML = '';
-}
-
-function makeEmptyShoppingListPage() {
-  const emptyShPage = `<div class="empty-sh-list">
-            <img
-              srcset="
-                ./images/book-column@1x.png 1x,
-                ./images/book-column@2x.png 2x
-              "
-              src="./images/book-column@1x.png"
-              alt="book-column"
-            />
-          </div>`;
-  refs.shoppingListEl.insertAdjacentHTML('beforeend', markup);
-  return emptyShPage;
-}
+// function makeEmptyShoppingListPage() {
+//   const emptyShPage = `
+//             <img
+//               srcset="
+//                 ./images/book-column@1x.png 1x,
+//                 ./images/book-column@2x.png 2x
+//               "
+//               src="./images/book-column@1x.png"
+//               alt="book-column"
+//             />`;
+//   refs.emptyShoppinglistEl.insertAdjacentHTML('beforeend', emptyShPage);
+//   return emptyShPage;
+// }
 
 renderShoppingList(shoppingListArray);

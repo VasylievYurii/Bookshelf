@@ -14,23 +14,17 @@
 }
 
 .empty-sh-list {
-  // visibility: hidden;
-  margin: 0 auto;
-  z-index: 7000;
-  // background-image: url(../images/book-column@1x.png);
-
-  // background-repeat: no-repeat;
-  // background-position: center;
-  // background-size: cover;
+  display: block;
+  visibility: hidden;
 }
+.book-column-img {
+  margin: 0 auto;
+  width: 265px;
+  height: 198px;
 
-// @media screen and (min-device-pixel-ratio: 2) and (max-width: 767px),
-//   screen and (min-resolution: 192dpi) and (max-width: 767px),
-//   screen and (min-resolution: 2dppx) and (max-width: 767px) {
-//   .empty-sh-list {
-//     background-image: url('../images/book-column@2x.png');
-//   }
-// }
+  width: 322px;
+  height: 241px;
+}
 
 .sh-list-section img {
   display: block;
@@ -38,7 +32,17 @@
   height: auto;
 }
 
+.shopping-links {
+  display: flex;
+  align-items: center;
+  gap: 8;
+}
+
 @media screen and (min-width: 375px) {
+  .book-column-img {
+    width: 322px;
+    height: 241px;
+  }
 }
 
 @media screen and (min-width: 768px) {
