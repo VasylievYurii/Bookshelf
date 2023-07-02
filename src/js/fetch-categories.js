@@ -1,5 +1,7 @@
 import { useBooksApi } from '../services/booksApi';
-
+import { getTopBooksByCategories } from "./top-books";
+import { createCategoriesMarkup } from './top-books';
+import { renderBooks } from './renderBooksByCategories';
 const booksApi = useBooksApi();
 
 const handleOnPress = (e) => {
@@ -38,4 +40,14 @@ const parseCategoryList = (list) => {
     })
   });
 };
+// const categoryAll = document.querySelector('.category-link');
+// categoryAll.addEventListener('click', () => {
+//   const topBooksByCategories = res.reduce((acc, categoryBooks) => {
+//     const category = categoryBooks.category;
+//     const topBooks = categoryBooks.books.slice(0, 5);
+//     acc[category] = topBooks;
+//     return acc;
+//   }, {});
+//   renderBooks(topBooksByCategories);
+// })
 handleOnPress();
