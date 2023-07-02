@@ -51,7 +51,7 @@ function markupShoppingList(books) {
         author,
         buy_links,
       }) => {
-        return `<ul class="shopping-list">
+        return `
       <li id="${_id}" class="shopping-item">
         <img class="sh-book-img" src="${book_image}" alt="" width="330" height="485"></img>
         <div>
@@ -93,7 +93,7 @@ function markupShoppingList(books) {
                        </li>
                       </ul>
               </li>
-            </ul>`;
+           `;
       }
     )
     .join('\n');
