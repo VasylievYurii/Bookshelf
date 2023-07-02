@@ -8,9 +8,9 @@ const booksApi = useBooksApi();
 function makeMarkupForBooks(books) {
   const markup = books
     .map(
-      ({ book_image, title, author }) => `<li>
-    <a href='#' class='book-item'>
-      <div class='img-box'>
+      ({ book_image, title, author, _id }) => `<li>
+    <a href='#' class='book-item' data-value="${_id}">
+      <div class='thumb'>
         <img src='${book_image}' alt='Book cover' />
         <div class='overlay'>
           <p class='overlay-text'>quick view </p>
@@ -26,18 +26,19 @@ function makeMarkupForBooks(books) {
   return markup;
 }
 
-function renderBooks(category, containerRef) {
+function renderBooksByCategory(category) {
   booksApi
     .getBooksByCategory(category)
     .then(res => {
-      console.log('res:', res);
-      containerRef.innerHTML = makeMarkupForBooks(res);
+      // console.log('res:', res);
+      booksListEl.innerHTML = makeMarkupForBooks(res);
     })
     .catch(err => {
       console.log(err);
     });
 }
 
-const categoryContainerRef = document.querySelector('.category-book-container');
+const booksListEl = document.querySelector('.section-books-list');
+renderBooksByCategory('Paperback Nonfiction');
 
-renderBooks('Paperback Nonfiction', categoryContainerRef);
+export { makeMarkupForBooks };

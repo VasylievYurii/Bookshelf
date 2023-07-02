@@ -1,7 +1,9 @@
-import switcher from './switcher';
-// import './js/themes';
-import './js/pop-up-book';
+// import switcher from './switcher';
+import './js/themes';
+import './js/top-books';
 import './js/fetch-categories';
 import './js/support';
-import './js/renderBooksByCategories';
+import './js/render-books-by-category';
 import './js/categories';
+import './js/auth/modal-auth/eventsProcessor';
+import './js/pop-up-book';

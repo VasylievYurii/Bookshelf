@@ -12,50 +12,34 @@
     <include src="./partials/header.html"></include>
     <main>
       <section class="sh-list-section">
-        <div class="container">
-          <h1 class="title shopping-title">
-            Shopping <span class="title title-span">List</span>
+        <div class="sh-list-container container">
+          <h1 class="sh-title shopping-title">
+            Shopping <span class="sh-title title-span">List</span>
           </h1>
-          <button class="sh-list-delete-btn">
-            <svg>
-              <use></use>
-            </svg>
-          </button>
-          <!-- <ul class="shopping-list">
-            <li class="shopping-item">
-              <img class="sh-book-img" src="" alt=""></img>
-                <h2 class="sh-book-title"></h2>
-                  <p class="sh-book-category"></p>
-                  <p class="sh-book-description"></p>
-                  <p class="sh-book-author"></p>
-                  <ul class="shopping-links">
-                      <li class="sh-soc-item">
-                        <a class="sh-soc-link" href="">
-                          <svg class="sh-soc-icon">
-                            <use href=""></use>
-                          </svg>
-                        </a>
-                      </li>
-                      <li class="sh-soc-item">
-                        <a class="sh-soc-link" href="">
-                          <svg class="sh-soc-icon">
-                            <use href=""></use>
-                          </svg>
-                        </a>
-                      </li>
-                      <li class="sh-soc-item">
-                        <a class="sh-soc-link" href="">
-                          <svg class="sh-soc-icon">
-                            <use href=""></use>
-                          </svg>
-                        </a>
-                      </li>
-                    </ul>
-            </li>
-          </ul> -->
+          <div class="empty-sh-list">
+            <img
+              class="book-column-img"
+              srcset="
+                ./images/book-column@1x.png 1x,
+                ./images/book-column@2x.png 2x
+              "
+              src="./images/book-column@1x.png"
+              alt="book-column"
+            />
+          </div>
+          <!-- <div>
+            <button class="sh-list-delete-btn" type="button">
+              <svg class="sh-list-delete-icon" width="18" height="18">
+                <use href="./images/sprite.svg#trash"></use>
+              </svg>
+            </button>
+          </div> -->
+          <ul class="shopping-list"></ul>
         </div>
+        
       </section>
     </main>
     <include src="./partials/pop-up-book.html"></include>
+    <script type="module" src="./js/shopping-list-render.js"></script>
   </body>
 </html>

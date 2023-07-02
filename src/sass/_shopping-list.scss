@@ -1,4 +1,4 @@
-.title {
+.sh-title {
   margin-top: 40px;
   margin-bottom: 40px;
   font-size: 32px;
@@ -10,17 +10,67 @@
   color: #111;
 }
 .title-span {
-  color: #4f2ee8;
+  color: var(--color-button);
 }
+
+.empty-sh-list {
+  display: block;
+  visibility: hidden;
+}
+.book-column-img {
+  margin: 0 auto;
+  width: 265px;
+  height: 198px;
+}
+
+.sh-list-section img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.shopping-links {
+  display: flex;
+  align-items: center;
+  gap: 8;
+}
+
+.sh-list-delete-btn {
+  display: flex;
+  width: 28px;
+  height: 28px;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+
+  background-color: var(--color-button);
+  border-radius: 50%;
+  border: none;
+}
+
+// .sh-list-delete-icon {
+//   display: inline-block;
+//   stroke: var(--color-white-theme);
+//   fill: transparent;
+// }
 
 @media screen and (min-width: 375px) {
 }
 
 @media screen and (min-width: 768px) {
-  .title {
+  .sh-title {
     font-size: 48px;
     line-height: 1.08;
     letter-spacing: -1.92px;
+  }
+  .book-column-img {
+    width: 322px;
+    height: 241px;
+  }
+
+  .sh-list-delete-btn {
+    width: 34px;
+    height: 34px;
   }
 }
 

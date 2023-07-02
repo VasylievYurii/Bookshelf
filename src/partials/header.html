@@ -4,19 +4,27 @@
       <svg class="header-icon">
         <use href="./images/sprite.svg#logo"></use>
       </svg>
-      <span class="header-bookshelf">Bookshelf</span>
     </a>
     <ul class="header-nav">
-      <li class="header-link"><a href="./index.html">Home</a></li>
-      <li class="header-link"><a href="./shopping-list.html">Shopping list</a></li>
+      <li><a href="./index.html" class="header-link-home">HOME</a></li>
+      <li>
+        <a href="./shopping-list.html" class="header-shopping-link">
+          <span class="header-shopping">SHOPPING LIST</span>
+          <svg class="shopping-icon">
+            <use href="./images/sprite.svg#bag"></use>
+          </svg>
+        </a>
+      </li>
     </ul>
   </nav>
   <div class="theme-switch">
-    <input type="checkbox" id="toggle-theme" />
+    <input type="checkbox" class="js-theme-switch" id="toggle-theme" />
     <label for="toggle-theme" class="toggle"></label>
   </div>
+  <div class="auth-menu-root"></div>
   <button type="button" data-menu-open class="menu-open">
     <svg class="menu-open-icon">
       <use href="./images/sprite.svg#burger"></use>
     </svg>
   </button>
+</header>

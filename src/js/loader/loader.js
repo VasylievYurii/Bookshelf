@@ -14,11 +14,11 @@ import './progress-waves.css';
 const spinnerMarkup = '<div class="loader-modal in-progress"></div > ';
 
 export const openLoader = () => {
-  const modalPortal = document.querySelector(".modal-root");
+  const modalPortal = document.querySelector(".loader-root");
   modalPortal.innerHTML = spinnerMarkup;
 };
 
 export const closeLoader = () => {
-  const modalPortal = document.querySelector(".modal-root");
+  const modalPortal = document.querySelector('.loader-root');
   modalPortal.innerHTML = '';
 };
