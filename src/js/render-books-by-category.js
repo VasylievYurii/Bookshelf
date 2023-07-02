@@ -45,43 +45,45 @@ export { makeMarkupForBooks };
 
 // ------------Скрипт для рендера книжек по категориям. Альтернатива скрипту от Фёдора. Скрипт закоментил на всякий случай.------------- //
 
-// const sectionCategoriesListEl = document.querySelector(
-//   '.section-categories-list'
-// );
+const sectionCategoriesListEl = document.querySelector(
+  '.section-categories-list'
+);
 
-// function makeMarkupForCategories(categories) {
-//   const categoriesMarkup = categories
-//     .map(
-//       ({ list_name }) => `<li class='category-block'>
-//       <h3 class='category-block-title'>${list_name}</h3>
-//       <ul class='books-list' data-category="${list_name}"></ul>
-//       <button type='button' class='btn'>See more</button>
-//       </li>`
-//     )
-//     .join('\n');
-//   return categoriesMarkup;
-// }
+function makeMarkupForCategories(categories) {
+  const categoriesMarkup = categories
+    .map(
+      (list_name) => `<li class='category-block'>
+      <h3 class='category-block-title'>${list_name}</h3>
+      <ul class='books-list' data-category="${list_name}"></ul>
+      <button type='button' class='btn'>See more</button>
+      </li>`
+    )
+    .join('\n');
+  return categoriesMarkup;
+}
 
-// async function parceCategoriesBlocks() {
-//   try {
-//     const categories = await booksApi.getCategoryList();
-//     sectionCategoriesListEl.innerHTML = makeMarkupForCategories(categories);
-//     const blocksForRenderingBooks =
-//       sectionCategoriesListEl.querySelectorAll('.books-list');
-//     const topBooks = await booksApi.getTopBooks();
-//     blocksForRenderingBooks.forEach(block => {
-//       const categoryName = block.dataset.category;
-//       const topBooksOfCategory = topBooks.find(
-//         elem => elem.list_name === categoryName
-//       ).books;
-//       block.innerHTML = makeMarkupForBooks(topBooksOfCategory);
-//     });
-//   } catch (err) {
-//     console.log(err);
-//   }
-// }
+async function parceCategoriesBlocks() {
+  try {
+    const categories = await booksApi.getCategoryList();
+    const uniqueCategories = [...new Set(categories.map(({ list_name }) => list_name))].sort();
+    sectionCategoriesListEl.innerHTML = makeMarkupForCategories(uniqueCategories);
+    const blocksForRenderingBooks =
+      sectionCategoriesListEl.querySelectorAll('.books-list');
+    const topBooks = await booksApi.getTopBooks();
+    blocksForRenderingBooks.forEach(block => {
+      const categoryName = block.dataset.category;
+      const topBooksOfCategory = topBooks.find(
+        elem => elem.list_name === categoryName
+      ).books;
+      block.innerHTML = makeMarkupForBooks(topBooksOfCategory);
+    });
+  } catch (err) {
+    console.log(err);
+  }
+}
 
-// parceCategoriesBlocks();
+parceCategoriesBlocks();
+
 
 
 
