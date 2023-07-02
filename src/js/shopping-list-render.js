@@ -1,4 +1,10 @@
 import { useBooksApi } from '../services/booksApi';
+import amazon from '../images/stores/amazon.png';
+import amazon2x from '../images/stores/amazon@2x.png';
+import bookStore from '../images/stores/book.png';
+import bookStore2x from '../images/stores/book@2x.png';
+import bookShop from '../images/stores/book-shop.png';
+import bookShop2x from '../images/stores/book-shop@2x.png';
 import { Notify } from 'notiflix';
 
 const optionsNotiflix = {
@@ -58,24 +64,24 @@ function markupShoppingList(books) {
                             <li class="sh-soc-item">
                               <a class="sh-soc-link" href="${buy_links[0].url}" rel="noopener noreferrer nofollow"
             target="_blank"> 
-            <img srcset="../images/stores/amazon.png 1x, ../images/stores/amazon@2x 2x" 
-            src="../images/stores/amazon.png"
+            <img srcset="${amazon} 1x, ${amazon2x} 2x" 
+            src="${amazon}"
             alt="Amazon Store ${buy_links[0].name}"/>
                               </a>
                             </li>
                             <li class="sh-soc-item">
                               <a class="sh-soc-link" href="${buy_links[1].url}" rel="noopener noreferrer nofollow"
             target="_blank">
-                            <img srcset="../images/stores/book.png 1x, ../images/stores/book@2x.png 2x" 
-                            src="../images/stores/book.png" 
+                            <img srcset="${bookStore} 1x, ${bookStore2x} 2x" 
+                            src="${bookStore}" 
                             alt="Apple Store ${buy_links[1].name}"/>
                              </a>
                             </li>
                            <li class="sh-soc-item">
                           <a class="sh-soc-link" href="${buy_links[4].url}" rel="noopener noreferrer nofollow"
             target="_blank">
-            <img srcset="../images/stores/book-shop.png.png 1x, ../images/stores/book-shop@2x.png 2x" 
-            src="../images/stores/book-shop.png" 
+            <img srcset="${bookShop} 1x, ${bookShop2x} 2x" 
+            src="${bookShop}" 
             alt="Book Shop ${buy_links[4].name}"/>
                          </a>
                        </li>
