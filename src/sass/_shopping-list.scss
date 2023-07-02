@@ -21,9 +21,6 @@
   margin: 0 auto;
   width: 265px;
   height: 198px;
-
-  width: 322px;
-  height: 241px;
 }
 
 .sh-list-section img {
@@ -39,17 +36,17 @@
 }
 
 @media screen and (min-width: 375px) {
-  .book-column-img {
-    width: 322px;
-    height: 241px;
-  }
 }
 
 @media screen and (min-width: 768px) {
-  .title {
+  .sh-title {
     font-size: 48px;
     line-height: 1.08;
     letter-spacing: -1.92px;
+  }
+  .book-column-img {
+    width: 322px;
+    height: 241px;
   }
 }
 
