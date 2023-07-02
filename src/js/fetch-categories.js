@@ -42,6 +42,7 @@ function getCategoryElements() {
     })
   });
 }
+
 categoryAll.addEventListener('click', () => {
   getTopBooksByCategories();
 
