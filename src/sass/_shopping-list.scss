@@ -35,6 +35,25 @@
   gap: 8;
 }
 
+.sh-list-delete-btn {
+  display: flex;
+  width: 28px;
+  height: 28px;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+
+  background-color: var(--color-button);
+  border-radius: 50%;
+  border: none;
+}
+
+// .sh-list-delete-icon {
+//   display: inline-block;
+//   stroke: var(--color-white-theme);
+//   fill: transparent;
+// }
+
 @media screen and (min-width: 375px) {
 }
 
@@ -47,6 +66,11 @@
   .book-column-img {
     width: 322px;
     height: 241px;
+  }
+
+  .sh-list-delete-btn {
+    width: 34px;
+    height: 34px;
   }
 }
 
