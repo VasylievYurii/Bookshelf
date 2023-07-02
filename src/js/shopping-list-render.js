@@ -1,4 +1,4 @@
-import { useBooksApi } from '../services/booksApi';
+// import { useBooksApi } from '../services/booksApi';
 import amazon from '../images/stores/amazon.png';
 import amazon2x from '../images/stores/amazon@2x.png';
 import bookStore from '../images/stores/book.png';
@@ -14,7 +14,7 @@ const optionsNotiflix = {
   borderRadius: '25px',
 };
 
-const booksApi = useBooksApi();
+// const booksApi = useBooksApi();
 
 const refs = {
   shoppingListEl: document.querySelector('.shopping-list'),
@@ -28,7 +28,7 @@ const shoppingListArray = JSON.parse(localStorage.getItem(STORAGE_KEY)) ?? [];
 let defaultDescription;
 let defaultBookImage;
 
-function onDefaultDescription(description) {
+function changeToDefaultDescription(description) {
   if (description === '') {
     defaultDescription = `<p class="sh-book-description">Unfortunately, 
       there is no description for this book</p>`;
@@ -38,12 +38,12 @@ function onDefaultDescription(description) {
   return defaultDescription;
 }
 
-function onDefaultDescription(bookImage) {
+function changeToDefaultBookImg(book_image) {
   if (book_image) {
     defaultBookImage = `<img class="sh-book-img" src="${book_image}" alt="Boook image"></img>`;
   } else {
-    defaultBookImage = `<div class="sh-default-img" style="background-color: #f0f0f0;">
-      <svg class="sh-default-svg" >
+    defaultBookImage = `<div class="sh-default-img width="265" height="198"" style="background-color: #f0f0f0;">
+      <svg class="sh-default-svg-icon" >
       <use href="${sprite}#default-book"></use>
     </svg>
     </div>`;
@@ -75,7 +75,8 @@ function markupShoppingList(books) {
         author,
         buy_links,
       }) => {
-        onDefaultDescription(description);
+        changeToDefaultBookImg(book_image);
+        changeToDefaultDescription(description);
 
         return `
       <li id="${_id}" class="shopping-list-item">
