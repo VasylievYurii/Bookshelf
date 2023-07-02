@@ -26,6 +26,8 @@
 
 .backdrop-auth {
 
+    z-index: 700;
+
     position: fixed;
     top: 0;
     left: 0;

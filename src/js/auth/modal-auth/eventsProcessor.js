@@ -5,8 +5,10 @@ import { composeSignModal } from './authModal';
 import { composeAuthButton } from '../button-auth/authButton';
 
 import { useUserAuth } from '../firebase/authApi';
+import { useFireStore } from '../firebase/firestoreApi';
 
 const { login, logout, register, auth } = useUserAuth();
+const { putCartToFirebase } = useFireStore();
 
 const modalAuthRootRef = document.querySelector('.auth-modal-root');
 const menuAuthRootRef = document.querySelector('.auth-menu-root');
@@ -91,6 +93,7 @@ const onSignUpSubmit = e => {
   const displayName = e.target.elements.name.value;
   register({ username, password, displayName })
     .then(user => {
+      putCartToFirebase([]);
       menuAuthRootRef.innerHTML = composeAuthButton(user);
       bindButtonEvents(onLogOut);
       onModalClose();
