@@ -3,7 +3,15 @@ import { useFireStore } from './auth/firebase/firestoreApi';
 const { getCartFromFirebase, putCartToFirebase, isLoggedIn } = useFireStore();
 
 const STORAGE_KEY = 'shopping-list';
+const STORAGE_FIREBASE_KEY = 'TOAST UI pagination for localhost: Statistics'
 
+const AUTHORIZATION_KEY = JSON.parse(localStorage.getItem(STORAGE_FIREBASE_KEY));
+
+console.log("AUTHORIZATION_KEY:", AUTHORIZATION_KEY);
+
+if (AUTHORIZATION_KEY) {
+  isLoggedIn (true)
+}
 
 let shoppingListArray;
 
