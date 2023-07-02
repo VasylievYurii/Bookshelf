@@ -96,13 +96,21 @@
 }
 
 .sh-book-img {
+  position: relative;
   margin: 14px;
   width: 100px;
   height: 142px;
   border-radius: 8px;
 }
 
+.sh-book-info-wrap {
+  position: relative;
+}
+
 .sh-list-delete-btn {
+  // position: absolute;
+  bottom: 50%;
+
   display: flex;
   width: 28px;
   height: 28px;
