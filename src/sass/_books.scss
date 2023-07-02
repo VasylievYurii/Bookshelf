@@ -1,18 +1,54 @@
 .thumb {
-    height: 485px;
-    min-width: 320px;
-    border-radius: 8px;
-    overflow: hidden;
+  position: relative;
+  margin-bottom: 14px;
+  height: 485px;
+  min-width: 320px;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .thumb > img {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .book-title {
-    font-size: 16px;
-    line-height: 1.125;
-    color: var(--color-dark-theme);
-   
+  margin-bottom: 4px;
+  font-size: 16px;
+  line-height: 1.125;
+  color: var(--color-dark-theme);
+  letter-spacing: -0.64px;
+  text-transform: uppercase;
+}
+
+.book-item .book-author {
+  margin-bottom: 0px;
+}
+
+.overlay {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 27%;
+  background-color: var(--color-links);
+
+  transform: translateY(100%);
+  transition: transform 250ms var(--timing-function);
+}
+
+.thumb:hover .overlay {
+  transform: translateY(0);
+}
+
+.overlay-text {
+  color: #111;
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 1.28;
+  letter-spacing: -0.56px;
+  text-transform: uppercase;
 }

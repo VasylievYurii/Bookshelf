@@ -65,4 +65,4 @@ const getTopBooksByCategories = async () => {
   }
 };
 
-getTopBooksByCategories();
+// getTopBooksByCategories();
