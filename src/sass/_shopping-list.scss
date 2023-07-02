@@ -36,11 +36,10 @@
 
 .shopping-list-item {
   display: flex;
-  // justify-content: space-between;
   padding: 14px;
   border-radius: 16px;
   border: 2px solid rgba(79, 46, 232, 0.4);
-  background: var(--color-white-theme);
+  background-color: var(--color-white-theme);
 }
 
 .sh-book-title {
@@ -131,12 +130,20 @@
 }
 
 .sh-book-info-link-wrap {
+  display: flex;
+  justify-content: space-between;
 }
 
 @media screen and (min-width: 375px) {
 }
 
 @media screen and (min-width: 768px) {
+  .shopping-list-item {
+    position: relative;
+    display: flex;
+    padding: 30px 24px;
+  }
+
   .sh-title {
     font-size: 48px;
     line-height: 1.08;
@@ -147,7 +154,16 @@
     height: 241px;
   }
 
+  .sh-book-img {
+    margin-right: 24px;
+    width: 116px;
+    height: 165px;
+  }
+
   .sh-list-delete-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
     width: 34px;
     height: 34px;
   }
@@ -164,6 +180,18 @@
   .sh-soc-link .apple-store {
     width: 28px;
     height: 27px;
+  }
+
+  .sh-wrap {
+    flex-direction: column;
+    gap: 14px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .sh-book-category {
+    margin-bottom: 8px;
   }
 }
 

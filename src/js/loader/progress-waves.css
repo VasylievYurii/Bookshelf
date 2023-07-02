@@ -62,6 +62,7 @@
 }
 
 .loader-modal {
+	z-index: 800;
 	position: fixed;
 	top: 0;
 	left: 0;

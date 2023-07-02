@@ -15,6 +15,8 @@
   scale: 1;
   visibility: visible;
 
+  filter: blur(0);
+
   transition: opacity 250ms linear, scale 250ms linear, visibility 250ms linear;
 }
 
@@ -23,6 +25,7 @@
   visibility: hidden;
   scale: 0.9;
   pointer-events: none;
+  filter: blur(20px);
 }
 
 .container-popup {
@@ -81,12 +84,26 @@
   margin: -1px;
 }
 
+.btn-close-modal {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+}
+
 .close-modal {
   position: absolute;
   top: 12px;
   right: 12px;
-
+  background-color: transparent;
   stroke: var(--color-dark-theme);
+  border: none;
+}
+
+.close-cross {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .close-modal:is(:hover, :focus) {
