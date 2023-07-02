@@ -92,3 +92,20 @@ body {
   clip-path: inset(50%);
   margin: -1px;
 }
+
+
+[data-page-theme="light"] {
+  --color-body-white-theme: #f6f6f6;
+  --color-white-theme: #fff;
+  --header-background-color: #fff;
+  --color-link-title: #111;
+  
+}
+
+
+[data-page-theme="dark"] {
+  --color-body-white-theme: #202024;
+  --color-white-theme: #202024;
+  --header-background-color: #111;
+  --color-link-title: #fff;
+}

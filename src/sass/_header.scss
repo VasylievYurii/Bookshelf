@@ -5,7 +5,7 @@
   padding-bottom: 18px;
   border: 1.5px solid black;
   border-radius: 0 0 8px 8px;
-  background-color: #ffffff;
+  background-color: var(--header-background-color);
 }
 .header-title {
   display: flex;
@@ -19,7 +19,7 @@
   font-size: 14px;
   line-height: 1.29;
   letter-spacing: -0.03em;
-  color: black;
+  color: var(--color-link-title);
 }
 .header-link-home {
   font-weight: 700;

@@ -1,5 +1,5 @@
-import switcher from './switcher';
-// import './js/themes';
+// import switcher from './switcher';
+import './js/themes';
 import './js/top-books';
 import './js/fetch-categories';
 import './js/support';
