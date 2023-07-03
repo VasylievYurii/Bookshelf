@@ -7,10 +7,10 @@
   letter-spacing: -1.28px;
 }
 .shopping-title {
-  color: var(--color-dark-theme);
+  color: var(--text-main);
 }
 .title-span {
-  color: var(--color-button);
+  color: var(--color-accent);
 }
 
 .empty-sh-list {
@@ -31,21 +31,19 @@
 .sh-list-section img {
   display: block;
   max-width: 100%;
-  height: auto;
 }
 
 .shopping-list-item {
   display: flex;
-  // justify-content: space-between;
   padding: 14px;
   border-radius: 16px;
   border: 2px solid rgba(79, 46, 232, 0.4);
-  background: var(--color-white-theme);
+  background-color: var(--header);
 }
 
 .sh-book-title {
   margin-bottom: 4px;
-  color: var(--color-dark-theme);
+  color: var(--text-main);
   font-size: 16px;
   font-weight: 700;
   line-height: 1.13;
@@ -53,21 +51,21 @@
 }
 .sh-book-category {
   margin-bottom: 8px;
-  color: #b4afaf;
+  color: var(--text-second);
   font-size: 12px;
   font-weight: 400;
   line-height: 1.17;
   letter-spacing: 0.36px;
 }
 .sh-book-description {
-  color: var(--color-dark-theme);
+  color: var(--text-main);
   font-size: 14px;
   font-weight: 400;
   line-height: 1.23;
   letter-spacing: -0.56px;
 }
 .sh-book-author {
-  color: #b4afaf;
+  color: var(--text-second);
   font-size: 12px;
   font-style: italic;
   font-weight: 400;
@@ -124,19 +122,27 @@
   justify-content: center;
   padding: 0;
 
-  background-color: var(--color-button);
+  background-color: var(--color-accent);
   border-radius: 50%;
   border: none;
   cursor: pointer;
 }
 
 .sh-book-info-link-wrap {
+  display: flex;
+  justify-content: space-between;
 }
 
 @media screen and (min-width: 375px) {
 }
 
 @media screen and (min-width: 768px) {
+  .shopping-list-item {
+    position: relative;
+    display: flex;
+    padding: 30px 24px;
+  }
+
   .sh-title {
     font-size: 48px;
     line-height: 1.08;
@@ -147,7 +153,16 @@
     height: 241px;
   }
 
+  .sh-book-img {
+    margin-right: 24px;
+    width: 116px;
+    height: 165px;
+  }
+
   .sh-list-delete-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
     width: 34px;
     height: 34px;
   }
@@ -164,6 +179,18 @@
   .sh-soc-link .apple-store {
     width: 28px;
     height: 27px;
+  }
+
+  .sh-wrap {
+    flex-direction: column;
+    gap: 14px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .sh-book-category {
+    margin-bottom: 8px;
   }
 }
 

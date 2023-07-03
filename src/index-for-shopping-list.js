@@ -1,13 +1,12 @@
 // import switcher from './switcher';
 import './js/themes';
 import './js/menu';
-import './js/render-books-by-category';
-import './js/top-books';
-import './js/condition-for-categories-render';
-import './js/fetch-categories';
+// import './js/render-books-by-category';
+// import './js/top-books';
 import './js/fireBaseFnunctions.js';
 import './js/support';
 import './js/auth/modal-auth/eventsProcessor';
 import './js/pop-up-book';
 import './js/scroll-up';
 import './js/footer';
+import './js/viewportChecker';

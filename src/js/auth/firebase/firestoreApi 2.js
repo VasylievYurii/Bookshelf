@@ -7,14 +7,9 @@ const getUid = () => localStorage.getItem('signeduser');
 const isLoggedIn = () => (getUid() ? true : false);
 
 const putCartToFirebase = async (books = []) => {
-  console.log('put Cart to DB');
-  if (!isLoggedIn()) {
-    console.log('not logged in');
-    return []
-  };
+  if (!isLoggedIn()) return [];
   openLoader();
   try {
-    console.log('creating cart for user', getUid());
     return setDoc(doc(db, 'carts', getUid()), { books });
   } catch (error) {
     throw new Error('DB Error');

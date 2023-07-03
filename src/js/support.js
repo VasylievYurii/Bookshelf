@@ -1,6 +1,6 @@
 import supportList from '../data/support.json';
 import Swiper from 'swiper';
-// import 'swiper/swiper-bundle.min.css';
+import 'swiper/swiper-bundle.min.css';
 
 import saveTheChildren from '../images/supports/1.png';
 import saveTheChildren2x from '../images/supports/1@2x.png';
@@ -70,17 +70,51 @@ const supportImg = [
 ];
 
 const swiperOptions = {
-  slidesPerView: 4,
+  direction: 'vertical',
   spaceBetween: 10,
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
+  breakpoints: {
+    300: {
+      slidesPerView: 4,
+    },
+
+    768: {
+      slidesPerView: 6,
+    },
   },
 };
 
 const fundList = document.querySelector('.fund-list');
 
+const down = document.querySelector('.button-next');
+const up = document.querySelector('.button-prev');
+
 const swiper = new Swiper('.swiper', swiperOptions);
+
+swiper.on('reachEnd', function () {
+  if (up.classList.contains('visually-hidden')) {
+    up.classList.remove('visually-hidden');
+  }
+  down.classList.add('visually-hidden');
+});
+
+swiper.on('reachBeginning', function () {
+  if (down.classList.contains('visually-hidden')) {
+    down.classList.remove('visually-hidden');
+  }
+  up.classList.add('visually-hidden');
+});
+
+down.addEventListener('click', slideUp);
+
+function slideUp() {
+  swiper.slideNext();
+}
+
+up.addEventListener('click', slideDown);
+
+function slideDown() {
+  swiper.slidePrev();
+}
 
 supportList.forEach(function (data) {
   let imgSrc = data.img;
@@ -96,7 +130,7 @@ supportList.forEach(function (data) {
 
   const listItem = `
     <li class="swiper-slide support-list">
-      <a href="${data.url}">
+      <a href="${data.url}"rel="noopener noreferrer nofollow" target="_blank">
         <img class="support-img" src="${imgSrc}" srcset="${imgSrcset}" alt="${data.title}" height="32">
       </a>
     </li>
@@ -104,5 +138,4 @@ supportList.forEach(function (data) {
 
   fundList.insertAdjacentHTML('beforeend', listItem);
 });
-
 swiper.update();

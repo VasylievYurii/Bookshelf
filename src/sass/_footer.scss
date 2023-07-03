@@ -4,27 +4,20 @@
     right: 0;
     bottom: 0;
     left: 0;
-
     overflow: auto;
-
     z-index: 10;
-
     background-color: rgba(17, 17, 17, 0.4);
-
     opacity: 1;
     scale: 1;
     visibility: visible;
-
     transition: opacity 250ms linear, scale 250ms linear, visibility 250ms linear;
 }
-
 .footer {
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     z-index: 15;
-    
     display: flex;
     flex-direction: column;
     width: 335px;
@@ -35,14 +28,12 @@
     border: 2px solid var(--color-dark-theme);
     border-radius: 18px;
 }
-
 .backdrop-modal-footer.is-hidden-footer {
     opacity: 0;
     visibility: hidden;
     scale: 0.9;
     pointer-events: none;
 }
-
 .footer-head{
     color: #000;
     font-size: 40px;
@@ -52,7 +43,6 @@
     line-height: 44px;
     letter-spacing: -1.6px;
 }
-
 .contact-list {
     // width: 248px;
     // height: 84px;
@@ -61,13 +51,11 @@
     margin: 0;
     gap: 0 10px;
 }
-
 .contact-list-item{
     display: flex;
     flex-direction: row;
     gap: 5px;
 }
-
 .contact-text{
     font-size: 12px;
     font-weight: 400;
@@ -75,7 +63,6 @@
     letter-spacing: -0.48px;
     color: var(--color-dark-theme);
 }
-
 .contact-link{
     font-size: 12px;
     font-weight: 400;
@@ -83,100 +70,82 @@
     letter-spacing: -0.48px;
     text-decoration: none;
 }
-
 .footer-btn{
     position: fixed;
     left: 5px;
     bottom: 10px;
-
     display: inline-block;
     width: 28px;
     height: 28px;
-
     margin: 0;
     padding: 0;
     cursor: pointer;
 }
-
 .footer-gear{
     width: 28px;
     height: 28px;
     fill: var(--color-button);
 }
-
 .footer-btn:hover, .footer-btn:focus {
     -webkit-animation: rotate-center 1.5s linear infinite;
         animation: rotate-center 1.5s linear infinite;
 }
-
 @-webkit-keyframes rotate-center {
     0% {
         -webkit-transform: rotate(0);
         transform: rotate(0);
     }
-
     100% {
         -webkit-transform: rotate(360deg);
         transform: rotate(360deg);
     }
 }
-
 @keyframes rotate-center {
     0% {
         -webkit-transform: rotate(0);
         transform: rotate(0);
     }
-
     100% {
         -webkit-transform: rotate(360deg);
         transform: rotate(360deg);
     }
 }
-
 @media screen and (min-width: 768px) {
     .footer{
         width: 548px;
     }
-
     .contact-list {
         height: 84px;
         gap: 0 10px;
         flex-wrap: wrap;
     }
-
     .footer-btn {
         left: 5px;
         bottom: 10px;
         width: 40px;
         height: 40px;
     }
-
     .footer-gear {
         width: 40px;
         height: 40px;
     }
 }
-
 @media screen and (min-width: 1200px) {
     .footer {
         width: 804px;
     }
-
     .footer>.container{
         max-width: 800px;
     }
-
     .contact-list{
         height: 56px;
     }
-
     .footer-btn{
         left: 15px;
         bottom: 20px;
         width: 64px;
         height: 64px;
     }
-
     .footer-gear{
         width: 64px;
         height: 64px;
