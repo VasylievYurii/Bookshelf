@@ -132,7 +132,7 @@ function makeAddBtnVisible() {
   btnAddEl.classList.remove('visually-hidden');
 }
 
-function removeFromLocalStorage() {
+export function removeFromLocalStorage() {
   const index = shoppingListArray.findIndex(
     item => item._id === bookForShoppingList._id
   );

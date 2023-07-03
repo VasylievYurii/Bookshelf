@@ -5,14 +5,15 @@
     menu: document.querySelector('.mobile-menu'),
   };
 
-  refs.openMenuBtn.addEventListener('click', openMenu);
-  refs.closeMenuBtn.addEventListener('click', closeMenu);
+  refs.openMenuBtn.addEventListener('click', onOpenMenu);
+  refs.closeMenuBtn.addEventListener('click', onCloseMenu);
 
-  function openMenu() {
+  function onOpenMenu(e) {
+    console.log('e', e);
     refs.menu.classList.remove('is-hidden');
   }
 
-  function closeMenu() {
+  function onCloseMenu() {
     refs.menu.classList.add('is-hidden');
   }
 })();

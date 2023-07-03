@@ -229,6 +229,34 @@ a:link {
     letter-spacing: -0.04em;
     color: var(--text-main);
   }
+
+  // .modal-header-wrapper {
+  //   position: relative;
+  //   width: 100vw;
+  //   height: 100vh;
+  // }
+
+  // .modal-header-menu {
+  //   width: 100%;
+  //   height: 100%;
+  //   position: absolute;
+  //   bottom: 0;
+
+  //   background-image: url(../images/background-menu.png);
+  //   background-position: center bottom;
+  //   background-repeat: no-repeat;
+  //   background-color: blue;
+  //   background: radial-gradient(
+  //     189.32% 190.93% at 59.76% -23.42%,
+  //     #4f2ee8 18.03%,
+  //     #fff 100%
+  //   );
+
+  .current {
+    padding: 8px 16px;
+    border-radius: 36px;
+    background: #eac645;
+  }
 }
 
 @media screen and (min-width: 768px) {
