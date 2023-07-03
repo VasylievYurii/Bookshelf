@@ -20,34 +20,27 @@
       <aside class="sidebar">
         <include src="./partials/support.html"></include>
       </aside>
-    <main>
-      <section class="sh-list-section">
-        <div class="sh-list-container container">
-          <h1 class="sh-title shopping-title">
-            Shopping <span class="sh-title title-span">List</span>
-          </h1>
-          <div class="empty-sh-list">
-            <img
-              class="book-column-img"
-              srcset="
-                ./images/book-column@1x.png 1x,
-                ./images/book-column@2x.png 2x
-              "
-              src="./images/book-column@1x.png"
-              alt="book-column"
-            />
+      <main>
+        <section class="sh-list-section">
+          <div class="sh-list-container container">
+            <h1 class="sh-title shopping-title">
+              Shopping <span class="sh-title title-span">List</span>
+            </h1>
+            <div class="empty-sh-list">
+              <img
+                class="book-column-img"
+                srcset="
+                  ./images/book-column@1x.png 1x,
+                  ./images/book-column@2x.png 2x
+                "
+                src="./images/book-column@1x.png"
+                alt="book-column"
+              />
+            </div>
+            <ul class="shopping-list"></ul>
           </div>
-          <!-- <div>
-            <button class="sh-list-delete-btn" type="button">
-              <svg class="sh-list-delete-icon" width="18" height="18">
-                <use href="./images/sprite.svg#trash"></use>
-              </svg>
-            </button>
-          </div> -->
-          <ul class="shopping-list"></ul>
-        </div>
-      </section>
-    </main>
+        </section>
+      </main>
     </div>
     <include src="./partials/pop-up-book.html"></include>
     <include src="./partials/footer.html"></include>
