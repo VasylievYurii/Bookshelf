@@ -11,7 +11,7 @@ const sectionCategoriesListEl = document.querySelector(
   '.section-categories-list'
 );
 
-parceCategoriesBlocks();
+// parceCategoriesBlocks();
 
 function makeMarkupForCategories(categories) {
   const categoriesMarkup = categories
@@ -51,20 +51,19 @@ async function parceCategoriesBlocks() {
   }
 }
 
-
-
 // Функцию нужно доработать, почему-то не отрабатывает как надо. Пока не смог разобраться.
 
 function onButtonClick(evt) {
   if (!evt.target.nodeName === 'BUTTON') {
     return;
   }
-  const category = evt.target.closest('.books-list').getAttribute('data-category');
+  const category = evt.target
+    .closest('.books-list')
+    .getAttribute('data-category');
   console.log(category);
   renderBooksByCategory(category);
 }
-
+// Розкоментити для отримання всіх книг
 parceCategoriesBlocks();
 
-export {parceCategoriesBlocks};
-
+export { parceCategoriesBlocks };

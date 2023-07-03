@@ -3,6 +3,7 @@ import './js/themes';
 import './js/menu';
 import './js/render-books-by-category';
 import './js/top-books';
+import './js/condition-for-categories-render';
 import './js/fetch-categories';
 import './js/fireBaseFnunctions.js';
 import './js/support';
