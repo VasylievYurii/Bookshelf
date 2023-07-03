@@ -1,27 +1,26 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
 
 :root {
-  --body:#F6F6F6;
-  --header:#fff;
-  --sidebar-categories:rgba(17, 17, 17, 0.60);
-  --sidebar-categories-current:#4f2ee8;
-  --text-main:#111;
-  --scroll:#E0E0E0;
+  --body: #f6f6f6;
+  --header: #fff;
+  --sidebar-categories: rgba(17, 17, 17, 0.6);
+  --sidebar-categories-current: #4f2ee8;
+  --text-main: #111;
+  --scroll: #e0e0e0;
 
-
-// --scroll:rgba(17, 17, 17, 0.60);
-// --body:#202024;
-// --header:#111;
-// --sidebar-categories:rgba(255, 255, 255, 0.60);
-// --sidebar-categories-current:#eac645;
-// --text-main:#fff;
+  // --scroll:rgba(17, 17, 17, 0.60);
+  // --body:#202024;
+  // --header:#111;
+  // --sidebar-categories:rgba(255, 255, 255, 0.60);
+  // --sidebar-categories-current:#eac645;
+  // --text-main:#fff;
 
   // --color-body-white-theme: #f6f6f6;
   // --color-white-theme: #fff;
- 
+
   // --color-dark-theme: #111;
   --color-lite-dark-theme: #202024;
-  --text-second:#b4afaf;
+  --text-second: #b4afaf;
 
   --color-accent: #4f2ee8;
   --color-links: #eac645;
@@ -126,12 +125,12 @@ body {
 }
 
 [data-page-theme='light'] {
-  --body:#F6F6F6;
-  --header:#fff;
-  --sidebar-categories:rgba(17, 17, 17, 0.60);
-  --sidebar-categories-current:#4f2ee8;
-  --text-main:#111;
-  --scroll:#E0E0E0;
+  --body: #f6f6f6;
+  --header: #fff;
+  --sidebar-categories: rgba(17, 17, 17, 0.6);
+  --sidebar-categories-current: #4f2ee8;
+  --text-main: #111;
+  --scroll: #e0e0e0;
   // --color-body-white-theme: #f6f6f6;
   // --color-white-theme: #fff;
   // --header-background-color: #fff;
@@ -139,12 +138,12 @@ body {
 }
 
 [data-page-theme='dark'] {
-  --scroll:rgba(17, 17, 17, 0.60);
---body:#202024;
---header:#111;
---sidebar-categories:rgba(255, 255, 255, 0.60);
---sidebar-categories-current:#eac645;
---text-main:#fff;
+  --scroll: rgba(17, 17, 17, 0.6);
+  --body: #202024;
+  --header: #111;
+  --sidebar-categories: rgba(255, 255, 255, 0.6);
+  --sidebar-categories-current: #eac645;
+  --text-main: #fff;
   // --color-body-white-theme: #202024;
   // --color-white-theme: #202024;
   // --header-background-color: #111;
