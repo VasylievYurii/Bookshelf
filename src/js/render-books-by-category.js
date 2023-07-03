@@ -12,8 +12,8 @@ const booksListEl = document.querySelector('.section-books-list');
 //---Раскоментить для ручного запуска функции
 // renderBooksByCategory('Paperback Nonfiction'); 
 
-function makeMarkupForBooks(books) {
-    let oneBook = addClassForBookList ();
+function makeMarkupForBooks(books, e) {
+    let oneBook = addClassForBookList(e);
   const markup = books
     .map(
       ({ book_image, title, author, _id }) => `<li class="${oneBook}">
@@ -45,7 +45,7 @@ function makeMarkupForTitle(title) {
 async function renderBooksByCategory(category) {
   try {
     const res = await booksApi.getBooksByCategory(category);
-    booksListEl.innerHTML = makeMarkupForBooks(res);
+    booksListEl.innerHTML = makeMarkupForBooks(res, true);
     sectionBooksTitleEl.innerHTML = makeMarkupForTitle(category);
     hideElement(sectionCategoriesEl);
     showElement(sectionBooksEl);
@@ -69,10 +69,13 @@ function onBookSelect(evt) {
 }
 
 function hideElement(elem) {
+  console.log("elem add class:", elem)
+  
   elem.classList.add('hidden');
 }
 
 function showElement(elem) {
+  console.log("elem hide class:", elem)
   elem.classList.remove('hidden');
 }
 
