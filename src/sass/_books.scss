@@ -108,6 +108,7 @@
   text-transform: uppercase;
   color: var(--text-main);
   cursor: pointer;
+  background-color:var(--body);
 }
 
 // -----------Стили для Таблета---------//
@@ -143,9 +144,9 @@
     letter-spacing: -1.92px;
   }
 
-  .book-item{
-    width: 218px;
-  }
+  // .book-item{
+  //   width: 218px;
+  // }
 }
 
 // -----------Стили для Десктопа---------//

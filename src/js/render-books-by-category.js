@@ -13,7 +13,7 @@ const booksListEl = document.querySelector('.section-books-list');
 function makeMarkupForBooks(books) {
   const markup = books
     .map(
-      ({ book_image, title, author, _id }) => `<li>
+      ({ book_image, title, author, _id }) => `<li class="element-books-list">
     <a href='#' class='book-item' data-value="${_id}">
       <div class='thumb'>
         <img src='${book_image}' alt='Book cover' />
