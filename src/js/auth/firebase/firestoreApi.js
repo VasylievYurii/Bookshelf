@@ -7,9 +7,9 @@ const getUid = () => localStorage.getItem('signeduser');
 const isLoggedIn = () => (getUid() ? true : false);
 
 const putCartToFirebase = async (books = []) => {
-  console.log('put Cart to DB');
+  // console.log('put Cart to DB');
   if (!isLoggedIn()) {
-    console.log('not logged in');
+    // console.log('not logged in');
     return []
   };
   openLoader();

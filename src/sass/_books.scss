@@ -21,6 +21,7 @@
 }
 
 .book-title {
+  text-align: start;
   margin-bottom: 4px;
   font-size: 16px;
   line-height: 1.125;
@@ -30,6 +31,8 @@
 }
 
 .book-item .book-author {
+  text-align: start;
+  // margin-right: auto;
   margin-bottom: 0px;
   font-size: 12px;
   line-height: 1.16;
