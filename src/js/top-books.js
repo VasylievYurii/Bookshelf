@@ -16,10 +16,10 @@ const sectionCategoriesListEl = document.querySelector(
 function makeMarkupForCategories(categories) {
   const categoriesMarkup = categories
     .map(
-      list_name => `<li class='category-block'>
+      list_name => `<li class='category-block' >
       <h3 class='category-block-title'>${list_name}</h3>
       <ul class='books-list' data-category="${list_name}"></ul>
-      <button type='button' class='btn'>See more</button>
+      <button type='button' class='btn' data-category="${list_name}">See more</button>
       </li>`
     )
     .join('\n');
@@ -58,9 +58,7 @@ function onButtonClick(evt) {
     return;
   }
   const category = evt.target
-    .closest('.books-list')
     .getAttribute('data-category');
-  console.log(category);
   renderBooksByCategory(category);
 }
 // Розкоментити для отримання всіх книг
