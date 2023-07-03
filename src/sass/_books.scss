@@ -67,10 +67,20 @@
   margin-bottom: 40px;
 }
 
+.section-categories-list{
+  display: flex;
+  flex-direction: column;
+  gap:40px;
+}
+
+.book-item{
+  display: block;
+  width: 100%;
+}
 // -----------Стили для заголовка секции с книгами---------//
 
 .accent {
-  color: #4f2ee8;
+  color: var(--color-accent);
 }
 
 .section-categories-title,
@@ -89,14 +99,14 @@
   margin-left: auto;
   padding: 12px 26px;
   border-radius: 40px;
-  border: 2px solid #4f2ee8;
+  border: 2px solid var(--color-accent);
 
   font-size: 14px;
   font-weight: 700;
   line-height: 1.29;
   letter-spacing: -0.14px;
   text-transform: uppercase;
-  color: var(--color-dark-theme);
+  color: var(--text-main);
   cursor: pointer;
 }
 
@@ -132,13 +142,17 @@
     line-height: 1.08;
     letter-spacing: -1.92px;
   }
+
+  .book-item{
+    width: 218px;
+  }
 }
 
 // -----------Стили для Десктопа---------//
 
 @media screen and (min-width: 1440px) {
   .main-container {
-    max-width: 996px;
+    // max-width: 996px;
   }
 
   .thumb {

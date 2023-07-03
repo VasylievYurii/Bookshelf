@@ -1,4 +1,5 @@
 .support-container {
+  width: 335px;
   text-align: center;
   padding: 24px 40px 20px 40px;
   border-radius: 16px;
@@ -9,6 +10,13 @@
   );
   box-shadow: 0px 10px 10px 0px rgba(245, 245, 247, 0.1);
   color: #ffffff;
+
+  @media screen and (min-width: 1440px) {
+ 
+      width: 100%;
+  
+  }
+  
 }
 
 .support-title {

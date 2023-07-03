@@ -1,22 +1,18 @@
 .sidebar {
   display: flex;
   flex-direction: column;
-  gap:40px;
+  gap: 40px;
   width: 335px;
-}
 
-@media screen and (min-width: 768px) {
-  .sidebar {
+  @media screen and (min-width: 768px) {
     flex-direction: row;
     width: 704px;
-    gap:32px;
+    gap: 32px;
   }
-}
-
-@media screen and (min-width: 1440px) {
-  .sidebar {
+  
+  @media screen and (min-width: 1440px) {
     flex-direction: column;
-    width: 380px;
-    gap:86px;
+    width: 356px;
+    gap: 86px;
   }
 }
