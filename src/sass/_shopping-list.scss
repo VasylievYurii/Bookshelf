@@ -34,6 +34,7 @@
 }
 
 .shopping-list-item {
+  // position: relative;
   display: flex;
   padding: 14px;
   border-radius: 16px;
@@ -101,13 +102,14 @@
 }
 
 .sh-wrap {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 14px;
 }
 
 .sh-book-info-wrap {
-  position: relative;
+  // position: relative;
 }
 
 .sh-list-delete-btn {
