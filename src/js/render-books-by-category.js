@@ -17,7 +17,7 @@ function makeMarkupForBooks(books) {
   const markup = books
     .map(
       ({ book_image, title, author, _id }) => `<li class="${oneBook}">
-    <button type="button" class='book-item' data-value="${_id}">
+    <a class='book-item' data-value="${_id}">
       <div class='thumb'>
         <img src='${book_image}' alt='Book cover' />
         <div class='overlay'>
@@ -26,7 +26,7 @@ function makeMarkupForBooks(books) {
       </div>
       <h3 class='book-title'>${title}</h3>
       <p class='book-author'>${author}</p>
-    </button>
+    </a>
   </li>`
     )
     .join('\n');

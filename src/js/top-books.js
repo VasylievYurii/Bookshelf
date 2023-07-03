@@ -54,6 +54,7 @@ async function parceCategoriesBlocks() {
 // Функцию нужно доработать, почему-то не отрабатывает как надо. Пока не смог разобраться.
 
 function onButtonClick(evt) {
+  evt.preventDefault();
   console.log("function onButtonClick:", evt)
   console.log('evt.target.nodeName', evt.target.nodeName)
   
