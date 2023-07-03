@@ -15,6 +15,7 @@ const btnRemoveEl = document.querySelector('button[data-action="remove"]');
 const successTextEl = document.querySelector('.modal-congrats-text');
 const closeModalEl = document.querySelector('.close-modal');
 const backdropEl = document.querySelector('.backdrop-modal');
+const bodyEl = document.querySelector('body');
 
 const shoppingListArray = JSON.parse(localStorage.getItem(STORAGE_KEY)) ?? [];
 
@@ -164,8 +165,10 @@ function onEscPress(e) {
     onModalClose();
   }
 }
+console.log('body', bodyEl);
 
 export function onModalOpen() {
   window.addEventListener('keydown', onEscPress);
   backdropEl.classList.remove('is-hidden');
+  bodyEl.classList.add('no-scroll');
 }
