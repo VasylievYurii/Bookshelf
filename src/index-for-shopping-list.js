@@ -7,5 +7,6 @@ import './js/fireBaseFnunctions.js';
 import './js/support';
 import './js/auth/modal-auth/eventsProcessor';
 import './js/pop-up-book';
-import './js/scroll-up';
+// import './js/scroll-up';
 import './js/footer';
+import './js/viewportChecker';
