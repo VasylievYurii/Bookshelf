@@ -118,6 +118,9 @@
 }
 
 .book-item{
+  display: block;
+  width: 100%;
+  cursor: pointer;
   @media screen and (min-width: 768px) {
       width: 218px;
   }

@@ -1,5 +1,6 @@
 import { useBooksApi } from '../services/booksApi';
 import { insertModalBook, onModalOpen } from './pop-up-book';
+import { addClassForBookList } from './condition-for-categories-render';
 
 const booksApi = useBooksApi();
 
@@ -8,13 +9,12 @@ const sectionBooksEl = document.querySelector('.section-books');
 const sectionBooksTitleEl = document.querySelector('.section-books-title');
 const booksListEl = document.querySelector('.section-books-list');
 
-// renderBooksByCategory('Paperback Nonfiction'); //---Раскоментить для ручного запуска функции
-
-function makeMarkupForBooks(books) {
+function makeMarkupForBooks(books, e) {
+  let oneBook = addClassForBookList(e);
   const markup = books
     .map(
-      ({ book_image, title, author, _id }) => `<li class="element-books-list">
-    <a href='#' class='book-item' data-value="${_id}">
+      ({ book_image, title, author, _id }) => `<li class="${oneBook}">
+    <a class='book-item' data-value="${_id}">
       <div class='thumb'>
         <img src='${book_image}' alt='Book cover' />
         <div class='overlay'>
@@ -42,7 +42,7 @@ function makeMarkupForTitle(title) {
 async function renderBooksByCategory(category) {
   try {
     const res = await booksApi.getBooksByCategory(category);
-    booksListEl.innerHTML = makeMarkupForBooks(res);
+    booksListEl.innerHTML = makeMarkupForBooks(res, true);
     sectionBooksTitleEl.innerHTML = makeMarkupForTitle(category);
     hideElement(sectionCategoriesEl);
     showElement(sectionBooksEl);

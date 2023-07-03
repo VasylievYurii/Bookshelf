@@ -1,16 +1,12 @@
-// -----------Служебные стили---------//
-
 .hidden {
   display: none;
 }
 
-// -----------Стили для одной карточки книги---------//
+// -----------Styles for one book---------//
 
 .thumb {
   position: relative;
   margin-bottom: 14px;
-  // height: 485px;
-  // min-width: 320px;
   border-radius: 8px;
   overflow: hidden;
 }
@@ -21,6 +17,7 @@
 }
 
 .book-title {
+  text-align: start;
   margin-bottom: 4px;
   font-size: 16px;
   line-height: 1.125;
@@ -30,6 +27,7 @@
 }
 
 .book-item .book-author {
+  text-align: start;
   margin-bottom: 0px;
   font-size: 12px;
   line-height: 1.16;
@@ -67,17 +65,13 @@
   margin-bottom: 40px;
 }
 
-.section-categories-list{
+.section-categories-list {
   display: flex;
   flex-direction: column;
-  gap:40px;
+  gap: 40px;
 }
 
-.book-item{
-  display: block;
-  width: 100%;
-}
-// -----------Стили для заголовка секции с книгами---------//
+// -----------Styles for sections with book---------//
 
 .accent {
   color: var(--color-accent);
@@ -92,7 +86,7 @@
   text-transform: capitalize;
 }
 
-// -----------Стили для кнопки See More---------//
+// -----------See More Button---------//
 
 .section-categories-list .btn {
   display: block;
@@ -108,10 +102,10 @@
   text-transform: uppercase;
   color: var(--text-main);
   cursor: pointer;
-  background-color:var(--body);
+  background-color: var(--body);
 }
 
-// -----------Стили для Таблета---------//
+// -----------Styles for tablet---------//
 
 @media screen and (min-width: 768px) {
   .thumb {
@@ -143,19 +137,11 @@
     line-height: 1.08;
     letter-spacing: -1.92px;
   }
-
-  // .book-item{
-  //   width: 218px;
-  // }
 }
 
-// -----------Стили для Десктопа---------//
+// -----------Styles for desktop---------//
 
 @media screen and (min-width: 1440px) {
-  .main-container {
-    // max-width: 996px;
-  }
-
   .thumb {
     height: 256px;
   }

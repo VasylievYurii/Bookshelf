@@ -45,6 +45,6 @@ function getCategoryElements() {
 
 categoryAll.addEventListener('click', () => {
   parceCategoriesBlocks();
-
 })
+
 handleOnPress();

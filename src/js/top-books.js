@@ -11,15 +11,13 @@ const sectionCategoriesListEl = document.querySelector(
   '.section-categories-list'
 );
 
-parceCategoriesBlocks();
-
 function makeMarkupForCategories(categories) {
   const categoriesMarkup = categories
     .map(
-      list_name => `<li class='category-block'>
+      list_name => `<li class='category-block' data-category="${list_name}">
       <h3 class='category-block-title'>${list_name}</h3>
       <ul class='books-list' data-category="${list_name}"></ul>
-      <button type='button' class='btn'>See more</button>
+      <button type='button' class='btn' >See more</button>
       </li>`
     )
     .join('\n');
@@ -51,20 +49,21 @@ async function parceCategoriesBlocks() {
   }
 }
 
-
-
-// Функцию нужно доработать, почему-то не отрабатывает как надо. Пока не смог разобраться.
-
 function onButtonClick(evt) {
-  if (!evt.target.nodeName === 'BUTTON') {
+  evt.preventDefault();
+
+  if (evt.target.nodeName === 'BUTTON') {
+    const category = evt.target
+      .closest('.category-block')
+      .getAttribute('data-category');
+    renderBooksByCategory(category);
+
+    return;
+  } else {
     return;
   }
-  const category = evt.target.closest('.books-list').getAttribute('data-category');
-  console.log(category);
-  renderBooksByCategory(category);
 }
 
 parceCategoriesBlocks();
 
-export {parceCategoriesBlocks};
-
+export { parceCategoriesBlocks };
