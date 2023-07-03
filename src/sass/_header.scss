@@ -132,6 +132,31 @@ a:link {
   }
   /*------------------- MOBILE MENU----------------- */
 
+  .backdrop-header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    overflow: auto;
+
+    z-index: 10;
+
+    background-color: rgba(17, 17, 17, 0.4);
+
+    opacity: 1;
+    scale: 1;
+    visibility: visible;
+  }
+
+  .backdrop-header.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    scale: 0.9;
+    pointer-events: none;
+  }
+
   .mob-menu-wrapper {
     position: relative;
     max-width: 375px;
@@ -144,10 +169,10 @@ a:link {
   .mobile-menu {
     position: fixed;
     height: 100vh;
-    width: 100vw;
+    max-width: 375px;
     top: 0;
     right: 0;
-    z-index: 10;
+    z-index: 12;
     background-color: var(--header);
     opacity: 0;
     visibility: hidden;
@@ -176,7 +201,7 @@ a:link {
   }
 
   .logout-btn {
-    position: fixed;
+    position: absolute;
     bottom: 20px;
     left: 20px;
 
@@ -188,7 +213,7 @@ a:link {
     border: 1.5px solid var(--text-main);
     background: var(--header);
 
-    color: #111;
+    color: var(--text-main);
     font-size: 14px;
     font-family: DM Sans;
     font-style: normal;
@@ -298,9 +323,7 @@ a:link {
   }
 
   // .modal-header-wrapper {
-  //   position: relative;
-  //   width: 100vw;
-  //   height: 100vh;
+  //   z-index: 20;
   // }
 
   // .modal-header-menu {
