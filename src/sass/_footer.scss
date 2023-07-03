@@ -6,7 +6,7 @@
   left: 0;
   overflow: auto;
   z-index: 10;
-  background-color: rgba(17, 17, 17, 0.4);
+  background-color:var(--sidebar-categories);
   opacity: 1;
   scale: 1;
   visibility: visible;
@@ -24,8 +24,8 @@
   padding: 20px 0;
   margin-left: auto;
   margin-right: auto;
-  background-color: var(--color-white-theme);
-  border: 2px solid var(--color-dark-theme);
+  background-color: var(--header);
+  border: 2px solid var(--text-main);
   border-radius: 18px;
 }
 .backdrop-modal-footer.is-hidden-footer {
@@ -35,9 +35,8 @@
   pointer-events: none;
 }
 .footer-head {
-  color: #000;
+  color:var(--text-main);
   font-size: 40px;
-  font-family: DM Sans;
   font-style: normal;
   font-weight: 700;
   line-height: 44px;
@@ -59,7 +58,7 @@
   font-weight: 400;
   line-height: 14px;
   letter-spacing: -0.48px;
-  color: var(--color-dark-theme);
+  color: var(--sidebar-categories-current);
 }
 .contact-link {
   font-size: 12px;
@@ -82,7 +81,7 @@
 .footer-gear {
   width: 28px;
   height: 28px;
-  fill: var(--color-button);
+  fill: var(--sidebar-categories-current);
 }
 .footer-btn:hover,
 .footer-btn:focus {
@@ -142,11 +141,11 @@
   .footer-btn {
     left: 15px;
     bottom: 20px;
-    width: 64px;
-    height: 64px;
+    width: 40px;
+    height: 40px;
   }
   .footer-gear {
-    width: 64px;
-    height: 64px;
+    width: 40px;
+    height: 40px;
   }
 }
