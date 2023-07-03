@@ -173,7 +173,7 @@ a:link {
     stroke: rgb(79, 46, 232, 1);
   }
 
-  .mobile-menu.is-hidden {
+  .mobile-menu.is-visible {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
@@ -286,3 +286,12 @@ a:link {
     margin-right: 76px;
   }
 }
+
+
+// .mobile-menu.is-open {
+//   transform: translateX(0);
+//   transition: transform 250ms var(--timing-function),
+//     visibility 250ms var(--timing-function);
+//   visibility: visible;
+//   pointer-events: initial;
+// }
