@@ -62,7 +62,7 @@ a:link {
   list-style: none;
 }
 .shopping-icon {
-  fill:var(--text-main);
+  fill: var(--text-main);
   margin-right: 8px;
   position: relative;
   width: 20px;
@@ -71,7 +71,7 @@ a:link {
 .header-icon {
   margin-right: 144px;
   position: relative;
-  fill:var(--text-main);
+  fill: var(--text-main);
   width: 109px;
   height: 26px;
 }
@@ -131,11 +131,23 @@ a:link {
     display: none;
   }
   /*------------------- MOBILE MENU----------------- */
+
+  .mob-menu-wrapper {
+    position: relative;
+    max-width: 375px;
+  }
+
+  .header .container {
+    max-width: 375px;
+  }
+
   .mobile-menu {
     position: fixed;
-    height: 812px;
+    height: 100vh;
+    width: 100vw;
     top: 0;
-    z-index: 1;
+    right: 0;
+    z-index: 10;
     background-color: var(--header);
     opacity: 0;
     visibility: hidden;
@@ -145,6 +157,48 @@ a:link {
     background-image: url(../images/background-menu.png),
       linear-gradient(to bottom, rgb(79, 46, 232, 1), rgb(220, 220, 220, 1));
   }
+
+  .header-shopping.current {
+    color: var(--text-main);
+  }
+
+  .shopping-icon {
+    fill: white;
+  }
+  .header-shopping {
+    color: white;
+  }
+
+  .mobile-header-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .logout-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+
+    display: flex;
+    gap: 4px;
+    padding: 14px 24px;
+    height: 48px;
+    border-radius: 18px;
+    border: 1.5px solid var(--text-main);
+    background: var(--header);
+
+    color: #111;
+    font-size: 14px;
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: -0.56px;
+
+    stroke: #eac645;
+  }
+
   @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
@@ -190,8 +244,15 @@ a:link {
     border-radius: 0 0 8px 8px;
     background-color: var(--header);
   }
+
   .container.book {
-    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    width: 100vw;
+    height: 100vh;
+    z-index: 20;
   }
 
   .mobile-menu-close-btn {
@@ -209,8 +270,13 @@ a:link {
     width: 28px;
     stroke: var(--text-main);
   }
+
   .mobile-header-nav {
+    padding-top: 247px;
+    padding-bottom: 495px;
+    color: var(--header);
   }
+
   .mobile-header-link-home {
     font-weight: 500;
     font-size: 14px;
@@ -286,7 +352,6 @@ a:link {
     margin-right: 76px;
   }
 }
-
 
 // .mobile-menu.is-open {
 //   transform: translateX(0);
