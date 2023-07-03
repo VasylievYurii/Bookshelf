@@ -1,6 +1,6 @@
 import { useBooksApi } from '../services/booksApi';
 import { insertModalBook, onModalOpen } from './pop-up-book';
-import {addClassForBookList} from './condition-for-categories-render';
+import { addClassForBookList } from './condition-for-categories-render';
 
 const booksApi = useBooksApi();
 
@@ -9,11 +9,8 @@ const sectionBooksEl = document.querySelector('.section-books');
 const sectionBooksTitleEl = document.querySelector('.section-books-title');
 const booksListEl = document.querySelector('.section-books-list');
 
-//---Раскоментить для ручного запуска функции
-// renderBooksByCategory('Paperback Nonfiction'); 
-
 function makeMarkupForBooks(books, e) {
-    let oneBook = addClassForBookList(e);
+  let oneBook = addClassForBookList(e);
   const markup = books
     .map(
       ({ book_image, title, author, _id }) => `<li class="${oneBook}">
@@ -69,13 +66,10 @@ function onBookSelect(evt) {
 }
 
 function hideElement(elem) {
-  console.log("elem add class:", elem)
-  
   elem.classList.add('hidden');
 }
 
 function showElement(elem) {
-  console.log("elem hide class:", elem)
   elem.classList.remove('hidden');
 }
 

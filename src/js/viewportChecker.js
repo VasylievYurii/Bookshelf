@@ -15,7 +15,6 @@
         } else {
             sidebarRef.classList.remove('visually-hidden');
         }
-
     }
 
     window.addEventListener('resize', toggleForSidebar);

@@ -166,7 +166,6 @@ function onEscPress(e) {
     onModalClose();
   }
 }
-// console.log('body', bodyEl);
 
 export function onModalOpen() {
   window.addEventListener('keydown', onEscPress);

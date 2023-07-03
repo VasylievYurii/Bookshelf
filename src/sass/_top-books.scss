@@ -118,8 +118,9 @@
 }
 
 .book-item{
-  background-color:var(--body);
- border: none;
+  display: block;
+  width: 100%;
+  cursor: pointer;
   @media screen and (min-width: 768px) {
       width: 218px;
   }

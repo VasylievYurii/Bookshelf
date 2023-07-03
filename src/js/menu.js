@@ -12,7 +12,6 @@ refs.closeMenuBtn.addEventListener('click', onCloseMenu);
 refs.logOutBtn.addEventListener('click', onLogOutBtn);
 
 function onOpenMenu(e) {
-  // console.log('e', e);
   refs.bodyRef.classList.add('no-scroll');
   refs.menu.classList.add('is-visible');
   refs.backdropEl.classList.remove('is-hidden');

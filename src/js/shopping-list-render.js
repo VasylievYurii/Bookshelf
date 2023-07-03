@@ -14,8 +14,6 @@ const optionsNotiflix = {
   borderRadius: '25px',
 };
 
-// const booksApi = useBooksApi();
-
 const refs = {
   shoppingListEl: document.querySelector('.shopping-list'),
   shoppingListLink: document.querySelector('.header-sh-list-link'),
@@ -130,19 +128,5 @@ function markupShoppingList(books) {
     .join('\n');
   refs.shoppingListEl.insertAdjacentHTML('beforeend', markup);
 }
-
-// function makeEmptyShoppingListPage() {
-//   const emptyShPage = `
-//             <img
-//               srcset="
-//                 ./images/book-column@1x.png 1x,
-//                 ./images/book-column@2x.png 2x
-//               "
-//               src="./images/book-column@1x.png"
-//               alt="book-column"
-//             />`;
-//   refs.emptyShoppinglistEl.insertAdjacentHTML('beforeend', emptyShPage);
-//   return emptyShPage;
-// }
 
 renderShoppingList(shoppingListArray);

@@ -29,12 +29,14 @@
   letter-spacing: -0.04em;
   color: var(--text-main);
 }
-.header-link-home.current {
+
+.current {
   font-weight: 700;
   padding: 8px 16px;
   background: var(--color-links);
   border-radius: 36px;
 }
+
 .header-shopping-link {
   display: flex;
   text-decoration: none;
@@ -322,26 +324,6 @@ a:link {
     color: var(--text-main);
   }
 
-  // .modal-header-wrapper {
-  //   z-index: 20;
-  // }
-
-  // .modal-header-menu {
-  //   width: 100%;
-  //   height: 100%;
-  //   position: absolute;
-  //   bottom: 0;
-
-  //   background-image: url(../images/background-menu.png);
-  //   background-position: center bottom;
-  //   background-repeat: no-repeat;
-  //   background-color: blue;
-  //   background: radial-gradient(
-  //     189.32% 190.93% at 59.76% -23.42%,
-  //     #4f2ee8 18.03%,
-  //     #fff 100%
-  //   );
-
   .current {
     padding: 8px 16px;
     border-radius: 36px;
@@ -375,11 +357,3 @@ a:link {
     margin-right: 76px;
   }
 }
-
-// .mobile-menu.is-open {
-//   transform: translateX(0);
-//   transition: transform 250ms var(--timing-function),
-//     visibility 250ms var(--timing-function);
-//   visibility: visible;
-//   pointer-events: initial;
-// }
