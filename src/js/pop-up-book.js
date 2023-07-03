@@ -152,6 +152,7 @@ function onModalClose() {
   makeAddBtnVisible();
   modalContainerEl.innerHTML = '';
   window.removeEventListener('keydown', onEscPress);
+  bodyEl.classList.remove('no-scroll');
 }
 
 function onMouseClose(e) {
