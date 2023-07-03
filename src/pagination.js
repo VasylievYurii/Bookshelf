@@ -34,13 +34,13 @@ const options = {
 }
 
 
-options.totalItems = elements.length;
+// options.totalItems = elements.length;
 
-if (window.matchMedia("(max-width: 768px)").matches) {
-    options.itemsPerPage = 4;
-} else {
-    options.itemsPerPage = 3;
-}
+// if (window.matchMedia("(max-width: 768px)").matches) {
+//     options.itemsPerPage = 4;
+// } else {
+//     options.itemsPerPage = 3;
+// }
+// const instance = new Pagination(container, options);
 
-const instance = new Pagination(container, options);
-instance.getCurrentPage();
+// instance.getCurrentPage();
