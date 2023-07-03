@@ -1,0 +1,17 @@
+var e="undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:"undefined"!=typeof window?window:"undefined"!=typeof global?global:{},t={},o={},l=e.parcelRequired7c6;null==l&&((l=function(e){if(e in t)return t[e].exports;if(e in o){var l=o[e];delete o[e];var n={id:e,exports:{}};return t[e]=n,l.call(n.exports,n,n.exports),n.exports}var a=Error("Cannot find module '"+e+"'");throw a.code="MODULE_NOT_FOUND",a}).register=function(e,t){o[e]=t},e.parcelRequired7c6=l),l("2wbaf"),l("4dIBK");var n=l("d5eID"),a=l("fMzCF");const i=(0,n.useBooksApi)(),c=document.querySelector(".section-categories"),s=document.querySelector(".section-books"),r=document.querySelector(".section-books-title"),d=document.querySelector(".section-books-list");function u(e){let t=document.querySelector(".category-block")?"element-books-list":"element-books-list-all",o=e.map(({book_image:e,title:o,author:l,_id:n})=>`<li class="${t}">
+    <a href='#' class='book-item' data-value="${n}">
+      <div class='thumb'>
+        <img src='${e}' alt='Book cover' />
+        <div class='overlay'>
+          <p class='overlay-text'>quick view </p>
+        </div>
+      </div>
+      <h3 class='book-title'>${o}</h3>
+      <p class='book-author'>${l}</p>
+    </a>
+  </li>`).join("\n");return o}async function f(e){try{let t=await i.getBooksByCategory(e);d.innerHTML=u(t),r.innerHTML=function(e){let t=e.split(" ");if(t.length<2)return`${e}`;let o=t.pop();return`${t.join(" ")} <span class="accent">${o}</span>`}(e),function(e){e.classList.add("hidden")}(c),function(e){e.classList.remove("hidden")}(s),d.addEventListener("click",g)}catch(e){console.log(e)}}function g(e){let t=e.target.closest(".book-item");if(!t)return;let o=t.getAttribute("data-value");i.getBookById(o).then(a.insertModalBook).catch(e=>console.log(e)),(0,a.onModalOpen)()}var n=l("d5eID");const y=(0,n.useBooksApi)(),k=document.querySelector(".section-categories-list");async function p(){try{let e=await y.getCategoryList(),t=[...new Set(e.map(({list_name:e})=>e))].sort();k.innerHTML=function(e){let t=e.map(e=>`<li class='category-block'>
+      <h3 class='category-block-title'>${e}</h3>
+      <ul class='books-list' data-category="${e}"></ul>
+      <button type='button' class='btn'>See more</button>
+      </li>`).join("\n");return t}(t);let o=k.querySelectorAll(".books-list"),l=await y.getTopBooks();o.forEach(e=>{let t=e.dataset.category,o=l.find(e=>e.list_name===t).books;e.innerHTML=u(o)}),k.addEventListener("click",g),k.addEventListener("click",b)}catch(e){console.log(e)}}function b(e){e.target.nodeName;let t=e.target.closest(".books-list").getAttribute("data-category");console.log(t),f(t)}p();var n=l("d5eID");const m=(0,n.useBooksApi)(),v=document.querySelector(".category-list"),h=document.querySelector(".category-link"),L=document.querySelectorAll(".category-link"),q=e=>{let t=[...new Set(e.map(({list_name:e})=>e))].sort(),o=t.map(e=>{if(null!=e)return`<li class="category-item list"><a class="category-link link" href="">${e}</a></li>`}).join("");v.insertAdjacentHTML("beforeend",o),L.forEach(e=>{e.addEventListener("click",t=>{t.preventDefault(),L.forEach(e=>e.classList.remove("active")),e.classList.add("active")})})};h.addEventListener("click",()=>{p()}),m.getCategoryList().then(e=>{q(e)}).catch(e=>{console.log(e)}).finally(()=>{}),l("ld1e2"),l("dTazW"),l("4EhXu"),l("fMzCF"),l("74Aiq"),l("epHO8");
+//# sourceMappingURL=index.c33458c1.js.map
