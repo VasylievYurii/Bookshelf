@@ -1,22 +1,3 @@
-.footer {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 15;
-    
-    display: flex;
-    flex-direction: column;
-    width: 335px;
-    max-height: 806px;
-    padding: 40px 24px;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: var(--color-white-theme);
-    border: 2px solid var(--color-dark-theme);
-    border-radius: 18px;
-}
-
 .backdrop-modal-footer{
     position: fixed;
     top: 0;
@@ -37,8 +18,25 @@
     transition: opacity 250ms linear, scale 250ms linear, visibility 250ms linear;
 }
 
+.footer {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 15;
+    
+    display: flex;
+    flex-direction: column;
+    width: 335px;
+    padding: 20px 0;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: var(--color-white-theme);
+    border: 2px solid var(--color-dark-theme);
+    border-radius: 18px;
+}
+
 .backdrop-modal-footer.is-hidden-footer {
-    display: none;
     opacity: 0;
     visibility: hidden;
     scale: 0.9;
@@ -56,8 +54,8 @@
 }
 
 .contact-list {
-    width: 248px;
-    height: 84px;
+    // width: 248px;
+    // height: 84px;
     display: flex;
     flex-direction: column;
     margin: 0;
@@ -88,44 +86,99 @@
 
 .footer-btn{
     position: fixed;
-    border: none;
+    left: 5px;
+    bottom: 10px;
+
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
 }
 
-#settings{
-    display: block;
-    width: 24px;
-    height: 24px;
+.footer-gear{
+    width: 28px;
+    height: 28px;
     fill: var(--color-button);
 }
 
-.footer-btn#settings:hover, .footer-btn#settings:focus {
-    animation-name: spin;
-    animation-duration: 7s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
+.footer-btn:hover, .footer-btn:focus {
+    -webkit-animation: rotate-center 1.5s linear infinite;
+        animation: rotate-center 1.5s linear infinite;
 }
 
-@keyframes spin {
+@-webkit-keyframes rotate-center {
     0% {
-        transform: rotate(0deg);
+        -webkit-transform: rotate(0);
+        transform: rotate(0);
     }
 
     100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotate-center {
+    0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
         transform: rotate(360deg);
     }
 }
 
 @media screen and (min-width: 768px) {
+    .footer{
+        width: 548px;
+    }
+
     .contact-list {
         height: 84px;
         gap: 0 10px;
         flex-wrap: wrap;
     }
+
+    .footer-btn {
+        left: 5px;
+        bottom: 10px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .footer-gear {
+        width: 40px;
+        height: 40px;
+    }
 }
 
 @media screen and (min-width: 1200px) {
+    .footer {
+        width: 804px;
+    }
+
+    .footer>.container{
+        max-width: 800px;
+    }
+
     .contact-list{
         height: 56px;
-        gap: 0 10px;
+    }
+
+    .footer-btn{
+        left: 15px;
+        bottom: 20px;
+        width: 64px;
+        height: 64px;
+    }
+
+    .footer-gear{
+        width: 64px;
+        height: 64px;
     }
 }
