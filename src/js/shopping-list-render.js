@@ -7,10 +7,23 @@ import bookShop from '../images/stores/book-shop.png';
 import bookShop2x from '../images/stores/book-shop@2x.png';
 import sprite from '../images/sprite.svg';
 import { Notify } from 'notiflix';
+
 const optionsNotiflix = {
-  width: '300px',
-  position: 'center-top',
-  borderRadius: '25px',
+  timeout: 3000,
+  // messageMaxLength: 110,
+  backOverlay: true,
+  backOverlayColor: 'rgba(0,0,0,0.3)',
+  width: '500px',
+  position: 'center-center',
+  borderRadius: '20px',
+  opacity: 0.7,
+  fontSize: '22px',
+  cssAnimation: true,
+  cssAnimationDuration: 300,
+  cssAnimationStyle: 'zoom', // 'fade'
+  // 'zoom' - 'from-right' - 'from-top' - 'from-bottom' - 'from-left'
+  // failure - backOverlayColor: 'rgba(255,85,73,0.2)',
+  // warning - backOverlayColor: 'rgba(238,191,49,0.2)',
 };
 
 const refs = {
@@ -138,7 +151,6 @@ const shopingList = document.querySelector('.shopping-list');
 shopingList.addEventListener('click', onDelBtnClick);
 
 function onDelBtnClick(evt) {
- 
   if (evt.target.nodeName === 'BUTTON' || evt.target.nodeName === 'use') {
     const index = shoppingListArray.findIndex(
       item =>
