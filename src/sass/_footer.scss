@@ -6,7 +6,7 @@
   left: 0;
   overflow: auto;
   z-index: 10;
-  background-color:var(--sidebar-categories);
+  background-color: var(--sidebar-categories);
   opacity: 1;
   scale: 1;
   visibility: visible;
@@ -35,18 +35,19 @@
   pointer-events: none;
 }
 .footer-head {
-  color:var(--text-main);
+  color: var(--text-main);
   font-size: 40px;
   font-style: normal;
   font-weight: 700;
   line-height: 44px;
   letter-spacing: -1.6px;
+  margin-bottom: 15px;
 }
 .contact-list {
   display: flex;
   flex-direction: column;
   margin: 0;
-  gap: 0 10px;
+  gap: 30px;
 }
 .contact-list-item {
   display: flex;
@@ -109,17 +110,21 @@
   }
 }
 
-.close-footer-btn{
-    position: absolute;
-    top: 12px;
-    right: 8px;
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
+.close-footer-btn {
+  position: absolute;
+  top: 12px;
+  right: 8px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 .close-footer-modal {
-    stroke: var(--text-main);
+  stroke: var(--text-main);
+}
+
+.close-footer-btn:is(:hover, :focus) .close-footer-modal {
+  stroke: var(--sidebar-categories-current);
 }
 
 @media screen and (min-width: 768px) {
