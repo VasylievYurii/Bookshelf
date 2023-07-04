@@ -22,15 +22,17 @@ const STORAGE_KEY = 'shopping-list';
 const shoppingListArray = JSON.parse(localStorage.getItem(STORAGE_KEY)) ?? [];
 let defaultDescription;
 let defaultBookImage;
+
 function changeToDefaultDescription(description) {
   if (description === '') {
     defaultDescription = `<p class="sh-book-description">Unfortunately,
       there is no description for this book</p>`;
   } else {
-    defaultDescription = `<p class="sh-book-description">${description}</p>`;
+    defaultDescription = description;
   }
   return defaultDescription;
 }
+
 function changeToDefaultBookImg(book_image) {
   if (book_image) {
     defaultBookImage = `<img class="sh-book-img" src="${book_image}" alt="Boook image"></img>`;
@@ -80,7 +82,9 @@ function markupShoppingList(books) {
                   </button>
                 <h2 class="sh-book-title">${title}</h2>
                 <p class="sh-book-category">${list_name}</p>
+                <div class="div-text-container">
                 <p class="sh-book-description">${defaultDescription}</p>
+                </div>
              </div>
              <div class="sh-book-info-link-wrap">
          <p class="sh-book-author">${author}</p>
