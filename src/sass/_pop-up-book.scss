@@ -112,12 +112,12 @@
 
 .btn-add:is(:hover, :focus) {
   background-color: var(--color-accent);
-  color: var(--color-white-theme);
+  color: var(--header);
 }
 
 .btn-remove:is(:hover, :focus) {
   background-color: var(--color-accent);
-  color: var(--color-white-theme);
+  color: var(--header);
 }
 
 .img-container-pop-up {
