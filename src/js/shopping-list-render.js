@@ -28,7 +28,7 @@ let defaultBookImage;
 
 function changeToDefaultDescription(description) {
   if (description === '') {
-    defaultDescription = `<p class="sh-book-description">Unfortunately, 
+    defaultDescription = `<p class="sh-book-description">Unfortunately,
       there is no description for this book</p>`;
   } else {
     defaultDescription = `<p class="sh-book-description">${description}</p>`;
@@ -96,8 +96,8 @@ function markupShoppingList(books) {
          <ul class="shopping-links">
                             <li class="sh-soc-item">
                               <a class="sh-soc-link" href="${buy_links[0].url}" rel="noopener noreferrer nofollow"
-            target="_blank"> 
-            <img srcset="${amazon} 1x, ${amazon2x} 2x" 
+            target="_blank">
+            <img srcset="${amazon} 1x, ${amazon2x} 2x"
             src="${amazon}" class="amazon-store"
             alt="Amazon Store ${buy_links[0].name}"/>
                               </a>
@@ -105,7 +105,7 @@ function markupShoppingList(books) {
                             <li class="sh-soc-item">
                               <a class="sh-soc-link" href="${buy_links[1].url}" rel="noopener noreferrer nofollow"
             target="_blank">
-                            <img srcset="${bookStore} 1x, ${bookStore2x} 2x" 
+                            <img srcset="${bookStore} 1x, ${bookStore2x} 2x"
                             src="${bookStore}" class="apple-store"
                             alt="Apple Store ${buy_links[1].name}"/>
                              </a>
@@ -113,7 +113,7 @@ function markupShoppingList(books) {
                            <li class="sh-soc-item">
                           <a class="sh-soc-link" href="${buy_links[4].url}" rel="noopener noreferrer nofollow"
             target="_blank">
-            <img srcset="${bookShop} 1x, ${bookShop2x} 2x" 
+            <img srcset="${bookShop} 1x, ${bookShop2x} 2x"
             src="${bookShop}" class="book-shop"
             alt="Book Shop ${buy_links[4].name}"/>
                          </a>
@@ -140,3 +140,23 @@ function markupShoppingList(books) {
 // }
 
 renderShoppingList(shoppingListArray);
+
+const shopingList = document.querySelector('.shopping-list');
+shopingList.addEventListener('click', onDelBtnClick);
+
+function onDelBtnClick(evt) {
+  if (evt.target.nodeName === 'BUTTON') {
+    const index = shoppingListArray.findIndex(
+      item =>
+        item._id ===
+        evt.target.closest('.shopping-list-item').getAttribute('id')
+    );
+    console.log(index);
+    if (index !== -1) {
+      shoppingListArray.splice(index, 1);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(shoppingListArray));
+    }
+    refs.shoppingListEl.innerHTML = '';
+    renderShoppingList(shoppingListArray);
+  }
+}
