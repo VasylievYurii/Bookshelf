@@ -111,16 +111,26 @@ function makeRemoveBtnVisible() {
 }
 
 function addToLocalStorage() {
-  // console.log('book', bookForShoppingList._id);
   if (shoppingListArray.find(item => item._id === bookForShoppingList._id)) {
     Notiflix.Notify.failure(
       `Sorry, you've already added this book. Choose the other one please.`
     );
     return;
   }
-  shoppingListArray.push(bookForShoppingList);
+  const arrayForLocalStorage = {
+    title: bookForShoppingList.title,
+    book_image: bookForShoppingList.book_image,
+    author: bookForShoppingList.author,
+    description: bookForShoppingList.description,
+    buy_links: bookForShoppingList.buy_links,
+    _id: bookForShoppingList._id,
+  };
+
+  shoppingListArray.push(arrayForLocalStorage);
   localStorage.setItem(STORAGE_KEY, JSON.stringify(shoppingListArray));
 }
+
+// book_image, title, author, description, buy_links, _id;
 
 btnRemoveEl.addEventListener('click', onRemoveBtnClick);
 
