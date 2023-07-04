@@ -31,6 +31,8 @@ const parseCategoryList = list => {
     })
     .join('');
   categoryListEl.insertAdjacentHTML('beforeend', categoryList);
+  let activeCategory = categoryListEl.querySelector('.link-all');
+  activeCategory.classList.add('active');
 };
 
 handleOnPress();
