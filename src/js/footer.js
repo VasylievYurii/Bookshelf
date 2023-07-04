@@ -1,5 +1,6 @@
 const settingsBtn = document.querySelector('.footer-btn');
 const backdropFooter = document.querySelector('.backdrop-modal-footer');
+const closeFooterBrn = document.querySelector('.close-footer-btn');
 
 function openFooterModal(e) {
     e.preventDefault();
@@ -23,5 +24,9 @@ function escClose(e) {
 settingsBtn.addEventListener('click', openFooterModal);
 
 backdropFooter.addEventListener('click', closeFooterModal);
+
+closeFooterBrn.addEventListener('click', () => {
+    backdropFooter.classList.add('is-hidden-footer');
+});
 
 document.addEventListener('keydown', escClose);

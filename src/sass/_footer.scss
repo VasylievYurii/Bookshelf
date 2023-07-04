@@ -133,6 +133,20 @@
     }
 }
 
+.close-footer-btn{
+    position: absolute;
+    top: 12px;
+    right: 8px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.close-footer-modal {
+    stroke: var(--color-dark-theme);
+}
+
+
 @media screen and (min-width: 768px) {
     .footer{
         width: 548px;
