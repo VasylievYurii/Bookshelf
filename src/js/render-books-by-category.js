@@ -16,7 +16,7 @@ function makeMarkupForBooks(books, e) {
       ({ book_image, title, author, _id }) => `<li class="${oneBook}">
     <a class='book-item' data-value="${_id}">
       <div class='thumb'>
-        <img src='${book_image}' alt='Book cover' />
+        <img src='${book_image}' alt='Book cover' loading="lazy"/>
         <div class='overlay'>
           <p class='overlay-text'>quick view </p>
         </div>

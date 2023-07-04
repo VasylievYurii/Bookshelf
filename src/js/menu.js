@@ -1,3 +1,5 @@
+import throttle from 'lodash.throttle';
+
 const refs = {
   openMenuBtn: document.querySelector('.menu-open'),
   closeMenuBtn: document.querySelector('.mobile-menu-close-btn'),
@@ -17,8 +19,14 @@ function onOpenMenu(e) {
 }
 
 function onCloseMenu(e) {
-  console.log('remove', e);
   refs.bodyRef.classList.remove('no-scroll');
   refs.menu.classList.remove('is-visible');
   refs.backdropEl.classList.add('is-hidden');
 }
+
+function onWindowResize(e) {
+  if (e.target.innerWidth < 768) return
+  onCloseMenu()
+}
+
+window.addEventListener('resize', throttle(onWindowResize, 500));

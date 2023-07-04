@@ -22,18 +22,20 @@ const STORAGE_KEY = 'shopping-list';
 const shoppingListArray = JSON.parse(localStorage.getItem(STORAGE_KEY)) ?? [];
 let defaultDescription;
 let defaultBookImage;
+
 function changeToDefaultDescription(description) {
   if (description === '') {
     defaultDescription = `<p class="sh-book-description">Unfortunately,
       there is no description for this book</p>`;
   } else {
-    defaultDescription = `<p class="sh-book-description">${description}</p>`;
+    defaultDescription = description;
   }
   return defaultDescription;
 }
+
 function changeToDefaultBookImg(book_image) {
   if (book_image) {
-    defaultBookImage = `<img class="sh-book-img" src="${book_image}" alt="Boook image"></img>`;
+    defaultBookImage = `<img class="sh-book-img" src="${book_image}" alt="Boook image" loading="lazy"></img>`;
   } else {
     defaultBookImage = `<div class="sh-default-img width="265" height="198"" style="background-color: #F0F0F0;">
       <svg class="sh-default-svg-icon" >
@@ -70,7 +72,7 @@ function markupShoppingList(books) {
         changeToDefaultDescription(description);
         return `
       <li id="${_id}" class="shopping-list-item">
-          <img class="sh-book-img" src="${book_image}" alt="Boook image"></img>
+          <img class="sh-book-img" src="${book_image}" alt="Boook image" loading="lazy"></img>
           <div class="sh-wrap">
               <div class="sh-book-info-wrap">
                <button class="sh-list-delete-btn" type="button">
@@ -80,7 +82,9 @@ function markupShoppingList(books) {
                   </button>
                 <h2 class="sh-book-title">${title}</h2>
                 <p class="sh-book-category">${list_name}</p>
+                <div class="div-text-container">
                 <p class="sh-book-description">${defaultDescription}</p>
+                </div>
              </div>
              <div class="sh-book-info-link-wrap">
          <p class="sh-book-author">${author}</p>
@@ -90,7 +94,10 @@ function markupShoppingList(books) {
             target="_blank">
             <img srcset="${amazon} 1x, ${amazon2x} 2x"
             src="${amazon}" class="amazon-store"
-            alt="Amazon Store ${buy_links[0].name}"/>
+            alt="Amazon Store ${buy_links[0].name}"
+            loading="lazy"
+            />
+            
                               </a>
                             </li>
                             <li class="sh-soc-item">
@@ -98,7 +105,9 @@ function markupShoppingList(books) {
             target="_blank">
                             <img srcset="${bookStore} 1x, ${bookStore2x} 2x"
                             src="${bookStore}" class="apple-store"
-                            alt="Apple Store ${buy_links[1].name}"/>
+                            alt="Apple Store ${buy_links[1].name}"
+                            loading="lazy"
+                            />
                              </a>
                             </li>
                            <li class="sh-soc-item">
@@ -106,7 +115,9 @@ function markupShoppingList(books) {
             target="_blank">
             <img srcset="${bookShop} 1x, ${bookShop2x} 2x"
             src="${bookShop}" class="book-shop"
-            alt="Book Shop ${buy_links[4].name}"/>
+            alt="Book Shop ${buy_links[4].name}"
+            loading="lazy"
+            />
                          </a>
                        </li>
                       </ul>
