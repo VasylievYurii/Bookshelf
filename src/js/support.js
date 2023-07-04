@@ -140,7 +140,7 @@ supportList.forEach(function (data) {
   const listItem = `
     <li class="swiper-slide support-list">
       <a href="${data.url}"rel="noopener noreferrer nofollow" target="_blank" style='width: ${imgWidth}px'>
-        <img class="support-img" src="${imgSrc}" srcset="${imgSrcset}" alt="${data.title}">
+        <img class="support-img" src="${imgSrc}" srcset="${imgSrcset}" alt="${data.title} loading="lazy"">
       </a>
     </li>
   `;

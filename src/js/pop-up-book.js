@@ -24,7 +24,7 @@ let defaultImg;
 
 function onDefaultImg(bookImg) {
   if (bookImg) {
-    defaultImg = `<img class="img-modal" src="${bookImg}" />`;
+    defaultImg = `<img class="img-modal" src="${bookImg}" loading="lazy"/>`;
   } else {
     defaultImg = `<div class="img-modal" style="background-color: #f0f0f0;">
       <svg class="default-book-pop-up" >
@@ -58,6 +58,7 @@ function renderModal(book) {
       srcset="${amazon} 1x, ${amazon2x} 2x"
       src="${amazon}";
       alt="Amazon shop"
+      loading="lazy"
     />
     </a>
     <a href="${buy_links[1].url}" rel="noopener noreferrer nofollow"
@@ -67,6 +68,7 @@ function renderModal(book) {
       srcset="${bookStore} 1x, ${bookStore2x} 2x"
       src="${bookStore}"
       alt="Shop"
+      loading="lazy"
     />
     </a>
     <a href="${buy_links[4].url}" rel="noopener noreferrer nofollow"
@@ -79,6 +81,7 @@ function renderModal(book) {
       "
       src="${bookShop2x}"
       alt="Book shop"
+      loading="lazy"
     />
     </a>
   </div>
