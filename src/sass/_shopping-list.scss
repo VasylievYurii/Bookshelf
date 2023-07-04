@@ -196,9 +196,10 @@
 }
 
 @media screen and (min-width: 1440px) {
-}
-
-.sh-list-delete-icon{
-  fill:#4f2ee8;
-  stroke:#fff;
+  .sh-title {
+    margin-bottom: 200px;
+  }
+  .empty-sh-list {
+    margin-left: 300px;
+  }
 }
