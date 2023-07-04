@@ -102,7 +102,7 @@ function markupShoppingList(books) {
                               <a class="sh-soc-link" href="${buy_links[0].url}" rel="noopener noreferrer nofollow"
             target="_blank">
             <img srcset="${amazon} 1x, ${amazon2x} 2x"
-            src="${amazon}" class="amazon-store"
+            src="${amazon}" class="amazon-store book-stores"
             alt="Amazon Store ${buy_links[0].name}"/>
                               </a>
                             </li>
@@ -110,7 +110,7 @@ function markupShoppingList(books) {
                               <a class="sh-soc-link" href="${buy_links[1].url}" rel="noopener noreferrer nofollow"
             target="_blank">
                             <img srcset="${bookStore} 1x, ${bookStore2x} 2x"
-                            src="${bookStore}" class="apple-store"
+                            src="${bookStore}" class="apple-store book-stores"
                             alt="Apple Store ${buy_links[1].name}"/>
                              </a>
                             </li>
@@ -118,7 +118,7 @@ function markupShoppingList(books) {
                           <a class="sh-soc-link" href="${buy_links[4].url}" rel="noopener noreferrer nofollow"
             target="_blank">
             <img srcset="${bookShop} 1x, ${bookShop2x} 2x"
-            src="${bookShop}" class="book-shop"
+            src="${bookShop}" class="book-shop book-stores"
             alt="Book Shop ${buy_links[4].name}"/>
                          </a>
                        </li>
