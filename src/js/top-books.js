@@ -4,6 +4,7 @@ import {
   renderBooksByCategory,
   onBookSelect,
 } from './render-books-by-category';
+import { clearStyleCategories } from './fetch-categories';
 
 const booksApi = useBooksApi();
 
@@ -57,9 +58,14 @@ function onButtonClick(evt) {
       .closest('.category-block')
       .getAttribute('data-category');
     renderBooksByCategory(category);
-
-    return;
-  } else {
+    clearStyleCategories();
+    const allCategories = Array.from(
+      document.querySelectorAll('.category-link.link')
+    );
+    const activeCategoryEl = allCategories.find(
+      elem => elem.textContent === category
+    );
+    activeCategoryEl.classList.add('active');
     return;
   }
 }
