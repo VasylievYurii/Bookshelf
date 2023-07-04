@@ -22,3 +22,5 @@ function onCloseMenu(e) {
   refs.menu.classList.remove('is-visible');
   refs.backdropEl.classList.add('is-hidden');
 }
+
+window.addEventListener('resize', onCloseMenu);
