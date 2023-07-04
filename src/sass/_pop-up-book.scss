@@ -31,8 +31,8 @@
 .container-popup {
   position: absolute;
   left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  top: 20px;
+  transform: translateX(-50%);
   z-index: 15;
 
   display: flex;
@@ -112,12 +112,12 @@
 
 .btn-add:is(:hover, :focus) {
   background-color: var(--color-accent);
-  color: var(--color-white-theme);
+  color: var(--header);
 }
 
 .btn-remove:is(:hover, :focus) {
   background-color: var(--color-accent);
-  color: var(--color-white-theme);
+  color: var(--header);
 }
 
 .img-container-pop-up {

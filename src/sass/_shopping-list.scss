@@ -57,12 +57,22 @@
   line-height: 1.17;
   letter-spacing: 0.36px;
 }
+
+.div-text-container{
+  height: 68px;
+  overflow: hidden;
+}
+
 .sh-book-description {
   color: var(--text-main);
   font-size: 14px;
   font-weight: 400;
   line-height: 1.23;
   letter-spacing: -0.56px;
+  display: -webkit-box;
+  -webkit-line-clamp: 4; 
+  -webkit-box-orient: vertical; 
+  text-overflow: ellipsis;
 }
 .sh-book-author {
   color: var(--text-second);
@@ -248,4 +258,9 @@
   .empty-sh-list {
     margin-left: 200px;
   }
+}
+
+.sh-list-delete-icon {
+  fill: #4f2ee8;
+  stroke: #fff;
 }

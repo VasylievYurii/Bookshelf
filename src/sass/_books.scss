@@ -103,6 +103,12 @@
   color: var(--text-main);
   cursor: pointer;
   background-color: var(--body);
+  transition: background-color 250ms var(--timing-function);
+}
+
+.section-categories-list .btn:hover{
+  color: #fff;
+  background-color: var(--color-accent);
 }
 
 // -----------Styles for tablet---------//
