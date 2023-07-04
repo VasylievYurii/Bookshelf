@@ -9,7 +9,6 @@ const refs = {
 
 refs.openMenuBtn.addEventListener('click', onOpenMenu);
 refs.closeMenuBtn.addEventListener('click', onCloseMenu);
-refs.logOutBtn.addEventListener('click', onLogOutBtn);
 
 function onOpenMenu(e) {
   refs.bodyRef.classList.add('no-scroll');
@@ -23,5 +22,3 @@ function onCloseMenu(e) {
   refs.menu.classList.remove('is-visible');
   refs.backdropEl.classList.add('is-hidden');
 }
-
-function onLogOutBtn() {}
