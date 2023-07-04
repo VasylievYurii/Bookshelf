@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Notiflix from 'notiflix';
 import { openLoader, closeLoader } from '../js/loader/loader';
 
 const API_ENDPOINTS = {
@@ -17,6 +18,9 @@ const getCategoryList = async () => {
     // console.log(result);
     return result.data;
   } catch (error) {
+    Notiflix.Notify.failure(
+      `Sorry, something wrong with categories list. Try again later.`
+    );
     throw new Error(error.response.data.message);
   } 
 };
@@ -27,6 +31,9 @@ const getTopBooks = async () => {
     const result = await axios.get(API_ENDPOINTS.topBooks);
     return result.data;
   } catch (error) {
+    Notiflix.Notify.failure(
+      `Sorry, something wrong with Top Books list. Try again later.`
+    );
     throw new Error(error.response.data.message);
   } finally{
     closeLoader();
@@ -41,6 +48,9 @@ const getBooksByCategory = async category => {
     });
     return result.data;
   } catch (error) {
+    Notiflix.Notify.failure(
+      `Sorry, something wrong with this categories list. Change another categories.`
+    );
     throw new Error(error.response.data.message);
   } finally{
     closeLoader();
@@ -54,6 +64,9 @@ const getBookById = async id => {
     // console.log(result);
     return result.data;
   } catch (error) {
+    Notiflix.Notify.failure(
+      `Sorry, there is no this book now. Change another book.`
+    );
     throw new Error(error.response.data.message);
   } finally{
     closeLoader();

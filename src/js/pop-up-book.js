@@ -6,6 +6,7 @@ import bookStore from '../images/stores/book.png';
 import bookStore2x from '../images/stores/book@2x.png';
 import bookShop from '../images/stores/book-shop.png';
 import bookShop2x from '../images/stores/book-shop@2x.png';
+import sprite from '../images/sprite.svg';
 
 const STORAGE_KEY = 'shopping-list';
 
@@ -20,8 +21,6 @@ const bodyEl = document.querySelector('body');
 const shoppingListArray = JSON.parse(localStorage.getItem(STORAGE_KEY)) ?? [];
 
 let defaultImg;
-
-import sprite from '../images/sprite.svg';
 
 function onDefaultImg(bookImg) {
   if (bookImg) {
