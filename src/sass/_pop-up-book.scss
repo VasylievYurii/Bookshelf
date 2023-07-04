@@ -64,11 +64,25 @@
 .btn-add {
   height: 46px;
   padding: 14px 28px;
+
+  transition: color 250ms linear, background-color 250ms linear;
 }
 
 .btn-remove {
   height: 46px;
   padding: 14px 23px;
+
+  transition: color 250ms linear, background-color 250ms linear;
+}
+
+.btn-add:is(:hover, :focus) {
+  background-color: var(--color-accent);
+  color: var(--header);
+}
+
+.btn-remove:is(:hover, :focus) {
+  background-color: var(--color-accent);
+  color: var(--header);
 }
 
 .visually-hidden {
@@ -108,16 +122,6 @@
 
 .close-modal:is(:hover, :focus) {
   stroke: var(--color-accent);
-}
-
-.btn-add:is(:hover, :focus) {
-  background-color: var(--color-accent);
-  color: var(--header);
-}
-
-.btn-remove:is(:hover, :focus) {
-  background-color: var(--color-accent);
-  color: var(--header);
 }
 
 .img-container-pop-up {
