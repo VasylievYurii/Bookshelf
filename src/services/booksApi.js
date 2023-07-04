@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { openLoader, closeLoader } from '../js/loader/loader';
 
 const API_ENDPOINTS = {
   baseUrl: 'https://books-backend.p.goit.global',
@@ -17,19 +18,23 @@ const getCategoryList = async () => {
     return result.data;
   } catch (error) {
     throw new Error(error.response.data.message);
-  }
+  } 
 };
 
 const getTopBooks = async () => {
+  openLoader();
   try {
     const result = await axios.get(API_ENDPOINTS.topBooks);
     return result.data;
   } catch (error) {
     throw new Error(error.response.data.message);
+  } finally{
+    closeLoader();
   }
 };
 
 const getBooksByCategory = async category => {
+  openLoader();
   try {
     const result = await axios.get(API_ENDPOINTS.categoryBooks, {
       params: { category },
@@ -37,16 +42,21 @@ const getBooksByCategory = async category => {
     return result.data;
   } catch (error) {
     throw new Error(error.response.data.message);
+  } finally{
+    closeLoader();
   }
 };
 
 const getBookById = async id => {
+  openLoader();
   try {
     const result = await axios.get(API_ENDPOINTS.book + id);
     // console.log(result);
     return result.data;
   } catch (error) {
     throw new Error(error.response.data.message);
+  } finally{
+    closeLoader();
   }
 };
 
