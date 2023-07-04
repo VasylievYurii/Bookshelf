@@ -200,30 +200,6 @@ a:link {
     gap: 16px;
   }
 
-  .logout-btn {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-
-    display: flex;
-    gap: 4px;
-    padding: 14px 24px;
-    height: 48px;
-    border-radius: 18px;
-    border: 1.5px solid var(--text-main);
-    background: var(--header);
-
-    color: var(--text-main);
-    font-size: 14px;
-    font-family: DM Sans;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 18px;
-    letter-spacing: -0.56px;
-
-    stroke: #eac645;
-  }
-
   @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
