@@ -1,8 +1,4 @@
 import { useBooksApi } from '../services/booksApi';
-import { parceCategoriesBlocks } from './top-books';
-// import { createCategoriesMarkup } from './top-books';
-// import { renderBooks } from './renderBooksByCategories';
-// import { getCategoryElements } from './categories';
 import { renderBooksByCategory } from './render-books-by-category';
 
 const booksApi = useBooksApi();
@@ -19,7 +15,6 @@ const handleOnPress = e => {
     .finally(() => {});
 };
 const categoryListEl = document.querySelector('.category-list');
-// const categoryAll = document.querySelector('.category-link');
 const categoryLinksElements = document.querySelectorAll('.category-link');
 const oneCategory = document.querySelector('.category-item');
 
@@ -57,21 +52,36 @@ categoryListEl.addEventListener('click', getBookFromCategory);
 
 function getBookFromCategory(e) {
   e.preventDefault();
- const targetCategory = e.target.closest('.category-link');
- if (!targetCategory) {
-  return;
+  const targetCategory = e.target.closest('.category-link');
+  if (!targetCategory) {
+    return;
+  }
+  const linkAllRef = document.querySelector('.link-all');
+  const text = targetCategory.textContent.trim();
+  if (text === 'All categories') {
+    const sectionCategoriesRef = document.querySelector('.section-categories');
+    const sectionBooksRef = document.querySelector('.section-books');
+    sectionBooksRef.classList.add('hidden');
+    sectionCategoriesRef.classList.remove('hidden');
+    clearStyleCategories();
+    linkAllRef.classList.add('active');
+  } else {
+    linkAllRef.classList.remove('active');
+    clearStyleCategories();
+    let activeCategory = e.target;
+    activeCategory.classList.add('active');
+
+    renderBooksByCategory(text);
+  }
 }
 
- const text = targetCategory.textContent.trim();
- if (text === 'All categories') {
-  console.log('first')
-  const sectionBooksRef = document.querySelector('.section-books');
-  sectionBooksRef.innerHTML='';
-  const sectionCategoriesRef = document.querySelector('.section-categories');
-  sectionCategoriesRef.classList.remove('hidden');
-
-  // parceCategoriesBlocks();
- } else {
-  renderBooksByCategory(text);
- }
+function clearStyleCategories() {
+  const allCategories = document.querySelectorAll('.category-link');
+  allCategories.forEach(function (element) {
+    if (element.classList.contains('active')) {
+      element.classList.remove('active');
+    } else {
+      return;
+    }
+  });
 }
