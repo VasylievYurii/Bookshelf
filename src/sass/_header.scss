@@ -335,7 +335,7 @@ a:link {
   .header-nav {
     gap: 24px;
     align-items: center;
-    margin-right: 101px;
+
   }
   .theme-switch {
     margin-right: 24px;
@@ -344,9 +344,6 @@ a:link {
 }
 
 @media screen and (min-width: 1440px) {
-  .header-nav {
-    margin-right: 745px;
-  }
   .header-icon {
     margin-right: 76px;
   }
