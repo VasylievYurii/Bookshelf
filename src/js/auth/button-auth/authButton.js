@@ -7,6 +7,6 @@ export const composeAuthButton = user => {
   } else {
     const { displayName } = user;
     const name = displayName ? displayName : '';
-    return `<button class="modal-auth-button light-colorset-auth" type="button"><img class="auth-button-userpic" src=${profilePic} />${name}</button>`;
+    return `<button class="modal-auth-button light-colorset-auth auth-button-loggedin" type="button"><img class="auth-button-userpic" src=${profilePic} />${name}</button>`;
   }
 };
