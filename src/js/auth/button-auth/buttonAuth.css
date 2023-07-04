@@ -21,7 +21,10 @@
 }
 
 .modal-auth-button {
-  position: relative;
+  position: absolute;
+  top: 88px;
+  left: 20px;
+
   height: 45px;
   padding: 4px 18px 4px 18px;
 
@@ -33,7 +36,7 @@
   color: var(--secondary-text);
   font-size: 22px;
   font-weight: 600;
-  background-color: var(--main-canvas);
+  background-color: transparent;
 
   border-radius: 36px;
   border: none;
@@ -69,7 +72,7 @@
   border-radius: 50%;
 }
 
-.logout-btn {
+/* .logout-btn {
   position: absolute;
   bottom: 20px;
   left: 20px;
@@ -91,4 +94,12 @@
   letter-spacing: -0.56px;
 
   stroke: #eac645;
+} */
+
+@media screen and (min-width: 768px) {
+  .modal-auth-button {
+    position: static;
+    margin-left: auto;
+    background-color: var(--main-canvas);
+  }
 }
