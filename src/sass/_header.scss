@@ -71,7 +71,7 @@ a:link {
   height: 20px;
 }
 .header-icon {
-  margin-right: 144px;
+  // margin-right: 144px;
   position: relative;
   fill: var(--text-main);
   width: 109px;
@@ -79,6 +79,7 @@ a:link {
 }
 
 .theme-switch {
+  margin-left: auto;
   position: relative;
   width: 40px;
   height: 20px;
@@ -253,6 +254,7 @@ a:link {
     border: 1.5px solid var(--text-main);
     border-radius: 0 0 8px 8px;
     background-color: var(--header);
+    width:100%;
   }
 
   .container.book {
@@ -318,6 +320,10 @@ a:link {
   }
 }
 
+.header.container {
+  justify-content: space-between;
+}
+
 @media screen and (min-width: 768px) {
   .mobile-menu,
   .menu-open {
@@ -334,9 +340,7 @@ a:link {
   .theme-switch {
     margin-right: 24px;
   }
-  .header.container {
-    justify-content: space-between;
-  }
+
 }
 
 @media screen and (min-width: 1440px) {
