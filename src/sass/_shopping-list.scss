@@ -139,7 +139,37 @@
   stroke: #fff;
 }
 
-@media screen and (min-width: 375px) {
+@media screen and (max-width: 767px) {
+  .sh-book-title {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.17;
+    letter-spacing: -0.64px;
+  }
+  .sh-book-category {
+    margin-bottom: 8px;
+    color: var(--text-second);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.17;
+    letter-spacing: 0.36px;
+  }
+  .sh-book-description {
+    color: var(--text-main);
+    font-size: 10.6px;
+    font-weight: 400;
+    line-height: 1.23;
+    letter-spacing: -0.56px;
+  }
+
+  .sh-book-author {
+    color: var(--text-second);
+    font-size: 12px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.17;
+    letter-spacing: -0.48px;
+  }
 }
 
 @media screen and (min-width: 768px) {
