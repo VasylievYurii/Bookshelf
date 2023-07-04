@@ -120,19 +120,7 @@ function markupShoppingList(books) {
     .join('\n');
   refs.shoppingListEl.insertAdjacentHTML('beforeend', markup);
 }
-// function makeEmptyShoppingListPage() {
-//   const emptyShPage = `
-//             <img
-//               srcset="
-//                 ./images/book-column@1x.png 1x,
-//                 ./images/book-column@2x.png 2x
-//               "
-//               src="./images/book-column@1x.png"
-//               alt="book-column"
-//             />`;
-//   refs.emptyShoppinglistEl.insertAdjacentHTML('beforeend', emptyShPage);
-//   return emptyShPage;
-// }
+
 renderShoppingList(shoppingListArray);
 const shopingList = document.querySelector('.shopping-list');
 shopingList.addEventListener('click', onDelBtnClick);
