@@ -128,7 +128,7 @@ a:link {
   transform: translateX(20px);
 }
 @media screen and (max-width: 767px) {
-  .auth-menu-root,
+  .header>.auth-menu-root,
   .header-nav {
     display: none;
   }
