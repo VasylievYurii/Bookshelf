@@ -1,8 +1,4 @@
 import { useBooksApi } from '../services/booksApi';
-import { parceCategoriesBlocks } from './top-books';
-// import { createCategoriesMarkup } from './top-books';
-// import { renderBooks } from './renderBooksByCategories';
-// import { getCategoryElements } from './categories';
 import { renderBooksByCategory } from './render-books-by-category';
 
 const booksApi = useBooksApi();
@@ -19,7 +15,6 @@ const handleOnPress = e => {
     .finally(() => {});
 };
 const categoryListEl = document.querySelector('.category-list');
-// const categoryAll = document.querySelector('.category-link');
 const categoryLinksElements = document.querySelectorAll('.category-link');
 const oneCategory = document.querySelector('.category-item');
 
@@ -64,13 +59,10 @@ function getBookFromCategory(e) {
 
  const text = targetCategory.textContent.trim();
  if (text === 'All categories') {
-  console.log('first')
   const sectionBooksRef = document.querySelector('.section-books');
   sectionBooksRef.classList.add('hidden');
   const sectionCategoriesRef = document.querySelector('.section-categories');
   sectionCategoriesRef.classList.remove('hidden');
-
-  // parceCategoriesBlocks();
  } else {
   renderBooksByCategory(text);
  }

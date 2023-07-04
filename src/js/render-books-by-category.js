@@ -40,7 +40,6 @@ function makeMarkupForTitle(title) {
 }
 
 async function renderBooksByCategory(category) {
-  console.log(category)
   try {
     const res = await booksApi.getBooksByCategory(category);
     booksListEl.innerHTML = makeMarkupForBooks(res, true);
