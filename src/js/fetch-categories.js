@@ -12,7 +12,7 @@ const handleOnPress = e => {
     .catch(err => {
       console.log(err);
     })
-    .finally(() => {});
+    .finally(() => { });
 };
 const categoryListEl = document.querySelector('.category-list');
 const categoryLinksElements = document.querySelectorAll('.category-link');
@@ -42,6 +42,7 @@ function getCategoryElements() {
       evt.preventDefault();
       categoryLinksElements.forEach(el => el.classList.remove('active'));
       link.classList.add('active');
+
     });
   });
 }
@@ -52,18 +53,18 @@ categoryListEl.addEventListener('click', getBookFromCategory);
 
 function getBookFromCategory(e) {
   e.preventDefault();
- const targetCategory = e.target.closest('.category-link');
- if (!targetCategory) {
-  return;
-}
+  const targetCategory = e.target.closest('.category-link');
+  if (!targetCategory) {
+    return;
+  }
 
- const text = targetCategory.textContent.trim();
- if (text === 'All categories') {
-  const sectionBooksRef = document.querySelector('.section-books');
-  sectionBooksRef.classList.add('hidden');
-  const sectionCategoriesRef = document.querySelector('.section-categories');
-  sectionCategoriesRef.classList.remove('hidden');
- } else {
-  renderBooksByCategory(text);
- }
+  const text = targetCategory.textContent.trim();
+  if (text === 'All categories') {
+    const sectionBooksRef = document.querySelector('.section-books');
+    sectionBooksRef.classList.add('hidden');
+    const sectionCategoriesRef = document.querySelector('.section-categories');
+    sectionCategoriesRef.classList.remove('hidden');
+  } else {
+    renderBooksByCategory(text);
+  }
 }

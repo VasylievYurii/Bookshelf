@@ -104,7 +104,11 @@
   cursor: pointer;
   background-color: var(--body);
 }
+.section-categories-list .btn:hover{
+color: var(--header);
+background-color: var(--color-accent);
 
+}
 // -----------Styles for tablet---------//
 
 @media screen and (min-width: 768px) {
