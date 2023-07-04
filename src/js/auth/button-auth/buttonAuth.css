@@ -98,8 +98,11 @@
 
 @media screen and (min-width: 768px) {
   .modal-auth-button {
-    position: static;
-    margin-left: auto;
+    position: relative;
+    top: 0px;
+    left: 0px;
     background-color: var(--main-canvas);
+      
   }
+
 }
