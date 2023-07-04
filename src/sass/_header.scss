@@ -47,6 +47,7 @@
   letter-spacing: -0.04em;
   color: var(--text-main);
 }
+
 .header-shopping-link.current {
   font-weight: 700;
   padding: 7px 16px;
@@ -63,6 +64,7 @@ a:link {
   gap: 24px;
   list-style: none;
 }
+
 .shopping-icon {
   fill: var(--text-main);
   margin-right: 8px;
@@ -70,6 +72,7 @@ a:link {
   width: 20px;
   height: 20px;
 }
+
 .header-icon {
   margin-right: 144px;
   position: relative;
@@ -231,7 +234,11 @@ a:link {
     (min-resolution: 2dppx) {
     .mobile-menu {
       background-image: url(../images/background-menu@2x.png),
-        linear-gradient(to bottom, rgb(79, 46, 232, 1), rgb(220, 220, 220, 1));
+        radial-gradient(
+          189.32% 190.93% at 59.76% -23.42%,
+          #4f2ee8 18.03%,
+          #fff 100%
+        );
     }
   }
 
@@ -261,6 +268,8 @@ a:link {
   }
 
   .mobile-container-header {
+    position: absolute;
+    top: 0;
     padding-left: 20px;
     padding-right: 20px;
     display: flex;
