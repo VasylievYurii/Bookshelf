@@ -52,18 +52,36 @@ categoryListEl.addEventListener('click', getBookFromCategory);
 
 function getBookFromCategory(e) {
   e.preventDefault();
- const targetCategory = e.target.closest('.category-link');
- if (!targetCategory) {
-  return;
+  const targetCategory = e.target.closest('.category-link');
+  if (!targetCategory) {
+    return;
+  }
+  const linkAllRef = document.querySelector('.link-all');
+  const text = targetCategory.textContent.trim();
+  if (text === 'All categories') {
+    const sectionCategoriesRef = document.querySelector('.section-categories');
+    const sectionBooksRef = document.querySelector('.section-books');
+    sectionBooksRef.classList.add('hidden');
+    sectionCategoriesRef.classList.remove('hidden');
+    clearStyleCategories();
+    linkAllRef.classList.add('active');
+  } else {
+    linkAllRef.classList.remove('active');
+    clearStyleCategories();
+    let activeCategory = e.target;
+    activeCategory.classList.add('active');
+
+    renderBooksByCategory(text);
+  }
 }
 
- const text = targetCategory.textContent.trim();
- if (text === 'All categories') {
-  const sectionBooksRef = document.querySelector('.section-books');
-  sectionBooksRef.classList.add('hidden');
-  const sectionCategoriesRef = document.querySelector('.section-categories');
-  sectionCategoriesRef.classList.remove('hidden');
- } else {
-  renderBooksByCategory(text);
- }
+function clearStyleCategories() {
+  const allCategories = document.querySelectorAll('.category-link');
+  allCategories.forEach(function (element) {
+    if (element.classList.contains('active')) {
+      element.classList.remove('active');
+    } else {
+      return;
+    }
+  });
 }
