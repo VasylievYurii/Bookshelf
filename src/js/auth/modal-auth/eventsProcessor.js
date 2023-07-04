@@ -17,7 +17,7 @@ const menuAuthRootListRef = document.querySelectorAll('.auth-menu-root');
 // const menuAuthRootListRef = document.querySelector('.auth-menu-root');
 const themeSelectorRef = document.querySelector('#toggle-theme');
 
-console.log(menuAuthRootListRef);
+// console.log(menuAuthRootListRef);
 
 let _theme = 'light';
 let _mode = 'signin';
@@ -36,8 +36,8 @@ onAuthStateChanged(auth, user => {
 });
 
 const bindButtonEvents = cb => {
-  const modalAuthButtonRef = document.querySelector('.modal-auth-button');
-  modalAuthButtonRef.addEventListener('click', cb);
+  const modalAuthButtonListRef = document.querySelectorAll('.modal-auth-button');
+  modalAuthButtonListRef.forEach(elem => elem.addEventListener('click', cb));
 };
 
 export const initAuth = () => {
