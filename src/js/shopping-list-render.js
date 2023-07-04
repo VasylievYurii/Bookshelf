@@ -12,7 +12,7 @@ const optionsNotiflix = {
   position: 'center-top',
   borderRadius: '25px',
 };
-// const booksApi = useBooksApi();
+
 const refs = {
   shoppingListEl: document.querySelector('.shopping-list'),
   shoppingListLink: document.querySelector('.header-sh-list-link'),
@@ -74,9 +74,8 @@ function markupShoppingList(books) {
           <div class="sh-wrap">
               <div class="sh-book-info-wrap">
                <button class="sh-list-delete-btn" type="button">
-                    <svg class="sh-list-delete-icon" width="18" height="18"<symbol id="icon-trash" viewBox="0 0 32 32">
-                    <path fill="none" stroke="#fff" style="stroke: var(--color1, #fff)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M12 4h8M4 8h24M25.334 8l-0.936 14.026c-0.14 2.104-0.21 3.156-0.664 3.954-0.406 0.703-0.997 1.259-1.709 1.61l-0.023 0.010c-0.826 0.4-1.88 0.4-3.99 0.4h-4.024c-2.11 0-3.164 0-3.99-0.4-0.735-0.361-1.326-0.917-1.722-1.601l-0.010-0.019c-0.454-0.798-0.524-1.85-0.664-3.954l-0.936-14.026M13.334 14v6.666M18.666 14v6.666"></path>
-                    </symbol>
+                    <svg class="sh-list-delete-icon" width="18" height="18">
+                    <use href="${sprite}#trash"></use>
                     </svg>
                   </button>
                 <h2 class="sh-book-title">${title}</h2>
@@ -122,16 +121,20 @@ function markupShoppingList(books) {
 }
 
 renderShoppingList(shoppingListArray);
+
 const shopingList = document.querySelector('.shopping-list');
+
 shopingList.addEventListener('click', onDelBtnClick);
+
 function onDelBtnClick(evt) {
-  if (evt.target.nodeName === 'BUTTON') {
+ 
+  if (evt.target.nodeName === 'BUTTON' || evt.target.nodeName === 'use') {
     const index = shoppingListArray.findIndex(
       item =>
         item._id ===
         evt.target.closest('.shopping-list-item').getAttribute('id')
     );
-    console.log(index);
+
     if (index !== -1) {
       shoppingListArray.splice(index, 1);
       localStorage.setItem(STORAGE_KEY, JSON.stringify(shoppingListArray));

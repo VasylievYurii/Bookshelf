@@ -109,7 +109,7 @@ function makeRemoveBtnVisible() {
 }
 
 function addToLocalStorage() {
-  console.log('book', bookForShoppingList._id);
+  // console.log('book', bookForShoppingList._id);
   if (shoppingListArray.find(item => item._id === bookForShoppingList._id)) {
     Notiflix.Notify.failure(
       `Sorry, you've already added this book. Choose the other one please.`
