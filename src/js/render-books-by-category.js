@@ -1,17 +1,22 @@
 import { useBooksApi } from '../services/booksApi';
-// import booksTemplate from '../templates/main-book.hbs';
+import { insertModalBook, onModalOpen } from './pop-up-book';
+import { addClassForBookList } from './condition-for-categories-render';
 
 const booksApi = useBooksApi();
 
-// Пока сделал без хендлбара - нужно разобраться, почему не находит трансформер для шаблона, из-за этого не импортирует его
+const sectionCategoriesEl = document.querySelector('.section-categories');
+const sectionBooksEl = document.querySelector('.section-books');
+const sectionBooksTitleEl = document.querySelector('.section-books-title');
+const booksListEl = document.querySelector('.section-books-list');
 
-function makeMarkupForBooks(books) {
+function makeMarkupForBooks(books, e) {
+  let oneBook = addClassForBookList(e);
   const markup = books
     .map(
-      ({ book_image, title, author, _id }) => `<li>
-    <a href='#' class='book-item' data-value="${_id}">
+      ({ book_image, title, author, _id }) => `<li class="${oneBook}">
+    <a class='book-item' data-value="${_id}">
       <div class='thumb'>
-        <img src='${book_image}' alt='Book cover' />
+        <img src='${book_image}' alt='Book cover' loading="lazy"/>
         <div class='overlay'>
           <p class='overlay-text'>quick view </p>
         </div>
@@ -22,23 +27,50 @@ function makeMarkupForBooks(books) {
   </li>`
     )
     .join('\n');
-  // console.log(markup);
   return markup;
 }
 
-function renderBooksByCategory(category) {
-  booksApi
-    .getBooksByCategory(category)
-    .then(res => {
-      // console.log('res:', res);
-      booksListEl.innerHTML = makeMarkupForBooks(res);
-    })
-    .catch(err => {
-      console.log(err);
-    });
+function makeMarkupForTitle(title) {
+  const arrFromTitle = title.split(' ');
+  if (arrFromTitle.length < 2) {
+    return `${title}`;
+  }
+  const lastWord = arrFromTitle.pop();
+  return `${arrFromTitle.join(' ')} <span class="accent">${lastWord}</span>`;
 }
 
-const booksListEl = document.querySelector('.section-books-list');
-renderBooksByCategory('Paperback Nonfiction');
+async function renderBooksByCategory(category) {
+  try {
+    const res = await booksApi.getBooksByCategory(category);
+    booksListEl.innerHTML = makeMarkupForBooks(res, true);
+    sectionBooksTitleEl.innerHTML = makeMarkupForTitle(category);
+    hideElement(sectionCategoriesEl);
+    showElement(sectionBooksEl);
+    booksListEl.addEventListener('click', onBookSelect);
+  } catch (err) {
+    console.log(err);
+  }
+}
 
-export { makeMarkupForBooks };
+function onBookSelect(evt) {
+  const bookItem = evt.target.closest('.book-item');
+  if (!bookItem) {
+    return;
+  }
+  const bookId = bookItem.getAttribute('data-value');
+  booksApi
+    .getBookById(bookId)
+    .then(insertModalBook)
+    .catch(error => console.log(error));
+  onModalOpen();
+}
+
+function hideElement(elem) {
+  elem.classList.add('hidden');
+}
+
+function showElement(elem) {
+  elem.classList.remove('hidden');
+}
+
+export { makeMarkupForBooks, renderBooksByCategory, onBookSelect };

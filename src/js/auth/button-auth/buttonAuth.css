@@ -1,48 +1,108 @@
- * {
-    box-sizing: border-box;
+* {
+  box-sizing: border-box;
 }
 
 .light-colorset-auth {
-    --main-canvas: #4F2EE8;
-    --main-background: #F6F6F6;
-    --main-text: #111111;
-    --active-text: rgba(17, 17, 17, 0.5);
-    --secondary-text: #F3F3F3;
-    --shadow: rgba(0, 0, 0, 0.75);
+  --main-canvas: #4f2ee8;
+  --main-background: #f6f6f6;
+  --main-text: #111111;
+  --active-text: rgba(17, 17, 17, 0.5);
+  --secondary-text: #f3f3f3;
+  --shadow: rgba(0, 0, 0, 0.75);
 }
 
 .dark-colorset-auth {
-    --main-canvas: #4F2EE8;
-    --main-background: #202024;
-    --main-text: #F6F6F6;
-    --active-text: rgba(246, 246, 246, 0.5);
-    --secondary-text: #202024;
-    --shadow: rgba(0, 0, 0, 0.75);
+  --main-canvas: #4f2ee8;
+  --main-background: #202024;
+  --main-text: #f6f6f6;
+  --active-text: rgba(246, 246, 246, 0.5);
+  --secondary-text: #202024;
+  --shadow: rgba(0, 0, 0, 0.75);
 }
 
 .modal-auth-button {
-    height: 45px;
-    padding: 4px 18px 4px 18px;
+  position: absolute;
+  top: 88px;
+  left: 20px;
 
-    display: flex;
-    column-gap: 8px;
-    justify-content: center;
-    align-items: center;
+  height: 45px;
+  padding: 4px 18px 4px 18px;
 
-    color: var(--secondary-text);
-    font-size: 22px;
-    font-weight: 600;
-    background-color: var(--main-canvas);
+  display: flex;
+  column-gap: 8px;
+  justify-content: center;
+  align-items: center;
 
-    border-radius: 36px;
-    border: none;
+  color: var(--secondary-text);
+  font-size: 22px;
+  font-weight: 600;
+  background-color: transparent;
 
-    cursor: pointer;
+  border-radius: 36px;
+  border: none;
 
+  cursor: pointer;
+  white-space: nowrap;
+
+  overflow: hidden;
+}
+
+.modal-auth-button.auth-button-loggedin::after {
+  content: 'Log Out';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--main-canvas);
+  opacity: 0;
+  transition: opacity 0.2s ease-out;
+  white-space: nowrap;
+}
+
+.modal-auth-button.auth-button-loggedin:hover::after {
+  opacity: 1;
+  transition: opacity 0.2s ease-out;
 }
 
 .auth-button-userpic {
-    width: 32px;
-    height: auto;
-    border-radius: 50%;
+  width: 32px;
+  height: auto;
+  border-radius: 50%;
+}
+
+/* .logout-btn {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+
+  display: flex;
+  gap: 4px;
+  padding: 14px 24px;
+  height: 48px;
+  border-radius: 18px;
+  border: 1.5px solid var(--text-main);
+  background: var(--header);
+
+  color: var(--text-main);
+  font-size: 14px;
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: -0.56px;
+
+  stroke: #eac645;
+} */
+
+@media screen and (min-width: 768px) {
+  .modal-auth-button {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    background-color: var(--main-canvas);
+      
+  }
+
 }

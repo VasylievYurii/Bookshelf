@@ -3,9 +3,9 @@
   align-items: center;
   padding-top: 18px;
   padding-bottom: 18px;
-  border: 1.5px solid black;
+  border: 1.5px solid var(--text-main);
   border-radius: 0 0 8px 8px;
-  background-color: var(--header-background-color);
+  background-color: var(--header);
 }
 
 .header-title {
@@ -20,21 +20,23 @@
   font-size: 14px;
   line-height: 1.29;
   letter-spacing: -0.03em;
-  color: var(--color-link-title);
+  color: var(--text-main);
 }
 .header-link-home {
   font-weight: 500;
   font-size: 14px;
   line-height: 1.29;
   letter-spacing: -0.04em;
-  color: black;
+  color: var(--text-main);
 }
-.header-link-home.current {
+
+.current {
   font-weight: 700;
   padding: 8px 16px;
-  background: rgba(234, 198, 69, 1);
+  background: var(--color-links);
   border-radius: 36px;
 }
+
 .header-shopping-link {
   display: flex;
   text-decoration: none;
@@ -43,12 +45,12 @@
   font-size: 14px;
   line-height: 1.29;
   letter-spacing: -0.04em;
-  color: black;
+  color: var(--text-main);
 }
 .header-shopping-link.current {
   font-weight: 700;
   padding: 7px 16px;
-  background: rgba(234, 198, 69, 1);
+  background: var(--color-links);
   border-radius: 36px;
 }
 
@@ -62,38 +64,22 @@ a:link {
   list-style: none;
 }
 .shopping-icon {
+  fill: var(--text-main);
   margin-right: 8px;
   position: relative;
   width: 20px;
   height: 20px;
 }
 .header-icon {
-  margin-right: 144px;
+  // margin-right: 144px;
   position: relative;
-  fill: none;
+  fill: var(--text-main);
   width: 109px;
   height: 26px;
 }
-.menu-open {
-  display: block;
-  background-color: transparent;
-  border-color: transparent;
-  margin-left: 14px;
-  padding: 0;
-  border: none;
-}
-.menu-open-icon {
-  display: block;
-  height: 28px;
-  width: 28px;
-  stroke: black;
-}
-.menu-open-icon:hover,
-.menu-open-icon:focus {
-  stroke: rgb(79, 46, 232, 1);
-}
 
 .theme-switch {
+  margin-left: auto;
   position: relative;
   width: 40px;
   height: 20px;
@@ -143,12 +129,204 @@ a:link {
   transform: translateX(20px);
 }
 @media screen and (max-width: 767px) {
-  .auth-menu-root,
+  .header > .auth-menu-root,
   .header-nav {
     display: none;
   }
+
+  /*------------------- MOBILE MENU----------------- */
+
+  .backdrop-header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    z-index: 10;
+
+    background-color: rgba(17, 17, 17, 0.4);
+
+    opacity: 1;
+    scale: 1;
+    visibility: visible;
+  }
+
+  .backdrop-header.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    scale: 0.9;
+    pointer-events: none;
+  }
+
+  .mob-menu-wrapper {
+    position: relative;
+    max-width: 375px;
+  }
+
+  .header .container {
+    max-width: 375px;
+  }
+
+  .theme-auth {
+    display: flex;
+    gap: 24px;
+    margin-left: auto;
+  }
+
+  .mobile-menu {
+    position: fixed;
+    height: 100vh;
+    max-width: 375px;
+    top: 0;
+    right: 0;
+    z-index: 12;
+    background-color: var(--header);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-image: url(../images/background-menu.png),
+      linear-gradient(to bottom, rgb(79, 46, 232, 1), rgb(220, 220, 220, 1));
+    background-position: 0px 150%, center;
+  }
+
+  .header-shopping.current {
+    color: var(--text-main);
+  }
+
+  .shopping-icon {
+    fill: white;
+  }
+  .header-shopping {
+    color: white;
+  }
+
+  .mobile-header-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .mobile-menu {
+      background-image: url(../images/background-menu@2x.png),
+        linear-gradient(to bottom, rgb(79, 46, 232, 1), rgb(220, 220, 220, 1));
+    }
+  }
+
+  .menu-open {
+    display: block;
+    background-color: transparent;
+    border-color: transparent;
+    margin-left: 14px;
+    padding: 0;
+    border: none;
+  }
+  .menu-open-icon {
+    display: block;
+    height: 28px;
+    width: 28px;
+    stroke: var(--text-main);
+  }
+  .menu-open-icon:hover,
+  .menu-open-icon:focus {
+    stroke: rgb(79, 46, 232, 1);
+  }
+
+  .mobile-menu.is-visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .mobile-container-header {
+    position: absolute;
+    top: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    align-items: center;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    border: 1.5px solid var(--text-main);
+    border-radius: 0 0 8px 8px;
+    background-color: var(--header);
+    width:100%;
+  }
+
+  .container.book {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    width: 100vw;
+    height: 100vh;
+    z-index: 20;
+  }
+
+  .container-book {
+    position: relative;
+  }
+
+  .mobile-menu-close-btn {
+    display: block;
+    background-color: transparent;
+    border-color: transparent;
+    margin-left: 14px;
+    padding: 0;
+    border: none;
+  }
+
+  .mobile-menu-close-btn-icon {
+    display: block;
+    height: 28px;
+    width: 28px;
+    stroke: var(--text-main);
+  }
+
+  .mobile-header-nav {
+    padding-top: 247px;
+    padding-bottom: 495px;
+    color: var(--header);
+  }
+
+  .mobile-header-link-home {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.29;
+    letter-spacing: -0.04em;
+    color: var(--text-main);
+    margin-top: 191px;
+    margin-bottom: 24px;
+  }
+  .mobile-header-shopping-link {
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.29;
+    letter-spacing: -0.04em;
+    color: var(--text-main);
+  }
+
+  .current {
+    padding: 8px 16px;
+    border-radius: 36px;
+    background: #eac645;
+  }
 }
+
+.header.container {
+  justify-content: space-between;
+}
+
 @media screen and (min-width: 768px) {
+  .mobile-menu,
   .menu-open {
     display: none;
   }
@@ -158,17 +336,15 @@ a:link {
   .header-nav {
     gap: 24px;
     align-items: center;
-    margin-right: 101px;
+
   }
   .theme-switch {
     margin-right: 24px;
   }
+
 }
 
 @media screen and (min-width: 1440px) {
-  .header-nav {
-    margin-right: 745px;
-  }
   .header-icon {
     margin-right: 76px;
   }

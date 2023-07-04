@@ -1,3 +1,4 @@
+import Notiflix from 'notiflix';
 import { useBooksApi } from '../services/booksApi';
 import amazon from '../images/stores/amazon.png';
 import amazon2x from '../images/stores/amazon@2x.png';
@@ -5,6 +6,7 @@ import bookStore from '../images/stores/book.png';
 import bookStore2x from '../images/stores/book@2x.png';
 import bookShop from '../images/stores/book-shop.png';
 import bookShop2x from '../images/stores/book-shop@2x.png';
+import sprite from '../images/sprite.svg';
 
 const STORAGE_KEY = 'shopping-list';
 
@@ -14,16 +16,15 @@ const btnRemoveEl = document.querySelector('button[data-action="remove"]');
 const successTextEl = document.querySelector('.modal-congrats-text');
 const closeModalEl = document.querySelector('.close-modal');
 const backdropEl = document.querySelector('.backdrop-modal');
+const bodyEl = document.querySelector('body');
 
 const shoppingListArray = JSON.parse(localStorage.getItem(STORAGE_KEY)) ?? [];
 
 let defaultImg;
 
-import sprite from '../images/sprite.svg';
-
-function onDefaultImg(bookImg){
+function onDefaultImg(bookImg) {
   if (bookImg) {
-    defaultImg = `<img class="img-modal" src="${bookImg}" />`;
+    defaultImg = `<img class="img-modal" src="${bookImg}" loading="lazy"/>`;
   } else {
     defaultImg = `<div class="img-modal" style="background-color: #f0f0f0;">
       <svg class="default-book-pop-up" >
@@ -31,7 +32,7 @@ function onDefaultImg(bookImg){
     </svg>
     </div>`;
   }
-  return defaultImg
+  return defaultImg;
 }
 
 function renderModal(book) {
@@ -57,6 +58,7 @@ function renderModal(book) {
       srcset="${amazon} 1x, ${amazon2x} 2x"
       src="${amazon}";
       alt="Amazon shop"
+      loading="lazy"
     />
     </a>
     <a href="${buy_links[1].url}" rel="noopener noreferrer nofollow"
@@ -66,6 +68,7 @@ function renderModal(book) {
       srcset="${bookStore} 1x, ${bookStore2x} 2x"
       src="${bookStore}"
       alt="Shop"
+      loading="lazy"
     />
     </a>
     <a href="${buy_links[4].url}" rel="noopener noreferrer nofollow"
@@ -78,6 +81,7 @@ function renderModal(book) {
       "
       src="${bookShop2x}"
       alt="Book shop"
+      loading="lazy"
     />
     </a>
   </div>
@@ -107,6 +111,13 @@ function makeRemoveBtnVisible() {
 }
 
 function addToLocalStorage() {
+  // console.log('book', bookForShoppingList._id);
+  if (shoppingListArray.find(item => item._id === bookForShoppingList._id)) {
+    Notiflix.Notify.failure(
+      `Sorry, you've already added this book. Choose the other one please.`
+    );
+    return;
+  }
   shoppingListArray.push(bookForShoppingList);
   localStorage.setItem(STORAGE_KEY, JSON.stringify(shoppingListArray));
 }
@@ -124,7 +135,7 @@ function makeAddBtnVisible() {
   btnAddEl.classList.remove('visually-hidden');
 }
 
-function removeFromLocalStorage() {
+export function removeFromLocalStorage() {
   const index = shoppingListArray.findIndex(
     item => item._id === bookForShoppingList._id
   );
@@ -135,7 +146,7 @@ function removeFromLocalStorage() {
   }
 }
 
-closeModalEl.addEventListener('click', onMouseClose);
+closeModalEl.addEventListener('click', onModalClose);
 backdropEl.addEventListener('click', onMouseClose);
 
 function onModalClose() {
@@ -143,6 +154,7 @@ function onModalClose() {
   makeAddBtnVisible();
   modalContainerEl.innerHTML = '';
   window.removeEventListener('keydown', onEscPress);
+  bodyEl.classList.remove('no-scroll');
 }
 
 function onMouseClose(e) {
@@ -160,4 +172,5 @@ function onEscPress(e) {
 export function onModalOpen() {
   window.addEventListener('keydown', onEscPress);
   backdropEl.classList.remove('is-hidden');
+  bodyEl.classList.add('no-scroll');
 }

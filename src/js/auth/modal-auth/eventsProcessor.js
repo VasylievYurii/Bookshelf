@@ -5,12 +5,19 @@ import { composeSignModal } from './authModal';
 import { composeAuthButton } from '../button-auth/authButton';
 
 import { useUserAuth } from '../firebase/authApi';
+import { useFireStore } from '../firebase/firestoreApi';
+import { useFireUserAuthChanges } from './authChangesSubscriber';
 
+const { fireLoggedIn, fireLoggedOut } = useFireUserAuthChanges();
 const { login, logout, register, auth } = useUserAuth();
+const { putCartToFirebase } = useFireStore();
 
 const modalAuthRootRef = document.querySelector('.auth-modal-root');
-const menuAuthRootRef = document.querySelector('.auth-menu-root');
+const menuAuthRootListRef = document.querySelectorAll('.auth-menu-root');
+// const menuAuthRootListRef = document.querySelector('.auth-menu-root');
 const themeSelectorRef = document.querySelector('#toggle-theme');
+
+// console.log(menuAuthRootListRef);
 
 let _theme = 'light';
 let _mode = 'signin';
@@ -19,20 +26,22 @@ onAuthStateChanged(auth, user => {
   if (!user) {
     initAuth();
     localStorage.removeItem('signeduser');
+    fireLoggedOut();
     return;
   }
   localStorage.setItem('signeduser', user.uid);
-  menuAuthRootRef.innerHTML = composeAuthButton(user);
+  menuAuthRootListRef.forEach(elem => elem.innerHTML = composeAuthButton(user));
   bindButtonEvents(onLogOut);
+  fireLoggedIn()
 });
 
 const bindButtonEvents = cb => {
-  const modalAuthButtonRef = document.querySelector('.modal-auth-button');
-  modalAuthButtonRef.addEventListener('click', cb);
+  const modalAuthButtonListRef = document.querySelectorAll('.modal-auth-button');
+  modalAuthButtonListRef.forEach(elem => elem.addEventListener('click', cb));
 };
 
 export const initAuth = () => {
-  menuAuthRootRef.innerHTML = composeAuthButton(null);
+menuAuthRootListRef.forEach(elem => (elem.innerHTML = composeAuthButton(null)));
   bindButtonEvents(onModalOpen);
 };
 
@@ -90,7 +99,12 @@ const onSignUpSubmit = e => {
   const password = e.target.elements.password.value;
   const displayName = e.target.elements.name.value;
   register({ username, password, displayName })
-    .then(() => {
+    .then(user => {
+      putCartToFirebase([]);
+      menuAuthRootListRef.forEach(
+        elem => (elem.innerHTML = composeAuthButton(user))
+      );
+      bindButtonEvents(onLogOut);
       onModalClose();
     })
     .catch(err => {

@@ -1,0 +1,38 @@
+html {
+  scroll-behavior: smooth;
+}
+@media screen and (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
+}
+
+.js-sroll-up {
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+}
+
+.scroll-up-wrapper {
+  border-radius: 50%;
+}
+
+.scroll-up-icon{
+  width: 44px;
+  height: 44px;
+  margin-bottom: 16px;
+  margin-right: 16px;
+}
