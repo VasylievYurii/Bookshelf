@@ -66,7 +66,7 @@ function getBookFromCategory(e) {
  if (text === 'All categories') {
   console.log('first')
   const sectionBooksRef = document.querySelector('.section-books');
-  sectionBooksRef.innerHTML='';
+  sectionBooksRef.classList.add('hidden');
   const sectionCategoriesRef = document.querySelector('.section-categories');
   sectionCategoriesRef.classList.remove('hidden');
 
