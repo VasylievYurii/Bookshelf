@@ -8,7 +8,10 @@ import bookShop2x from '../images/stores/book-shop@2x.png';
 import sprite from '../images/sprite.svg';
 import { Notify } from 'notiflix';
 import { shopingListCounter } from './shopping-list-counter';
-import {getChangeStoreColor, getStartThemeColor} from './get-change-store-color';
+import {
+  getChangeStoreColor,
+  getStartThemeColor,
+} from './get-change-store-color';
 
 const optionsNotiflix = {
   clickToClose: true,
@@ -107,7 +110,7 @@ function markupShoppingList(books) {
                               <a class="sh-soc-link" href="${buy_links[0].url}" rel="noopener noreferrer nofollow"
             target="_blank">
             <img srcset="${amazon} 1x, ${amazon2x} 2x"
-            src="${amazon}" class="amazon-store"
+            src="${amazon}" class="book-stores amazon-store"
             alt="Amazon Store ${buy_links[0].name}"
             loading="lazy"
             />
@@ -117,7 +120,7 @@ function markupShoppingList(books) {
                               <a class="sh-soc-link" href="${buy_links[1].url}" rel="noopener noreferrer nofollow"
             target="_blank">
                             <img srcset="${bookStore} 1x, ${bookStore2x} 2x"
-                            src="${bookStore}" class="apple-store"
+                            src="${bookStore}" class="book-stores apple-store"
                             alt="Apple Store ${buy_links[1].name}"
                             loading="lazy"
                             />
@@ -127,7 +130,7 @@ function markupShoppingList(books) {
                           <a class="sh-soc-link" href="${buy_links[4].url}" rel="noopener noreferrer nofollow"
             target="_blank">
             <img srcset="${bookShop} 1x, ${bookShop2x} 2x"
-            src="${bookShop}" class="book-shop"
+            src="${bookShop}" class="book-stores book-shop"
             alt="Book Shop ${buy_links[4].name}"
             loading="lazy"
             />
@@ -146,9 +149,6 @@ function markupShoppingList(books) {
       }
     )
     .join('\n');
-    // getStartThemeColor();
-    // getChangeStoreColor();
-  
   refs.shoppingListEl.innerHTML = markup;
   setTimeout(() => {
     getStartThemeColor();
