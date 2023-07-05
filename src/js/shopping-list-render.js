@@ -106,7 +106,7 @@ function markupShoppingList(books) {
                               <a class="sh-soc-link" href="${buy_links[0].url}" rel="noopener noreferrer nofollow"
             target="_blank">
             <img srcset="${amazon} 1x, ${amazon2x} 2x"
-            src="${amazon}" class="amazon-store"
+            src="${amazon}" class="logo-img amazon-store"
             alt="Amazon Store ${buy_links[0].name}"
             loading="lazy"
             />
@@ -117,7 +117,7 @@ function markupShoppingList(books) {
                               <a class="sh-soc-link" href="${buy_links[1].url}" rel="noopener noreferrer nofollow"
             target="_blank">
                             <img srcset="${bookStore} 1x, ${bookStore2x} 2x"
-                            src="${bookStore}" class="apple-store"
+                            src="${bookStore}" class="logo-img apple-store"
                             alt="Apple Store ${buy_links[1].name}"
                             loading="lazy"
                             />
@@ -127,7 +127,7 @@ function markupShoppingList(books) {
                           <a class="sh-soc-link" href="${buy_links[4].url}" rel="noopener noreferrer nofollow"
             target="_blank">
             <img srcset="${bookShop} 1x, ${bookShop2x} 2x"
-            src="${bookShop}" class="book-shop"
+            src="${bookShop}" class="logo-img book-shop"
             alt="Book Shop ${buy_links[4].name}"
             loading="lazy"
             />
@@ -166,3 +166,16 @@ function onDelBtnClick(evt) {
     renderShoppingList(shoppingListArray);
   }
 }
+
+function themeSwitcherAmazon() {
+  const Dark = localStorage.getItem('isDark');
+  const amazonLogos = document.querySelectorAll('.amazon-store');
+  amazonLogos.forEach(amazonLogo => {
+    if (Dark) {
+      amazonLogo.classList.add('js-dark-mode-amazon');
+    } else {
+      amazonLogo.classList.remove('js-dark-mode-amazon');
+    }
+  });
+}
+themeSwitcherAmazon();

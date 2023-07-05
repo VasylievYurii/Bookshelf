@@ -40,7 +40,7 @@ function renderModal(book) {
 
   onDefaultImg(book_image);
 
-  return `
+  const modalContent = `
   <div class="modal-content-container" value="${_id}">
   <div class="img-container-pop-up">
   ${defaultImg}
@@ -88,6 +88,18 @@ function renderModal(book) {
     </div>
     </div>
     `;
+  modalContainerEl.innerHTML = modalContent;
+  themeSwitcherAmazon();
+}
+
+function themeSwitcherAmazon() {
+  const Dark = localStorage.getItem('isDark');
+  const amazonLogo = document.querySelector('.amazon-logo');
+  if (Dark) {
+    amazonLogo.classList.add('js-dark-mode-amazon');
+  } else {
+    amazonLogo.classList.remove('js-dark-mode-amazon');
+  }
 }
 
 let bookForShoppingList = {};
