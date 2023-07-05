@@ -1,4 +1,11 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
+@font-face {
+  font-family: 'Pacifico';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Pacifico Regular'), local('Pacifico-Regular');
+  font-display: swap;
+}
 
 :root {
   --body: #f6f6f6;
