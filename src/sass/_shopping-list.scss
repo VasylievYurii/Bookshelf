@@ -128,8 +128,8 @@
   gap: 14px;
 }
 
-.sh-book-info-wrap {
-  // position: relative;
+.js-dark-mode-amazon {
+  filter: brightness(0) invert(1);
 }
 
 .sh-list-delete-btn {

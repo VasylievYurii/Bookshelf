@@ -7,7 +7,7 @@ import bookShop from '../images/stores/book-shop.png';
 import bookShop2x from '../images/stores/book-shop@2x.png';
 import sprite from '../images/sprite.svg';
 import { Notify } from 'notiflix';
-import {getChangeStoreColor} from './get-change-store-color';
+import {getChangeStoreColor, getStartThemeColor} from './get-change-store-color';
 
 const optionsNotiflix = {
   timeout: 3000,
@@ -32,6 +32,7 @@ const refs = {
   shoppingListLink: document.querySelector('.header-sh-list-link'),
   emptyShoppinglistEl: document.querySelector('.empty-sh-list'),
 };
+
 const STORAGE_KEY = 'shopping-list';
 const shoppingListArray = JSON.parse(localStorage.getItem(STORAGE_KEY)) ?? [];
 let defaultDescription;
@@ -70,6 +71,7 @@ function renderShoppingList(localBooksArray) {
   }
   markupShoppingList(localBooksArray);
 }
+
 function markupShoppingList(books) {
   const markup = books
     .map(
@@ -143,6 +145,7 @@ function markupShoppingList(books) {
     )
     .join('\n');
   refs.shoppingListEl.insertAdjacentHTML('beforeend', markup);
+  getStartThemeColor();
   getChangeStoreColor();
 }
 
