@@ -2,17 +2,14 @@
   display: flex;
   flex-direction: column;
   gap: 40px;
-  // width: 335px;
 
   @media screen and (min-width: 768px) {
     flex-direction: row;
-    width: 704px;
     gap: 32px;
   }
   
   @media screen and (min-width: 1440px) {
     flex-direction: column;
-    width: 356px;
     gap: 86px;
   }
 }
