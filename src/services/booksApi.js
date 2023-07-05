@@ -15,7 +15,6 @@ axios.defaults.baseURL = API_ENDPOINTS.baseUrl;
 const getCategoryList = async () => {
   try {
     const result = await axios.get(API_ENDPOINTS.categoryList);
-    // console.log(result);
     return result.data;
   } catch (error) {
     Notiflix.Notify.failure(
@@ -61,7 +60,6 @@ const getBookById = async id => {
   openLoader();
   try {
     const result = await axios.get(API_ENDPOINTS.book + id);
-    // console.log(result);
     return result.data;
   } catch (error) {
     Notiflix.Notify.failure(
