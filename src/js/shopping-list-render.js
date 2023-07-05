@@ -7,6 +7,7 @@ import bookShop from '../images/stores/book-shop.png';
 import bookShop2x from '../images/stores/book-shop@2x.png';
 import sprite from '../images/sprite.svg';
 import { Notify } from 'notiflix';
+import { shopingListCounter } from './shopping-list-counter';
 import {getChangeStoreColor, getStartThemeColor} from './get-change-store-color';
 
 const optionsNotiflix = {
@@ -171,5 +172,6 @@ function onDelBtnClick(evt) {
     }
     refs.shoppingListEl.innerHTML = '';
     renderShoppingList(shoppingListArray);
+    shopingListCounter();
   }
 }
