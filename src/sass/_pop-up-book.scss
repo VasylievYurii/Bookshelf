@@ -189,6 +189,10 @@
   scale: 1.1;
 }
 
+.js-dark-mode-amazon:is(:hover, :focus) {
+  filter: brightness(0) invert(1);
+}
+
 .modal-congrats-text {
   margin-left: auto;
   margin-right: auto;

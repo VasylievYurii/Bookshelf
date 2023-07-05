@@ -4,7 +4,7 @@
   line-height: 1.19;
   letter-spacing: -1.28px;
   @media (max-width: 375px) {
-    font-size:7.7vw;
+    font-size: 7.7vw;
   }
 }
 .shopping-title {
@@ -57,15 +57,15 @@
 .sh-book-title {
   margin-bottom: 4px;
   color: var(--text-main);
-  font-size:3.7vw;
-  
+  font-size: 3.7vw;
+
   line-height: 1.13;
   letter-spacing: -0.64px;
   @media screen and (min-width: 375px) {
     font-size: 16px;
   }
   @media screen and (min-width: 767px) {
-  line-height: 1.17;
+    line-height: 1.17;
   }
 }
 .sh-book-category {
@@ -116,7 +116,7 @@
 }
 
 .book-stores {
-  // filter: saturate(0%);
+  filter: saturate(0%);
 }
 
 .sh-soc-item .amazon-store {
@@ -185,7 +185,7 @@
   border: none;
   cursor: pointer;
 
-  @media screen and (min-width: 375px){
+  @media screen and (min-width: 375px) {
     bottom: 68%;
     left: 93%;
     margin-left: 0;
@@ -195,8 +195,7 @@
     transform: translate(-50%, -50%);
   }
 
-  @media screen and (min-width: 768px){
-
+  @media screen and (min-width: 768px) {
     bottom: 72%;
     left: 95%;
     margin-left: 0;
@@ -206,8 +205,8 @@
     transform: translate(-50%, -50%);
   }
 
-  @media screen and (min-width: 1440px){
-bottom: 68%;
+  @media screen and (min-width: 1440px) {
+    bottom: 68%;
     left: 96%;
   }
 }
@@ -272,8 +271,7 @@ bottom: 68%;
     height: 165px;
   }
 
- .amazon-store {
-
+  .amazon-store {
     width: 48px;
     height: 15px;
   }
