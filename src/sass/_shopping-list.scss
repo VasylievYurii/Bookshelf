@@ -66,7 +66,7 @@
   letter-spacing: 0.36px;
 }
 
-.div-text-container{
+.div-text-container {
   height: 68px;
   overflow: hidden;
 }
@@ -78,8 +78,8 @@
   line-height: 1.23;
   letter-spacing: -0.56px;
   display: -webkit-box;
-  -webkit-line-clamp: 4; 
-  -webkit-box-orient: vertical; 
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
   text-overflow: ellipsis;
 }
 .sh-book-author {
@@ -105,32 +105,36 @@
 }
 
 .book-stores {
-  filter: saturate(0%);
+  // filter: saturate(0%);
 }
 
 .sh-soc-item .amazon-store {
   width: 32px;
   height: 11px;
 }
-.sh-soc-item .amazon-store:is(:hover, :focus) {
-  filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.2)) saturate(0);
+.sh-soc-item:is(:hover, :focus) {
+  scale: 1.1;
 }
+
+// .amazon-store:is(:hover, :focus) {
+//   filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.2)) saturate(0);
+// }
 
 .sh-soc-item .book-shop {
   width: 16px;
   height: 16px;
 }
-.sh-soc-item .book-shop:is(:hover, :focus) {
-  filter: saturate(0%) drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.2));
-}
+// .sh-soc-item .book-shop:is(:hover, :focus) {
+//   filter: saturate(0%) drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.2));
+// }
 
 .sh-soc-link .apple-store {
   width: 16px;
   height: 16px;
 }
-.sh-soc-link .apple-store:is(:hover, :focus) {
-  filter: saturate(0%) drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.2));
-}
+// .sh-soc-link .apple-store:is(:hover, :focus) {
+//   filter: saturate(0%) drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.2));
+// }
 
 .sh-wrap {
   position: relative;
@@ -141,6 +145,14 @@
 
 .js-dark-mode-amazon {
   filter: brightness(0) invert(1);
+}
+
+.js-dark-mode-amazon:is(:hover, :focus) {
+  filter: invert(1) brightness(1);
+}
+
+.js-dark-mode-apple:is(:hover, :focus) {
+  filter: saturate(1);
 }
 
 .sh-list-delete-btn {
@@ -240,15 +252,16 @@ bottom: 68%;
   }
 
  .amazon-store {
+
     width: 48px;
     height: 15px;
   }
-.book-shop {
+  .book-shop {
     width: 32px;
     height: 30px;
   }
 
-.apple-store {
+  .apple-store {
     width: 28px;
     height: 27px;
   }

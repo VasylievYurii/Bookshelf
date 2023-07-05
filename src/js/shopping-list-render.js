@@ -103,7 +103,7 @@ function markupShoppingList(books) {
              <div class="sh-book-info-link-wrap">
          <p class="sh-book-author">${author}</p>
          <ul class="shopping-links">
-                            <li class="sh-soc-item">
+                            <li class="sh-soc-item js-dark-mode-apple">
                               <a class="sh-soc-link" href="${buy_links[0].url}" rel="noopener noreferrer nofollow"
             target="_blank">
             <img srcset="${amazon} 1x, ${amazon2x} 2x"
@@ -114,7 +114,7 @@ function markupShoppingList(books) {
             
                               </a>
                             </li>
-                            <li class="sh-soc-item">
+                            <li class="sh-soc-item ">
                               <a class="sh-soc-link" href="${buy_links[1].url}" rel="noopener noreferrer nofollow"
             target="_blank">
                             <img srcset="${bookStore} 1x, ${bookStore2x} 2x"
@@ -124,7 +124,7 @@ function markupShoppingList(books) {
                             />
                              </a>
                             </li>
-                           <li class="sh-soc-item">
+                           <li class="sh-soc-item ">
                           <a class="sh-soc-link" href="${buy_links[4].url}" rel="noopener noreferrer nofollow"
             target="_blank">
             <img srcset="${bookShop} 1x, ${bookShop2x} 2x"
