@@ -30,19 +30,11 @@
 .shopping-list {
   display: flex;
   flex-direction: column;
-  // width: 100%;
   gap: 20px;
 }
 
 .sh-list-section {
-  // display: flex;
-  // flex-direction: inherit;
   width: 100%;
-}
-
-.sh-list-section img {
-  display: block;
-  max-width: 100%;
 }
 
 .shopping-list-item {
@@ -287,11 +279,6 @@ bottom: 68%;
   .book-shop {
     width: 32px;
     height: 30px;
-  }
-
-  .apple-store {
-    width: 28px;
-    height: 27px;
   }
 
   .sh-wrap {
