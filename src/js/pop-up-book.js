@@ -7,6 +7,7 @@ import bookStore2x from '../images/stores/book@2x.png';
 import bookShop from '../images/stores/book-shop.png';
 import bookShop2x from '../images/stores/book-shop@2x.png';
 import sprite from '../images/sprite.svg';
+import {getChangeHomeStoreColor} from './get-change-store-color-home';
 
 const STORAGE_KEY = 'shopping-list';
 
@@ -95,6 +96,8 @@ let bookForShoppingList = {};
 export function insertModalBook(item) {
   bookForShoppingList = item;
   modalContainerEl.insertAdjacentHTML('afterbegin', renderModal(item));
+  getChangeHomeStoreColor();
+  
 }
 
 btnAddEl.addEventListener('click', onAddBtnClick);

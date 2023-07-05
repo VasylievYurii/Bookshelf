@@ -7,6 +7,7 @@ import bookShop from '../images/stores/book-shop.png';
 import bookShop2x from '../images/stores/book-shop@2x.png';
 import sprite from '../images/sprite.svg';
 import { Notify } from 'notiflix';
+import {getChangeStoreColor} from './get-change-store-color';
 
 const optionsNotiflix = {
   timeout: 3000,
@@ -142,6 +143,7 @@ function markupShoppingList(books) {
     )
     .join('\n');
   refs.shoppingListEl.insertAdjacentHTML('beforeend', markup);
+  getChangeStoreColor();
 }
 
 renderShoppingList(shoppingListArray);
