@@ -19,9 +19,18 @@
 
 .support-title {
   margin-bottom: 40px;
-  font-size: 28px;
+  font-size:6.7vw;
+ 
   line-height: 32px;
   letter-spacing: -1.12px;
+
+  @media (max-width: 375px) {
+    font-size: 28px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    font-size: 28px;
+  }
 }
 
 .fund-list {

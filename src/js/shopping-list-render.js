@@ -92,11 +92,7 @@ function markupShoppingList(books) {
           <img class="sh-book-img" src="${book_image}" alt="Boook image" loading="lazy"></img>
           <div class="sh-wrap">
               <div class="sh-book-info-wrap">
-               <button class="sh-list-delete-btn" type="button">
-                    <svg class="sh-list-delete-icon" width="18" height="18">
-                    <use href="${sprite}#trash"></use>
-                    </svg>
-                  </button>
+               
                 <h2 class="sh-book-title">${title}</h2>
                 <p class="sh-book-category">${list_name}</p>
                 <div class="div-text-container">
@@ -140,6 +136,11 @@ function markupShoppingList(books) {
                       </ul>
       </div>
           </div>
+          <button class="sh-list-delete-btn" type="button">
+                    <svg class="sh-list-delete-icon" width="18" height="18">
+                    <use href="${sprite}#trash"></use>
+                    </svg>
+                  </button>
               </li>
            `;
       }

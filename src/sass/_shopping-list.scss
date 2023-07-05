@@ -3,6 +3,9 @@
   font-size: 32px;
   line-height: 1.19;
   letter-spacing: -1.28px;
+  @media (max-width: 375px) {
+    font-size:7.7vw;
+  }
 }
 .shopping-title {
   color: var(--text-main);
@@ -32,6 +35,7 @@
 }
 
 .shopping-list-item {
+  position: relative;
   display: flex;
   padding: 14px;
   border-radius: 16px;
@@ -42,9 +46,16 @@
 .sh-book-title {
   margin-bottom: 4px;
   color: var(--text-main);
-  font-size: 16px;
+  font-size:3.7vw;
+  
   line-height: 1.13;
   letter-spacing: -0.64px;
+  @media screen and (min-width: 375px) {
+    font-size: 16px;
+  }
+  @media screen and (min-width: 767px) {
+  line-height: 1.17;
+  }
 }
 .sh-book-category {
   margin-bottom: 8px;
@@ -134,8 +145,10 @@
 
 .sh-list-delete-btn {
   position: absolute;
-  top: 0;
-  right: 0;
+  bottom: 0;
+  left: 0;
+  margin-left: 10px;
+  margin-bottom: 10px;
 
   display: flex;
   width: 28px;
@@ -148,6 +161,22 @@
   border-radius: 50%;
   border: none;
   cursor: pointer;
+
+  @media screen and (min-width: 768px){
+
+    bottom: 72%;
+    left: 95%;
+    margin-left: 0;
+    margin-bottom: 0;
+    width: 34px;
+    height: 34px;
+    transform: translate(-50%, -50%);
+  }
+
+  @media screen and (min-width: 1440px){
+bottom: 68%;
+    left: 96%;
+  }
 }
 
 .sh-book-info-link-wrap {
@@ -160,38 +189,32 @@
   stroke: #fff;
 }
 
-@media screen and (max-width: 767px) {
-  .sh-book-title {
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 1.17;
-    letter-spacing: -0.64px;
-  }
-  .sh-book-category {
-    margin-bottom: 8px;
-    color: var(--text-second);
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 1.17;
-    letter-spacing: 0.36px;
-  }
-  .sh-book-description {
-    color: var(--text-main);
-    font-size: 10.6px;
-    font-weight: 400;
-    line-height: 1.23;
-    letter-spacing: -0.56px;
-  }
+// @media screen and (max-width: 767px) {
+//   .sh-book-category {
+//     margin-bottom: 8px;
+//     color: var(--text-second);
+//     font-size: 12px;
+//     font-weight: 400;
+//     line-height: 1.17;
+//     letter-spacing: 0.36px;
+//   }
+//   .sh-book-description {
+//     color: var(--text-main);
+//     font-size: 10.6px;
+//     font-weight: 400;
+//     line-height: 1.23;
+//     letter-spacing: -0.56px;
+//   }
 
-  .sh-book-author {
-    color: var(--text-second);
-    font-size: 12px;
-    font-style: italic;
-    font-weight: 400;
-    line-height: 1.17;
-    letter-spacing: -0.48px;
-  }
-}
+//   .sh-book-author {
+//     color: var(--text-second);
+//     font-size: 12px;
+//     font-style: italic;
+//     font-weight: 400;
+//     line-height: 1.17;
+//     letter-spacing: -0.48px;
+//   }
+// }
 
 @media screen and (min-width: 768px) {
   .shopping-list-item {
@@ -214,14 +237,6 @@
     margin-right: 24px;
     width: 116px;
     height: 165px;
-  }
-
-  .sh-list-delete-btn {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 34px;
-    height: 34px;
   }
 
  .amazon-store {
