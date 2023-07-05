@@ -1,9 +1,15 @@
-const themeSelectorRef = document.querySelector('#toggle-theme');
-      themeSelectorRef.addEventListener('click', getChangeStoreColor);
-
-export function getChangeStoreColor(){
-    const amazonStoreSlRef = document.querySelector('.amazon-store');
-    const appleStoreSlRef = document.querySelector('.apple-store');
-    amazonStoreSlRef.classList.toggle('js-dark-mode-amazon');
-    appleStoreSlRef.classList.toggle('book-modal');
-}
+export function getChangeStoreColor() {
+    const amazonStoreElements = document.querySelectorAll('.amazon-store');
+    const bookModalElements = document.querySelectorAll('.apple-store');
+  
+    amazonStoreElements.forEach(element => {
+      element.classList.toggle('js-dark-mode-amazon');
+    });
+  
+    bookModalElements.forEach(element => {
+      element.classList.toggle('book-modal');
+    });
+  }
+  
+  const themeSelectorRef = document.querySelector('#toggle-theme');
+  themeSelectorRef.addEventListener('click', getChangeStoreColor);
