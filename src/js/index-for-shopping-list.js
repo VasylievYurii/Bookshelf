@@ -1,0 +1,13 @@
+// import switcher from './switcher';
+import '/src/js/themes';
+import '/src/js/menu';
+import '/src/js/fireBaseFunctions.js';
+import '/src/js/support';
+import '/src/js/auth/modal-auth/eventsProcessor';
+import '/src/js/shopping-list-render.js';
+import '/src/js/pop-up-book';
+import '/src/js/scroll-up';
+import '/src/js/footer';
+import '/src/js/viewportChecker';
+import '/src/js/get-current-for-shopping-page';
+import '/src/js/get-change-store-color';

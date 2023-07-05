@@ -23,10 +23,21 @@
   height: 198px;
 }
 
+.main-sh-list {
+  width: 100%;
+}
+
 .shopping-list {
   display: flex;
   flex-direction: column;
+  // width: 100%;
   gap: 20px;
+}
+
+.sh-list-section {
+  // display: flex;
+  // flex-direction: inherit;
+  width: 100%;
 }
 
 .sh-list-section img {
@@ -173,6 +184,16 @@
   border-radius: 50%;
   border: none;
   cursor: pointer;
+
+  @media screen and (min-width: 375px){
+    bottom: 68%;
+    left: 93%;
+    margin-left: 0;
+    margin-bottom: 0;
+    width: 34px;
+    height: 34px;
+    transform: translate(-50%, -50%);
+  }
 
   @media screen and (min-width: 768px){
 

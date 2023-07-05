@@ -5,7 +5,7 @@ import './js/render-books-by-category';
 import './js/top-books';
 import './js/condition-for-categories-render';
 import './js/fetch-categories';
-import './js/fireBaseFnunctions.js';
+import './js/fireBaseFunctions.js';
 import './js/support';
 import './js/auth/modal-auth/eventsProcessor';
 import './js/pop-up-book';
