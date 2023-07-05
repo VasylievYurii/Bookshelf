@@ -38,8 +38,6 @@ const refs = {
   emptyShoppinglistEl: document.querySelector('.empty-sh-list'),
 };
 
-console.log('refs.shoppingListEl', refs.shoppingListEl);
-
 const STORAGE_KEY = 'shopping-list';
 const shoppingListArray = JSON.parse(localStorage.getItem(STORAGE_KEY)) ?? [];
 let defaultDescription;
@@ -80,8 +78,6 @@ function renderShoppingList(localBooksArray) {
 }
 
 function markupShoppingList(books) {
-  console.log('books:', books);
-
   const markup = books
     .map(
       ({
@@ -118,7 +114,6 @@ function markupShoppingList(books) {
             alt="Amazon Store ${buy_links[0].name}"
             loading="lazy"
             />
-            
                               </a>
                             </li>
                             <li class="sh-soc-item ">
@@ -154,11 +149,14 @@ function markupShoppingList(books) {
       }
     )
     .join('\n');
-  console.log('refs.shoppingListEl', refs.shoppingListEl);
-  console.log('markup', markup);
   refs.shoppingListEl.innerHTML = markup;
-  getStartThemeColor();
-  getChangeStoreColor();
+  setTimeout(() => {
+    getStartThemeColor();
+  }, 0);
+  setTimeout(() => {
+    getStartThemeColor();
+  }, 0);
+
 }
 
 renderShoppingList(shoppingListArray);

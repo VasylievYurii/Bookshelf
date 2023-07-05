@@ -49,16 +49,15 @@
   line-height: 1.29;
   letter-spacing: -0.04em;
   color: var(--text-main);
+  fill:var(--text-main);
 }
 .header-shopping-link.current {
+  color:#111;
   font-weight: 700;
   padding: 7px 16px;
   background: var(--color-links);
   border-radius: 36px;
-}
-
-a:link {
-  text-decoration: none;
+  fill:#111;
 }
 
 .header-nav {
@@ -66,8 +65,9 @@ a:link {
   gap: 24px;
 }
 .shopping-icon {
-  fill: var(--text-main);
-  margin-right: 8px;
+  // fill: var(--text-main);
+  fill:inherit;
+  // margin-right: 8px;
   position: relative;
   width: 20px;
   height: 20px;
@@ -198,9 +198,9 @@ a:link {
     color: var(--text-main);
   }
 
-  .shopping-icon {
-    fill: white;
-  }
+  // .shopping-icon {
+  //   fill: white;
+  // }
   .header-shopping {
     color: white;
   }

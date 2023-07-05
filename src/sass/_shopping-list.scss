@@ -30,19 +30,11 @@
 .shopping-list {
   display: flex;
   flex-direction: column;
-  // width: 100%;
   gap: 20px;
 }
 
 .sh-list-section {
-  // display: flex;
-  // flex-direction: inherit;
   width: 100%;
-}
-
-.sh-list-section img {
-  display: block;
-  max-width: 100%;
 }
 
 .shopping-list-item {
@@ -122,7 +114,10 @@
 // .sh-soc-item
 .amazon-store {
   width: 32px;
-  height: 11px;
+  @media screen and (min-width: 768px){
+    width: 45px;
+  }
+
 }
 .sh-soc-item:is(:hover, :focus) {
   scale: 1.1;
@@ -135,7 +130,9 @@
 // .sh-soc-item
 .book-shop {
   width: 16px;
-  height: 16px;
+  @media screen and (min-width: 768px){
+    width: 28px;
+  }
 }
 // .sh-soc-item .book-shop:is(:hover, :focus) {
 //   filter: saturate(0%) drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.2));
@@ -144,7 +141,9 @@
 // .sh-soc-link
 .apple-store {
   width: 16px;
-  height: 16px;
+  @media screen and (min-width: 768px){
+    width: 28px;
+  }
 }
 // .sh-soc-link .apple-store:is(:hover, :focus) {
 //   filter: saturate(0%) drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.2));
@@ -281,11 +280,6 @@
   .book-shop {
     width: 32px;
     height: 30px;
-  }
-
-  .apple-store {
-    width: 28px;
-    height: 27px;
   }
 
   .sh-wrap {
