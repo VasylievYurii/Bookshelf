@@ -16,5 +16,5 @@ var e="undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:"u
       <h3 class='category-block-title'>${e}</h3>
       <ul class='books-list' data-category="${e}"></ul>
       <button type='button' class='btn' >See more</button>
-      </li>`).join("\n");return t}(t);let o=b.querySelectorAll(".books-list"),l=await v.getTopBooks();o.forEach(e=>{let t=e.dataset.category,o=l.find(e=>e.list_name===t).books;e.innerHTML=u(o)}),b.addEventListener("click",f),b.addEventListener("click",h)}catch(e){console.log(e)}})(),l("ld1e2"),l("dTazW"),l("4EhXu"),l("fMzCF"),l("74Aiq"),l("epHO8");const L=document.querySelector(".header-link-home");L.classList.add("current"),l("a4dqv"),l("806y2");
-//# sourceMappingURL=index.28f01c8d.js.map
+      </li>`).join("\n");return t}(t);let o=b.querySelectorAll(".books-list"),l=await v.getTopBooks();o.forEach(e=>{let t=e.dataset.category,o=l.find(e=>e.list_name===t).books;e.innerHTML=u(o)}),b.addEventListener("click",f),b.addEventListener("click",h)}catch(e){console.log(e)}})(),l("ld1e2"),l("dTazW"),l("4EhXu"),l("fMzCF"),l("74Aiq");const L=document.querySelector(".header-link-home");L.classList.add("current"),l("a4dqv"),l("806y2"),l("epHO8");
+//# sourceMappingURL=index.817c971b.js.map
