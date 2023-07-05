@@ -45,6 +45,14 @@
   background-color: var(--header);
   border: 2px solid var(--text-main);
   border-radius: 18px;
+  
+  @media screen and (min-width: 768px){
+    width: 579px;
+    max-height: 501px;
+    padding: 40px;
+    top: 50%;
+  transform: translate(-50%,-50%);
+  }
 }
 
 .modal-btn {
@@ -64,11 +72,25 @@
 .btn-add {
   height: 46px;
   padding: 14px 28px;
+
+  transition: color 250ms linear, background-color 250ms linear;
 }
 
 .btn-remove {
   height: 46px;
   padding: 14px 23px;
+
+  transition: color 250ms linear, background-color 250ms linear;
+}
+
+.btn-add:is(:hover, :focus) {
+  background-color: var(--color-accent);
+  color: var(--header);
+}
+
+.btn-remove:is(:hover, :focus) {
+  background-color: var(--color-accent);
+  color: var(--header);
 }
 
 .visually-hidden {
@@ -108,16 +130,6 @@
 
 .close-modal:is(:hover, :focus) {
   stroke: var(--color-accent);
-}
-
-.btn-add:is(:hover, :focus) {
-  background-color: var(--color-accent);
-  color: var(--color-white-theme);
-}
-
-.btn-remove:is(:hover, :focus) {
-  background-color: var(--color-accent);
-  color: var(--color-white-theme);
 }
 
 .img-container-pop-up {
@@ -173,7 +185,7 @@
 .book-modal {
   filter: saturate(0%);
 }
-.amazon-logo:is(:hover, :focus) {
+.book-modal.amazon-logo:is(:hover, :focus) {
   filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.2)) saturate(0);
 }
 
@@ -198,7 +210,7 @@
   letter-spacing: -0.4px;
 }
 
-.amazon-logo {
+.book-modal.amazon-logo {
   width: 62px;
   height: 19px;
 }
@@ -238,11 +250,11 @@
 }
 
 @media screen and (min-width: 768px) {
-  .container-popup {
-    width: 579px;
-    max-height: 501px;
-    padding: 40px;
-  }
+  // .container-popup {
+  //   width: 579px;
+  //   max-height: 501px;
+  //   padding: 40px;
+  // }
 
   .book-header {
     margin-bottom: 8px;

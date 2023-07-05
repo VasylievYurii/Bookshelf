@@ -26,55 +26,55 @@ const supportImg = [
     title: 'Save the Children',
     srcset: `${saveTheChildren} 1x, ${saveTheChildren2x} 2x`,
     src: saveTheChildren,
-    width: 104,
+    width: 149,
   },
   {
     title: 'Project HOPE',
     srcset: `${projectHope} 1x, ${projectHope2x} 2x`,
     src: projectHope,
-    width: 63,
+    width: 90,
   },
   {
     title: 'UNITED24',
     srcset: `${united24} 1x, ${united242x} 2x`,
     src: united24,
-    width: 104,
+    width: 149,
   },
   {
     title: 'International Medical Corps',
     srcset: `${internationalMedicalCorps} 1x, ${internationalMedicalCorps2x} 2x`,
     src: internationalMedicalCorps,
-    width: 90,
+    width: 129,
   },
   {
     title: 'Medicins Sans Frontieres',
     srcset: `${medicinsSansFrontieres} 1x, ${medicinsSansFrontieres2x} 2x`,
     src: medicinsSansFrontieres,
-    width: 93,
+    width: 133,
   },
   {
     title: 'RAZOM',
     srcset: `${razom} 1x, ${razom2x} 2x`,
     src: razom,
-    width: 74,
+    width: 105,
   },
   {
     title: 'Action against hunger',
     srcset: `${actionAgainstHunger} 1x, ${actionAgainstHunger2x} 2x`,
     src: actionAgainstHunger,
-    width: 55,
+    width: 78,
   },
   {
     title: 'World vision',
     srcset: `${worldVision} 1x, ${worldVision2x} 2x`,
     src: worldVision,
-    width: 57,
+    width: 81,
   },
   {
     title: 'Serhiy Prytula Charity Foundation',
     srcset: `${serhiyPrytulaCharityFoundation} 1x, ${serhiyPrytulaCharityFoundation2x} 2x`,
     src: serhiyPrytulaCharityFoundation,
-    width: 82,
+    width: 117,
   },
 ];
 
@@ -140,7 +140,7 @@ supportList.forEach(function (data) {
   const listItem = `
     <li class="swiper-slide support-list">
       <a href="${data.url}"rel="noopener noreferrer nofollow" target="_blank" style='width: ${imgWidth}px'>
-        <img class="support-img" src="${imgSrc}" srcset="${imgSrcset}" alt="${data.title}">
+        <img class="support-img" src="${imgSrc}" srcset="${imgSrcset}" alt="${data.title} loading="lazy"">
       </a>
     </li>
   `;

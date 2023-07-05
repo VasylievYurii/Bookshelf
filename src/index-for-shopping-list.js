@@ -8,4 +8,5 @@ import './js/pop-up-book';
 import './js/scroll-up';
 import './js/footer';
 import './js/viewportChecker';
-import './js/get-current-for-shopping-page'
+import './js/get-current-for-shopping-page';
+import './js/get-change-store-color';

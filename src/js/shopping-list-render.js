@@ -8,10 +8,25 @@ import bookShop2x from '../images/stores/book-shop@2x.png';
 import sprite from '../images/sprite.svg';
 import { Notify } from 'notiflix';
 import { shopingListCounter } from './shopping-list-counter';
+import {getChangeStoreColor, getStartThemeColor} from './get-change-store-color';
+
 const optionsNotiflix = {
-  width: '300px',
-  position: 'center-top',
-  borderRadius: '25px',
+  clickToClose: true,
+  // timeout: 3000,
+  // messageMaxLength: 110,
+  // backOverlay: true,
+  // backOverlayColor: 'rgba(0,0,0,0.3)',
+  // width: '500px',
+  // position: 'center-center',
+  // borderRadius: '20px',
+  // opacity: 0.7,
+  // fontSize: '22px',
+  // cssAnimation: true,
+  // cssAnimationDuration: 300,
+  // cssAnimationStyle: 'zoom', // 'fade'
+  // 'zoom' - 'from-right' - 'from-top' - 'from-bottom' - 'from-left'
+  // failure - backOverlayColor: 'rgba(255,85,73,0.2)',
+  // warning - backOverlayColor: 'rgba(238,191,49,0.2)',
 };
 
 const refs = {
@@ -19,6 +34,7 @@ const refs = {
   shoppingListLink: document.querySelector('.header-sh-list-link'),
   emptyShoppinglistEl: document.querySelector('.empty-sh-list'),
 };
+
 const STORAGE_KEY = 'shopping-list';
 const shoppingListArray = JSON.parse(localStorage.getItem(STORAGE_KEY)) ?? [];
 let defaultDescription;
@@ -36,7 +52,7 @@ function changeToDefaultDescription(description) {
 
 function changeToDefaultBookImg(book_image) {
   if (book_image) {
-    defaultBookImage = `<img class="sh-book-img" src="${book_image}" alt="Boook image"></img>`;
+    defaultBookImage = `<img class="sh-book-img" src="${book_image}" alt="Boook image" loading="lazy"></img>`;
   } else {
     defaultBookImage = `<div class="sh-default-img width="265" height="198"" style="background-color: #F0F0F0;">
       <svg class="sh-default-svg-icon" >
@@ -57,6 +73,7 @@ function renderShoppingList(localBooksArray) {
   }
   markupShoppingList(localBooksArray);
 }
+
 function markupShoppingList(books) {
   const markup = books
     .map(
@@ -73,14 +90,10 @@ function markupShoppingList(books) {
         changeToDefaultDescription(description);
         return `
       <li id="${_id}" class="shopping-list-item">
-          <img class="sh-book-img" src="${book_image}" alt="Boook image"></img>
+          <img class="sh-book-img" src="${book_image}" alt="Boook image" loading="lazy"></img>
           <div class="sh-wrap">
               <div class="sh-book-info-wrap">
-               <button class="sh-list-delete-btn" type="button">
-                    <svg class="sh-list-delete-icon" width="18" height="18">
-                    <use href="${sprite}#trash"></use>
-                    </svg>
-                  </button>
+               
                 <h2 class="sh-book-title">${title}</h2>
                 <p class="sh-book-category">${list_name}</p>
                 <div class="div-text-container">
@@ -95,7 +108,10 @@ function markupShoppingList(books) {
             target="_blank">
             <img srcset="${amazon} 1x, ${amazon2x} 2x"
             src="${amazon}" class="amazon-store"
-            alt="Amazon Store ${buy_links[0].name}"/>
+            alt="Amazon Store ${buy_links[0].name}"
+            loading="lazy"
+            />
+            
                               </a>
                             </li>
                             <li class="sh-soc-item">
@@ -103,7 +119,9 @@ function markupShoppingList(books) {
             target="_blank">
                             <img srcset="${bookStore} 1x, ${bookStore2x} 2x"
                             src="${bookStore}" class="apple-store"
-                            alt="Apple Store ${buy_links[1].name}"/>
+                            alt="Apple Store ${buy_links[1].name}"
+                            loading="lazy"
+                            />
                              </a>
                             </li>
                            <li class="sh-soc-item">
@@ -111,18 +129,27 @@ function markupShoppingList(books) {
             target="_blank">
             <img srcset="${bookShop} 1x, ${bookShop2x} 2x"
             src="${bookShop}" class="book-shop"
-            alt="Book Shop ${buy_links[4].name}"/>
+            alt="Book Shop ${buy_links[4].name}"
+            loading="lazy"
+            />
                          </a>
                        </li>
                       </ul>
       </div>
           </div>
+          <button class="sh-list-delete-btn" type="button">
+                    <svg class="sh-list-delete-icon" width="18" height="18">
+                    <use href="${sprite}#trash"></use>
+                    </svg>
+                  </button>
               </li>
            `;
       }
     )
     .join('\n');
   refs.shoppingListEl.insertAdjacentHTML('beforeend', markup);
+  getStartThemeColor();
+  getChangeStoreColor();
 }
 
 renderShoppingList(shoppingListArray);

@@ -15,8 +15,6 @@ const handleOnPress = e => {
     .finally(() => {});
 };
 const categoryListEl = document.querySelector('.category-list');
-const categoryLinksElements = document.querySelectorAll('.category-link');
-const oneCategory = document.querySelector('.category-item');
 
 const parseCategoryList = list => {
   const uniqueCategories = [
@@ -33,18 +31,9 @@ const parseCategoryList = list => {
     })
     .join('');
   categoryListEl.insertAdjacentHTML('beforeend', categoryList);
-  getCategoryElements();
+  let activeCategory = categoryListEl.querySelector('.link-all');
+  activeCategory.classList.add('active');
 };
-
-function getCategoryElements() {
-  categoryLinksElements.forEach(link => {
-    link.addEventListener('click', evt => {
-      evt.preventDefault();
-      categoryLinksElements.forEach(el => el.classList.remove('active'));
-      link.classList.add('active');
-    });
-  });
-}
 
 handleOnPress();
 
@@ -58,19 +47,16 @@ function getBookFromCategory(e) {
   }
   const linkAllRef = document.querySelector('.link-all');
   const text = targetCategory.textContent.trim();
+  clearStyleCategories();
   if (text === 'All categories') {
     const sectionCategoriesRef = document.querySelector('.section-categories');
     const sectionBooksRef = document.querySelector('.section-books');
     sectionBooksRef.classList.add('hidden');
     sectionCategoriesRef.classList.remove('hidden');
-    clearStyleCategories();
     linkAllRef.classList.add('active');
   } else {
-    linkAllRef.classList.remove('active');
-    clearStyleCategories();
     let activeCategory = e.target;
     activeCategory.classList.add('active');
-
     renderBooksByCategory(text);
   }
 }
@@ -80,8 +66,8 @@ function clearStyleCategories() {
   allCategories.forEach(function (element) {
     if (element.classList.contains('active')) {
       element.classList.remove('active');
-    } else {
-      return;
     }
   });
 }
+
+export { clearStyleCategories };

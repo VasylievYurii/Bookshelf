@@ -8,6 +8,7 @@ import bookShop from '../images/stores/book-shop.png';
 import bookShop2x from '../images/stores/book-shop@2x.png';
 import sprite from '../images/sprite.svg';
 import { shopingListCounter } from './shopping-list-counter';
+import {getChangeHomeStoreColor} from './get-change-store-color-home';
 
 const STORAGE_KEY = 'shopping-list';
 
@@ -25,7 +26,7 @@ let defaultImg;
 
 function onDefaultImg(bookImg) {
   if (bookImg) {
-    defaultImg = `<img class="img-modal" src="${bookImg}" />`;
+    defaultImg = `<img class="img-modal" src="${bookImg}" loading="lazy"/>`;
   } else {
     defaultImg = `<div class="img-modal" style="background-color: #f0f0f0;">
       <svg class="default-book-pop-up" >
@@ -59,6 +60,7 @@ function renderModal(book) {
       srcset="${amazon} 1x, ${amazon2x} 2x"
       src="${amazon}";
       alt="Amazon shop"
+      loading="lazy"
     />
     </a>
     <a href="${buy_links[1].url}" rel="noopener noreferrer nofollow"
@@ -68,6 +70,7 @@ function renderModal(book) {
       srcset="${bookStore} 1x, ${bookStore2x} 2x"
       src="${bookStore}"
       alt="Shop"
+      loading="lazy"
     />
     </a>
     <a href="${buy_links[4].url}" rel="noopener noreferrer nofollow"
@@ -80,6 +83,7 @@ function renderModal(book) {
       "
       src="${bookShop2x}"
       alt="Book shop"
+      loading="lazy"
     />
     </a>
   </div>
@@ -93,6 +97,8 @@ let bookForShoppingList = {};
 export function insertModalBook(item) {
   bookForShoppingList = item;
   modalContainerEl.insertAdjacentHTML('afterbegin', renderModal(item));
+  getChangeHomeStoreColor();
+  
 }
 
 btnAddEl.addEventListener('click', onAddBtnClick);
@@ -110,17 +116,28 @@ function makeRemoveBtnVisible() {
 }
 
 function addToLocalStorage() {
-  // console.log('book', bookForShoppingList._id);
   if (shoppingListArray.find(item => item._id === bookForShoppingList._id)) {
     Notiflix.Notify.failure(
       `Sorry, you've already added this book. Choose the other one please.`
     );
     return;
   }
-  shoppingListArray.push(bookForShoppingList);
+  const arrayForLocalStorage = {
+    title: bookForShoppingList.title,
+    book_image: bookForShoppingList.book_image,
+    author: bookForShoppingList.author,
+    description: bookForShoppingList.description,
+    buy_links: bookForShoppingList.buy_links,
+    list_name: bookForShoppingList.list_name,
+    _id: bookForShoppingList._id,
+  };
+
+  shoppingListArray.push(arrayForLocalStorage);
   localStorage.setItem(STORAGE_KEY, JSON.stringify(shoppingListArray));
   shopingListCounter();
 }
+
+// book_image, title, author, description, buy_links, _id;
 
 btnRemoveEl.addEventListener('click', onRemoveBtnClick);
 

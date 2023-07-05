@@ -4,7 +4,7 @@
   "description": "",
   "homepage": "https://VasylievYurii.github.io/Bookshelf",
   "scripts": {
-    "start": "parcel src/*.html",
+    "start": "rimraf .parcel-cache && parcel src/*.html",
     "build": "parcel build src/*.html --public-url /Bookshelf/"
   },
   "repository": {
@@ -20,22 +20,27 @@
   "dependencies": {
     "axios": "^1.4.0",
     "firebase": "^9.23.0",
-    "handlebars": "^4.7.7",
     "lodash.throttle": "^4.1.1",
     "modern-normalize": "^1.1.0",
     "notiflix": "^3.2.6",
-    "overlayscrollbars": "^2.2.0",
-    "simplelightbox": "^2.14.1",
     "swiper": "^9.4.1",
     "tui-pagination": "^3.4.1"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.6.0",
     "buffer": "^6.0.3",
+    "imagemin-mozjpeg": "^10.0.0",
+    "imagemin-pngquant": "^9.0.2",
     "parcel": "^2.6.0",
+    "parcel-plugin-imagemin": "^4.0.2",
+    "parcel-plugin-static-files-copy": "^2.6.0",
     "parcel-reporter-clean-dist": "^1.0.4",
     "posthtml-include": "^1.7.4",
     "process": "^0.11.10"
+  },
+  "staticFiles": {
+    "staticPath": "fonts",
+    "watcherGlob": "**/*"
   },
   "browserslist": "> 0.5%, last 2 versions, not dead"
 }
