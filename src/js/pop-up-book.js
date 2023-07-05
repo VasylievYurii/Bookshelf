@@ -7,6 +7,7 @@ import bookStore2x from '../images/stores/book@2x.png';
 import bookShop from '../images/stores/book-shop.png';
 import bookShop2x from '../images/stores/book-shop@2x.png';
 import sprite from '../images/sprite.svg';
+import { shopingListCounter } from './shopping-list-counter';
 
 const STORAGE_KEY = 'shopping-list';
 
@@ -44,13 +45,13 @@ function renderModal(book) {
   <div class="modal-content-container" value="${_id}">
   <div class="img-container-pop-up">
   ${defaultImg}
-   </div> 
+   </div>
    <div class="modal-text-container">
     <h1 class="book-header">${title}</h1>
     <p class="book-author">${author}</p>
     <p class="book-description">${description}</p>
     <div class="book-stores">
-    
+
     <a href="${buy_links[0].url}" rel="noopener noreferrer nofollow"
             target="_blank">
     <img
@@ -99,6 +100,7 @@ btnAddEl.addEventListener('click', onAddBtnClick);
 function onAddBtnClick() {
   makeRemoveBtnVisible();
   addToLocalStorage();
+  shopingListCounter();
 }
 
 function makeRemoveBtnVisible() {
@@ -117,6 +119,7 @@ function addToLocalStorage() {
   }
   shoppingListArray.push(bookForShoppingList);
   localStorage.setItem(STORAGE_KEY, JSON.stringify(shoppingListArray));
+  shopingListCounter();
 }
 
 btnRemoveEl.addEventListener('click', onRemoveBtnClick);

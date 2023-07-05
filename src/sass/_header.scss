@@ -1,4 +1,7 @@
 .header {
+  position: sticky;
+  top: 0;
+  z-index: 2;
   display: flex;
   align-items: center;
   padding-top: 18px;
@@ -255,7 +258,7 @@ a:link {
     border: 1.5px solid var(--text-main);
     border-radius: 0 0 8px 8px;
     background-color: var(--header);
-    width:100%;
+    width: 100%;
   }
 
   .container.book {
@@ -336,12 +339,10 @@ a:link {
   .header-nav {
     gap: 24px;
     align-items: center;
-
   }
   .theme-switch {
     margin-right: 24px;
   }
-
 }
 
 @media screen and (min-width: 1440px) {

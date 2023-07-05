@@ -7,6 +7,7 @@ import bookShop from '../images/stores/book-shop.png';
 import bookShop2x from '../images/stores/book-shop@2x.png';
 import sprite from '../images/sprite.svg';
 import { Notify } from 'notiflix';
+import { shopingListCounter } from './shopping-list-counter';
 const optionsNotiflix = {
   width: '300px',
   position: 'center-top',
@@ -131,7 +132,6 @@ const shopingList = document.querySelector('.shopping-list');
 shopingList.addEventListener('click', onDelBtnClick);
 
 function onDelBtnClick(evt) {
- 
   if (evt.target.nodeName === 'BUTTON' || evt.target.nodeName === 'use') {
     const index = shoppingListArray.findIndex(
       item =>
@@ -145,5 +145,6 @@ function onDelBtnClick(evt) {
     }
     refs.shoppingListEl.innerHTML = '';
     renderShoppingList(shoppingListArray);
+    shopingListCounter();
   }
 }

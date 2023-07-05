@@ -1,4 +1,4 @@
-<header class="header container" id="top">
+<header class="header container">
   <nav class="header-title">
     <a href="./index.html" class="title-link">
       <svg class="header-icon">
@@ -8,12 +8,15 @@
     <ul class="header-nav">
       <li><a href="./index.html" class="header-link-home">HOME</a></li>
       <li>
-        <a href="./shopping-list.html" class="header-shopping-link">
-          <span class="header-shopping">SHOPPING LIST</span>
-          <svg class="shopping-icon">
-            <use href="./images/sprite.svg#bag"></use>
-          </svg>
-        </a>
+        <div class="header-shopping-list-wrapper">
+          <a href="./shopping-list.html" class="header-shopping-link">
+            <span class="header-shopping">SHOPPING LIST</span>
+            <svg class="shopping-icon">
+              <use href="./images/sprite.svg#bag"></use>
+            </svg>
+            <p class="counter-value"></p>
+          </a>
+        </div>
       </li>
     </ul>
   </nav>

@@ -14,7 +14,7 @@ const scrollUp = {
       'scroll',
       throttle(() => {
         const scrollY = window.scrollY || document.documentElement.scrollTop;
-        scrollY < 500 ? this.hide() : this.show();
+        scrollY < 300 ? this.hide() : this.show();
       }, 300)
     );
   },

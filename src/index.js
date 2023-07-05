@@ -12,3 +12,4 @@ import './js/pop-up-book';
 import './js/scroll-up';
 import './js/footer';
 import './js/get-current-for-home-page';
+import './js/shopping-list-counter';
