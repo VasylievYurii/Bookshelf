@@ -135,6 +135,7 @@ function addToLocalStorage() {
     author: bookForShoppingList.author,
     description: bookForShoppingList.description,
     buy_links: bookForShoppingList.buy_links,
+    list_name: bookForShoppingList.list_name,
     _id: bookForShoppingList._id,
   };
 
