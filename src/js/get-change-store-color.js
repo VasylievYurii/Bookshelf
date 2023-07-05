@@ -46,10 +46,3 @@ bookModalElements.forEach(element => {
 element.classList.toggle('book-modal');
 });
 }
-
-
-
-
-
-
-

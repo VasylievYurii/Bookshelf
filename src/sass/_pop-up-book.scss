@@ -45,6 +45,14 @@
   background-color: var(--header);
   border: 2px solid var(--text-main);
   border-radius: 18px;
+  
+  @media screen and (min-width: 768px){
+    width: 579px;
+    max-height: 501px;
+    padding: 40px;
+    top: 50%;
+  transform: translate(-50%,-50%);
+  }
 }
 
 .modal-btn {
@@ -242,11 +250,11 @@
 }
 
 @media screen and (min-width: 768px) {
-  .container-popup {
-    width: 579px;
-    max-height: 501px;
-    padding: 40px;
-  }
+  // .container-popup {
+  //   width: 579px;
+  //   max-height: 501px;
+  //   padding: 40px;
+  // }
 
   .book-header {
     margin-bottom: 8px;

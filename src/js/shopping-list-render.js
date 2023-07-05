@@ -10,18 +10,19 @@ import { Notify } from 'notiflix';
 import {getChangeStoreColor, getStartThemeColor} from './get-change-store-color';
 
 const optionsNotiflix = {
-  timeout: 3000,
+  clickToClose: true,
+  // timeout: 3000,
   // messageMaxLength: 110,
-  backOverlay: true,
-  backOverlayColor: 'rgba(0,0,0,0.3)',
-  width: '500px',
-  position: 'center-center',
-  borderRadius: '20px',
-  opacity: 0.7,
-  fontSize: '22px',
-  cssAnimation: true,
-  cssAnimationDuration: 300,
-  cssAnimationStyle: 'zoom', // 'fade'
+  // backOverlay: true,
+  // backOverlayColor: 'rgba(0,0,0,0.3)',
+  // width: '500px',
+  // position: 'center-center',
+  // borderRadius: '20px',
+  // opacity: 0.7,
+  // fontSize: '22px',
+  // cssAnimation: true,
+  // cssAnimationDuration: 300,
+  // cssAnimationStyle: 'zoom', // 'fade'
   // 'zoom' - 'from-right' - 'from-top' - 'from-bottom' - 'from-left'
   // failure - backOverlayColor: 'rgba(255,85,73,0.2)',
   // warning - backOverlayColor: 'rgba(238,191,49,0.2)',
