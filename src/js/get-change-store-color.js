@@ -10,7 +10,6 @@ export function getStartThemeColor() {
   const pageTheme = bodyRef.dataset.pageTheme;
 
   if (pageTheme === 'dark') {
-    console.log("pageTheme === 'dark'")
     
     const amazonStoreElements = document.querySelectorAll('.amazon-store');
     const bookModalElements = document.querySelectorAll('.apple-store');
@@ -20,9 +19,6 @@ export function getStartThemeColor() {
     amazonStoreElements.forEach(element => {
       element.classList.add('js-dark-mode-amazon');
     });
-
-  
-
   } 
   if(pageTheme === 'light') {
     const amazonStoreElements = document.querySelectorAll('.amazon-store');
@@ -60,10 +56,6 @@ export function getChangeStoreColor() {
   } else {
     return;
   }
-
-  // bookModalElements.forEach(element => {
-  // element.classList.toggle('book-modal');
-  // });
 
   if (!theme) {
     bookModalElements.forEach(element => {

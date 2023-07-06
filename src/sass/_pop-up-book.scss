@@ -45,10 +45,12 @@
   background-color: var(--header);
   border: 2px solid var(--text-main);
   border-radius: 18px;
+  gap:40px;
 
   @media screen and (min-width: 768px) {
     width: 579px;
     max-height: 501px;
+    gap:0;
     padding: 40px;
     top: 50%;
     transform: translate(-50%, -50%);
