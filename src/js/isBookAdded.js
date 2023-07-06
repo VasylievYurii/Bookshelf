@@ -13,14 +13,16 @@ export function isBookAdded(id) {
   Notiflix.Notify.info(
     'This book has already been added to your shopping list.',
     {
-      timeout: 1500,
+      timeout: 3000,
+      width:'400px',
       position: 'center-center',
       borderRadius: '20px',
-      opacity: 0.7,
+      opacity: 0.9,
       fontSize: '22px',
       cssAnimation: true,
       cssAnimationDuration: 300,
       cssAnimationStyle: 'zoom',
+      clickToClose: true,
     }
   );
 }
