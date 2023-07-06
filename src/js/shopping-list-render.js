@@ -1,4 +1,3 @@
-// import { useBooksApi } from '../services/booksApi';
 import amazon from '../images/stores/amazon.png';
 import amazon2x from '../images/stores/amazon@2x.png';
 import bookStore from '../images/stores/book.png';
@@ -8,25 +7,13 @@ import bookShop2x from '../images/stores/book-shop@2x.png';
 import sprite from '../images/sprite.svg';
 import { Notify } from 'notiflix';
 import { shopingListCounter } from './shopping-list-counter';
-import {getChangeStoreColor, getStartThemeColor} from './get-change-store-color';
+import {
+  getChangeStoreColor,
+  getStartThemeColor,
+} from './get-change-store-color';
 
 const optionsNotiflix = {
   clickToClose: true,
-  // timeout: 3000,
-  // messageMaxLength: 110,
-  // backOverlay: true,
-  // backOverlayColor: 'rgba(0,0,0,0.3)',
-  // width: '500px',
-  // position: 'center-center',
-  // borderRadius: '20px',
-  // opacity: 0.7,
-  // fontSize: '22px',
-  // cssAnimation: true,
-  // cssAnimationDuration: 300,
-  // cssAnimationStyle: 'zoom', // 'fade'
-  // 'zoom' - 'from-right' - 'from-top' - 'from-bottom' - 'from-left'
-  // failure - backOverlayColor: 'rgba(255,85,73,0.2)',
-  // warning - backOverlayColor: 'rgba(238,191,49,0.2)',
 };
 
 const refs = {
@@ -107,18 +94,17 @@ function markupShoppingList(books) {
                               <a class="sh-soc-link" href="${buy_links[0].url}" rel="noopener noreferrer nofollow"
             target="_blank">
             <img srcset="${amazon} 1x, ${amazon2x} 2x"
-            src="${amazon}" class="amazon-store"
+            src="${amazon}" class="book-stores amazon-store"
             alt="Amazon Store ${buy_links[0].name}"
             loading="lazy"
             />
-            
                               </a>
                             </li>
                             <li class="sh-soc-item ">
                               <a class="sh-soc-link" href="${buy_links[1].url}" rel="noopener noreferrer nofollow"
             target="_blank">
                             <img srcset="${bookStore} 1x, ${bookStore2x} 2x"
-                            src="${bookStore}" class="apple-store"
+                            src="${bookStore}" class="book-stores apple-store"
                             alt="Apple Store ${buy_links[1].name}"
                             loading="lazy"
                             />
@@ -128,7 +114,7 @@ function markupShoppingList(books) {
                           <a class="sh-soc-link" href="${buy_links[4].url}" rel="noopener noreferrer nofollow"
             target="_blank">
             <img srcset="${bookShop} 1x, ${bookShop2x} 2x"
-            src="${bookShop}" class="book-shop"
+            src="${bookShop}" class="book-stores book-shop"
             alt="Book Shop ${buy_links[4].name}"
             loading="lazy"
             />
@@ -147,9 +133,14 @@ function markupShoppingList(books) {
       }
     )
     .join('\n');
-  refs.shoppingListEl.insertAdjacentHTML('beforeend', markup);
-  getStartThemeColor();
-  getChangeStoreColor();
+  refs.shoppingListEl.innerHTML = markup;
+  setTimeout(() => {
+    getStartThemeColor();
+  }, 0);
+  // setTimeout(() => {
+  //   getChangeStoreColor();
+  // }, 0);
+
 }
 
 renderShoppingList(shoppingListArray);

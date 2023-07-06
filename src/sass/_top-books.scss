@@ -3,12 +3,12 @@
   flex-direction: column;
   padding-top: 40px;
 
-  @media screen and (min-width: 768px){
+  @media screen and (min-width: 768px) {
     padding-top: 40px;
     flex-direction: column;
   }
 
-  @media screen and (min-width: 1440px){
+  @media screen and (min-width: 1440px) {
     flex-direction: row;
     gap: 40px;
   }
@@ -16,10 +16,10 @@
 
 .main-container {
   padding-top: 40px;
-  @media screen and (min-width: 768px){
+  @media screen and (min-width: 768px) {
     padding-top: 100px;
   }
-  @media screen and (min-width: 1440px){
+  @media screen and (min-width: 1440px) {
     padding-top: 0;
   }
 }
@@ -30,10 +30,8 @@
   font-weight: 700;
   line-height: 1.18;
   letter-spacing: -1.28px;
-  @media screen and (min-width: 768px){
-    margin-bottom: 40px;
+  @media screen and (min-width: 768px) {
     font-size: 48px;
-    font-weight: 700;
     line-height: 1.08;
     letter-spacing: -1.92px;
   }
@@ -41,12 +39,6 @@
 
 .accent {
   color: var(--color-accent);
-}
-
-.section-categories-list {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
 }
 
 .category-block-title {
@@ -64,8 +56,8 @@
   flex-direction: column;
   margin-bottom: 8px;
 
-  @media screen and (min-width: 768px){
-    gap:24px;
+  @media screen and (min-width: 768px) {
+    gap: 24px;
     flex-direction: row;
   }
 }
@@ -77,7 +69,7 @@
   padding: 14px 28px;
   border-radius: 40px;
   border: 2px solid var(--color-accent);
-  color:var(--text-main);
+  color: var(--text-main);
   font-size: 14px;
   line-height: 1.28;
   letter-spacing: -0.14px;
@@ -93,7 +85,6 @@
   border-radius: 8px;
 }
 
-
 .book-title {
   margin-bottom: 4px;
   font-size: 16px;
@@ -103,7 +94,7 @@
 }
 
 .book-author {
-  color:var(--text-second);
+  color: var(--text-second);
   font-size: 12px;
   font-style: italic;
   font-weight: 400;
@@ -111,34 +102,33 @@
   letter-spacing: -0.48px;
 }
 
-.book-item{
+.book-item {
   display: block;
   width: 100%;
   cursor: pointer;
   @media screen and (min-width: 768px) {
-      width: 218px;
+    width: 218px;
   }
-  
+
   @media screen and (min-width: 1440px) {
-        width: 180px;
+    width: 180px;
   }
 }
 
-@media screen and (max-width: 767px){
-  .element-books-list:nth-child(n+2) {
+@media screen and (max-width: 767px) {
+  .element-books-list:nth-child(n + 2) {
     display: none;
   }
 }
 
-
-@media screen and (min-width: 768px){
-  .element-books-list:nth-child(n+4) {
+@media screen and (min-width: 768px) {
+  .element-books-list:nth-child(n + 4) {
     display: none;
   }
 }
 
- @media screen and (min-width: 1440px){
-  .element-books-list:nth-child(n+4) {
+@media screen and (min-width: 1440px) {
+  .element-books-list:nth-child(n + 4) {
     display: block;
   }
- }
+}

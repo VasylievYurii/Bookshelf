@@ -13,7 +13,6 @@ jobs:
 
       - name: Install and Build 🔧
         run: |
-          npx browserslist@latest --update-db
           npm ci
           npm run build
 
