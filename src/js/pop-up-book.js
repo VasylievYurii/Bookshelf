@@ -135,8 +135,6 @@ function addToLocalStorage() {
   shopingListCounter();
 }
 
-// book_image, title, author, description, buy_links, _id;
-
 btnRemoveEl.addEventListener('click', onRemoveBtnClick);
 
 function onRemoveBtnClick() {
