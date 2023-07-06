@@ -1,6 +1,7 @@
 import { useBooksApi } from '../services/booksApi';
 import { insertModalBook, onModalOpen } from './pop-up-book';
 import { addClassForBookList } from './condition-for-categories-render';
+import { isBookAdded } from './isBookAdded';
 
 const booksApi = useBooksApi();
 
@@ -58,11 +59,13 @@ function onBookSelect(evt) {
     return;
   }
   const bookId = bookItem.getAttribute('data-value');
+  console.log('bookID', bookId);
   booksApi
     .getBookById(bookId)
     .then(insertModalBook)
     .catch(error => console.log(error));
   onModalOpen();
+  isBookAdded(bookId);
 }
 
 function hideElement(elem) {
