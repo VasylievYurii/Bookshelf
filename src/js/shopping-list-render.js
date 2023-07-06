@@ -5,16 +5,11 @@ import bookStore2x from '../images/stores/book@2x.png';
 import bookShop from '../images/stores/book-shop.png';
 import bookShop2x from '../images/stores/book-shop@2x.png';
 import sprite from '../images/sprite.svg';
-import { Notify } from 'notiflix';
 import { shopingListCounter } from './shopping-list-counter';
 import {
   getChangeStoreColor,
   getStartThemeColor,
 } from './get-change-store-color';
-
-const optionsNotiflix = {
-  clickToClose: true,
-};
 
 const refs = {
   shoppingListEl: document.querySelector('.shopping-list'),
@@ -52,10 +47,6 @@ function changeToDefaultBookImg(book_image) {
 function renderShoppingList(localBooksArray) {
   if (!localBooksArray.length) {
     refs.emptyShoppinglistEl.style.display = 'block';
-    Notify.info(
-      'This page is empty, add some books and proceed to order.',
-      optionsNotiflix
-    );
     return;
   }
   markupShoppingList(localBooksArray);
