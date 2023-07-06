@@ -59,7 +59,6 @@ function onBookSelect(evt) {
     return;
   }
   const bookId = bookItem.getAttribute('data-value');
-  console.log('bookID', bookId);
   booksApi
     .getBookById(bookId)
     .then(insertModalBook)
