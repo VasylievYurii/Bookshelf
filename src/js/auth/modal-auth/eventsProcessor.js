@@ -89,7 +89,7 @@ const onSignInSubmit = e => {
       onModalClose();
     })
     .catch(err => {
-      Notify.failure(err);
+      Notify.failure('Please review and correct the following fields');
     });
 };
 
@@ -108,7 +108,7 @@ const onSignUpSubmit = e => {
       onModalClose();
     })
     .catch(err => {
-      Notify.failure(err);
+      Notify.failure('Please review and correct the following fields');
     });
 };
 

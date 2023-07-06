@@ -14,15 +14,15 @@ export const drawSignupModal = (theme = "light") => {
           </svg>
         </button>
         <form class="form-auth">
-          <input class="input-auth" type="text" placeholder="Name" />
+          <input class="input-auth" type="text" placeholder="Name" required/>
           <label class="label-auth">
-            <input class="input-auth" type="email" placeholder="Email" />
+            <input class="input-auth" type="email" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required/>
             <svg class="icon">
               <use href="${sprite}#mail"></use>
             </svg>
           </label>
           <label class="label-auth">
-            <input class="input-auth" type="password" placeholder="Password" />
+            <input class="input-auth" type="password" placeholder="Password" required/>
             <svg class="icon">
               <use href="${sprite}#lock"></use>
             </svg>
