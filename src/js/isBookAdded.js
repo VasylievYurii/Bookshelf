@@ -13,7 +13,7 @@ export function isBookAdded(id) {
   Notiflix.Notify.info(
     'This book has already been added to your shopping list.',
     {
-      timeout: 3000,
+      timeout: 2000,
       width:'400px',
       position: 'center-center',
       borderRadius: '20px',
