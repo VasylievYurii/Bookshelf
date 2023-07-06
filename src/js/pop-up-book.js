@@ -8,7 +8,8 @@ import bookShop from '../images/stores/book-shop.png';
 import bookShop2x from '../images/stores/book-shop@2x.png';
 import sprite from '../images/sprite.svg';
 import { shopingListCounter } from './shopping-list-counter';
-import {getChangeHomeStoreColor} from './get-change-store-color-home';
+import { getChangeHomeStoreColor } from './get-change-store-color-home';
+import { findBookFromLocStorage } from './isBookAdded';
 
 const STORAGE_KEY = 'shopping-list';
 
@@ -98,7 +99,6 @@ export function insertModalBook(item) {
   bookForShoppingList = item;
   modalContainerEl.insertAdjacentHTML('afterbegin', renderModal(item));
   getChangeHomeStoreColor();
-  
 }
 
 btnAddEl.addEventListener('click', onAddBtnClick);
@@ -136,8 +136,6 @@ function addToLocalStorage() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(shoppingListArray));
   shopingListCounter();
 }
-
-// book_image, title, author, description, buy_links, _id;
 
 btnRemoveEl.addEventListener('click', onRemoveBtnClick);
 
