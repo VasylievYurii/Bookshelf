@@ -8,6 +8,7 @@ import bookShop2x from '../images/stores/book-shop@2x.png';
 import sprite from '../images/sprite.svg';
 import { shopingListCounter } from './shopping-list-counter';
 import { getChangeHomeStoreColor } from './get-change-store-color-home';
+import { isBookAdded } from './isBookAdded';
 
 const STORAGE_KEY = 'shopping-list';
 
@@ -107,7 +108,7 @@ function onAddBtnClick() {
   shopingListCounter();
 }
 
-function makeRemoveBtnVisible() {
+export function makeRemoveBtnVisible() {
   btnAddEl.classList.add('visually-hidden');
   btnRemoveEl.classList.remove('visually-hidden');
   successTextEl.classList.remove('visually-hidden');
