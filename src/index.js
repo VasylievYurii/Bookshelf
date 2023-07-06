@@ -1,4 +1,3 @@
-// import switcher from './switcher';
 import './js/themes';
 import './js/menu';
 import './js/render-books-by-category';

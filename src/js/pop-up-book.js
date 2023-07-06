@@ -1,5 +1,4 @@
 import Notiflix from 'notiflix';
-import { useBooksApi } from '../services/booksApi';
 import amazon from '../images/stores/amazon.png';
 import amazon2x from '../images/stores/amazon@2x.png';
 import bookStore from '../images/stores/book.png';

@@ -1,4 +1,3 @@
-// import switcher from './switcher';
 import '/src/js/themes';
 import '/src/js/menu';
 import '/src/js/fireBaseFunctions.js';

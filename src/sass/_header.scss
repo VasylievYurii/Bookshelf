@@ -65,15 +65,12 @@
   gap: 24px;
 }
 .shopping-icon {
-  // fill: var(--text-main);
   fill:inherit;
-  // margin-right: 8px;
   position: relative;
   width: 20px;
   height: 20px;
 }
 .header-icon {
-  // margin-right: 144px;
   position: relative;
   fill: var(--text-main);
   width: 109px;
@@ -198,9 +195,6 @@
     color: var(--text-main);
   }
 
-  // .shopping-icon {
-  //   fill: white;
-  // }
   .header-shopping {
     color: white;
   }

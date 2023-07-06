@@ -55,6 +55,9 @@
     top: 50%;
     transform: translate(-50%, -50%);
   }
+  @media screen and (min-width: 1440px) {
+      height: 501px;
+    }
 }
 
 .modal-btn {
@@ -151,6 +154,12 @@
   font-size: 16px;
   line-height: 1.28;
   letter-spacing: -0.64px;
+  @media screen and (min-width: 768px) {
+      margin-bottom: 8px;
+      font-size: 24px;
+      line-height: 1.16;
+      letter-spacing: -0.96px;
+    }
 }
 
 .book-author {
@@ -161,6 +170,12 @@
   font-style: italic;
   line-height: 1.16;
   letter-spacing: -0.48px;
+  @media screen and (min-width: 768px) {
+      margin-bottom: 20px;
+      font-size: 14px;
+      line-height: 1.28;
+      letter-spacing: -0.56px;
+    }
 }
 
 .book-description {
@@ -169,6 +184,9 @@
   font-weight: 400;
   line-height: 1.28;
   letter-spacing: -0.56px;
+  @media screen and (min-width: 768px) {
+      margin-bottom: 20px;
+    }
 }
 
 .icons-modal {
@@ -248,28 +266,7 @@
 }
 
 @media screen and (min-width: 768px) {
-  // .container-popup {
-  //   width: 579px;
-  //   max-height: 501px;
-  //   padding: 40px;
-  // }
 
-  .book-header {
-    margin-bottom: 8px;
-    font-size: 24px;
-    line-height: 1.16;
-    letter-spacing: -0.96px;
-  }
-
-  .book-author {
-    margin-bottom: 20px;
-    font-size: 14px;
-    line-height: 1.28;
-    letter-spacing: -0.56px;
-  }
-  .book-description {
-    margin-bottom: 20px;
-  }
   .modal-text-container {
     width: 279px;
   }
@@ -309,12 +306,5 @@
     font-size: 12px;
     line-height: 14px;
     letter-spacing: -0.48px;
-  }
-}
-
-@media screen and (min-width: 1440px) {
-  .container-popup {
-    width: 579px;
-    height: 501px;
   }
 }
